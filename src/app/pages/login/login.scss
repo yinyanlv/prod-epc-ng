@@ -1,6 +1,7 @@
 @import "../../sass/etc/mixin";
 @import "../../sass/etc/reset";
 @import "../../sass/etc/iconfont";
+
 $main-font-size: 12px;
 $font: 12px/2em "Microsoft Yahei", "Arial", "Simhei", "SimSun", "sans-serif";
 $text-color: #333;
@@ -50,12 +51,12 @@ body {
     width: 300px;
     margin: 0 auto;
 
-    .languange-btn-wrapper {
+    .language-btn-wrapper {
         text-align: center;
         margin-bottom: 10px;
         line-height: 1em;
 
-        .languange-btn {
+        .language-btn {
             display: inline-block;
             color: $text-color;
             text-decoration: none;

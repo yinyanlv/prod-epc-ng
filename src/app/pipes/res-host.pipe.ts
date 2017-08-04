@@ -1,4 +1,4 @@
-import {Pipe, PipeTransform} from '@angular/core';
+import {Pipe, PipeTransform, Inject} from '@angular/core';
 
 import {GlobalConfigService} from '../services/global-config.service';
 
@@ -7,11 +7,11 @@ import {GlobalConfigService} from '../services/global-config.service';
 })
 export class ResHostPipe implements PipeTransform {
 
-    constructor(private globalConfigService: GlobalConfigService) {
+    constructor(@Inject(GlobalConfigService) private globalConfig) {
     }
 
     transform(src: string) {
 
-        return this.globalConfigService.get('resHost') + '/' + src;
+        return this.globalConfig.resHost + '/' + src;
     }
 }

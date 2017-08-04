@@ -1,14 +1,14 @@
-import { Injectable } from "@angular/core";
+import {Injectable} from "@angular/core";
 
-import { Headers, Http } from "@angular/http";
+import {Headers, Http} from "@angular/http";
 
-import { Observable } from 'rxjs/Observable';
+import {Observable} from 'rxjs/Observable';
 
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
-import { GlobalConfigService } from '../../services/global-config.service';
+import {GlobalConfigService} from '../../services/global-config.service';
 
 @Injectable()
 export class LoginService {
@@ -18,7 +18,8 @@ export class LoginService {
         'Content-Type': 'application/json'
     });
 
-    constructor(private http: Http, private globalConfigService: GlobalConfigService) { }
+    constructor(private http: Http, private globalConfigService: GlobalConfigService) {
+    }
 
     login(params: Object): Observable<any> {
 
@@ -33,7 +34,7 @@ export class LoginService {
 
     changeLang(lang: string): Observable<any> {
         return this.http
-            .get(this.langUrl+lang).catch(this.handleError);
+            .get(this.langUrl + lang).catch(this.handleError);
     }
 
     private handleError(error: any): Observable<any> {

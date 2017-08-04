@@ -1,6 +1,7 @@
-<section class="banner" [style.background-image]="'/assets/byd/images/banner.jpg' | backgroundUrl">
+<section class="banner"
+         [style.background-image]="'/assets/' + globalConfig.oemCode.toLowerCase() + '/images/banner.jpg' | backgroundUrl">
     <a href="/" class="logo-wrapper">
-        <img src="{{ '/tis/logo/BYD.png' | resHost }}">
+        <img src="{{ '/tis/logo/' + globalConfig.oemCode + '.png' | resHost }}">
     </a>
 </section>
 
@@ -8,9 +9,9 @@
     <div class="headline">
         <span class="text bold-text">{{trans.t_016}}</span>
     </div>
-    <div class="languange-btn-wrapper">
-        <a href="javascript:;" class="languange-btn " [ngClass]="{active: lang == 'zh'}" (click)="changeLang('zh')">中文</a>
-        <a href="javascript:;" class="languange-btn"  [ngClass]="{active: lang == 'en'}" (click)="changeLang('en')">English</a>
+    <div class="language-btn-wrapper">
+        <a href="javascript:;" class="language-btn" [ngClass]="{active: lang == 'zh'}" (click)="changeLang('zh')">中文</a>
+        <a href="javascript:;" class="language-btn" [ngClass]="{active: lang == 'en'}" (click)="changeLang('en')">English</a>
     </div>
     <form id="login-form" class="login-form" #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
         <div class="data-item" [ngClass]="{error: username.invalid && loginCfg.firstInvoke}">
@@ -18,33 +19,34 @@
             <span class="sign-icon">
                 <i class="iconfont icon-user"></i>
             </span>
-            <input name="username" class="input-box username" #username="ngModel" [(ngModel)]="loginInfo.name" required />
+            <input name="username" class="input-box username" #username="ngModel" [(ngModel)]="loginInfo.name"
+                   required/>
         </div>
         <div class="data-item" [ngClass]="{error:password.invalid && loginCfg.firstInvoke}">
             <label class="title">{{trans.t_018}}：</label>
             <span class="sign-icon">
                 <i class="iconfont icon-pwd"></i>
             </span>
-            <input name="password" #password="ngModel" type="password" class="input-box pwd" [(ngModel)]="loginInfo.pwd" required/>
+            <input name="password" #password="ngModel" type="password" class="input-box pwd" [(ngModel)]="loginInfo.pwd"
+                   required/>
         </div>
         <div id="verify-code-wrapper" *ngIf="invokeValided" class="data-item" [ngClass]="{error:validcode.invalid}">
             <label class="title">{{trans.t_019}}：</label>
             <span class="sign-icon">
                 <i class="iconfont icon-verify"></i>
             </span>
-            <input name="verifyCode" class="input-box verify-code" #validcode="ngModel" [(ngModel)]="loginInfo.validcode" required/>
+            <input name="verifyCode" class="input-box verify-code" #validcode="ngModel"
+                   [(ngModel)]="loginInfo.validcode" required/>
             <a href="javascript:;" class="verify-img" (click)="changeVerifyCode(verifyImg)">
-                <img #verifyImg [src]="verifySrc" />
+                <img #verifyImg [src]="verifySrc"/>
             </a>
         </div>
-
-        <div class="info-wrapper" [ngStyle]="{visibility:errorInfo ? 'visible' : 'hidden'}">
+        <div class="info-wrapper" [ngStyle]="{visibility: errorInfo ? 'visible' : 'hidden'}">
             <span class="icon">
                 <i class="iconfont icon-error"></i>
             </span>
             <span class="text">{{errorInfo}}</span>
         </div>
-
         <button type="submit" class="login-btn" [disabled]="loginCfg.requestFlag">{{loginCfg.loginText}}</button>
     </form>
 </section>

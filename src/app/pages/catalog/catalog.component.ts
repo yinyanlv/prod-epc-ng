@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
 
-import { LocaleService } from '../../services/locale.service';
+import { TransService } from '../../services/trans.service';
 import { GlobalConfigService } from '../../services/global-config.service';
 import { CatalogService } from './catalog.service';
 
@@ -22,7 +22,7 @@ export class CatalogComponent implements OnInit {
 
     constructor(
         private catalogService: CatalogService,
-        private localeTrans: LocaleService,
+        private localeTrans: TransService,
         private globalConfigService: GlobalConfigService,
         private router: Router
     ) {
