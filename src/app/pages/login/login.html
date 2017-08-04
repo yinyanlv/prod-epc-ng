@@ -1,7 +1,9 @@
-<section class="banner" [style.background-image]="'/assets/byd/images/banner.jpg' | backgroundSrc">
+<section class="banner" [style.background-image]="'/assets/byd/images/banner.jpg' | backgroundUrl">
     <a href="/" class="logo-wrapper">
-        <img src="http://res2.dev.servision.com.cn/tis/logo/BYD.png"></a>
+        <img src="{{ '/tis/logo/BYD.png' | resHost }}">
+    </a>
 </section>
+
 <section class="login-wrapper condition-block">
     <div class="headline">
         <span class="text bold-text">{{trans.t_016}}</span>

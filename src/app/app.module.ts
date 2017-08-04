@@ -2,13 +2,11 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HttpModule} from '@angular/http';
 
-import {AppComponent} from './app.component';
-
-import {GlobalConfigService} from './services/global-config.service';
-
-import {routing} from './app.routing';
+import {SharedModule} from './modules/shared.module';
 import {ErrorModule} from './pages/error/error.module';
-import {LocaleService} from './services/locale.service';
+
+import {AppComponent} from './app.component';
+import {AppRouting} from './app.routing';
 
 @NgModule({
     declarations: [
@@ -17,14 +15,14 @@ import {LocaleService} from './services/locale.service';
     imports: [
         BrowserModule,
         HttpModule,
-        routing,
+        AppRouting,
+        SharedModule,
         ErrorModule
     ],
-    providers: [
-        GlobalConfigService,
-        LocaleService
-    ],
-    bootstrap: [AppComponent]
+    providers: [],
+    bootstrap: [
+        AppComponent
+    ]
 })
 export class AppModule {
 }

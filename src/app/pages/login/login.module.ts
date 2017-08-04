@@ -2,25 +2,20 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 
+import {SharedModule} from '../../modules/shared.module';
 import {LoginComponent} from './login.component';
-import {BackgroundSrcPipe} from '../../pipes/background-src.pipe';
-
 import {LoginRouting} from './login.routing';
 
 @NgModule({
     imports: [
         CommonModule,
         FormsModule,
+        SharedModule,
         LoginRouting
     ],
     declarations: [
-        LoginComponent,
-        BackgroundSrcPipe
-    ],
-    exports: [
-        BackgroundSrcPipe
-    ],
-    providers: []
+        LoginComponent
+    ]
 })
 export class LoginModule {
 }

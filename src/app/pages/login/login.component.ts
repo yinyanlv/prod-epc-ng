@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     constructor(
         private loginService: LoginService,
         private localeTrans: LocaleService,
-        private globalConfigService: GlobalConfigService
+        public globalConfigService: GlobalConfigService
     ) {
         this.lang = this.globalConfigService["lang"];
         this.trans = localeTrans[this.lang];

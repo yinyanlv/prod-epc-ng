@@ -33,6 +33,6 @@ const routes:Routes = [{
     component: ErrorComponent
 }];
 
-export const routing:ModuleWithProviders = RouterModule.forRoot(routes, {
+export const AppRouting:ModuleWithProviders = RouterModule.forRoot(routes, {
     useHash: false
 });
