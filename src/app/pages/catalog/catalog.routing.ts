@@ -8,4 +8,4 @@ const routes: Routes = [{
   component: CatalogComponent
 }];
 
-export const routing: ModuleWithProviders = RouterModule.forChild(routes);
+export const CatalogRouting: ModuleWithProviders = RouterModule.forChild(routes);

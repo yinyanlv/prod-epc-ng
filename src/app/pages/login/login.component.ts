@@ -1,14 +1,15 @@
-import { Component, Input, ViewEncapsulation, OnInit } from '@angular/core';
+import {Component, Input, ViewEncapsulation, OnInit} from '@angular/core';
 
-import { LocaleService } from '../../services/locale.service';
-import { GlobalConfigService } from '../../services/global-config.service';
-import { LoginService } from './login.service';
+import {LocaleService} from '../../services/locale.service';
+import {GlobalConfigService} from '../../services/global-config.service';
+import {LoginService} from './login.service';
 
 @Component({
     encapsulation: ViewEncapsulation.None,
     selector: 'app-login',
     templateUrl: './login.html',
-    styleUrls: ['./login.scss']
+    styleUrls: ['./login.scss'],
+    providers: [LoginService]
 })
 export class LoginComponent implements OnInit {
 
@@ -17,12 +18,31 @@ export class LoginComponent implements OnInit {
     loginCfg: any;
     lang: string = 'zh';
     trans: any;
-    invokeValided: Boolean = false;
+    invokeValided: boolean = false;
     verifySrc: string;
 
-    constructor(private loginService: LoginService, private localeTrans: LocaleService, private globalConfigService: GlobalConfigService) {
+    constructor(
+        private loginService: LoginService,
+        private localeTrans: LocaleService,
+        private globalConfigService: GlobalConfigService
+    ) {
         this.lang = this.globalConfigService["lang"];
         this.trans = localeTrans[this.lang];
+    }
+
+    ngOnInit() {
+
+        this.loginCfg = {
+            loginText: this.trans['t_009'],
+            firstInvoke: false,
+            requestFlag: false
+        };
+
+        this.loginInfo = {
+            name: '',
+            pwd: '',
+            validcode: ''
+        };
     }
 
     login(params: any): void {
@@ -45,7 +65,7 @@ export class LoginComponent implements OnInit {
                     loginCfg.loginText = this.trans['t_009'];
                     loginCfg.requestFlag = false;
 
-                    this.verifySrc =  this.globalConfigService['path'] + "/user/login/captcha?_dc=" + (+new Date());;
+                    this.verifySrc = this.globalConfigService['path'] + "/user/login/captcha?_dc=" + (+new Date());
                 }
             });
         }
@@ -53,7 +73,7 @@ export class LoginComponent implements OnInit {
         loginCfg.firstInvoke = true;
     }
 
-    validateForm(): Boolean {
+    validateForm(): boolean {
         let rst = false;
         let loginInfo = this.loginInfo;
         let error = this.trans['t_010'];
@@ -95,20 +115,5 @@ export class LoginComponent implements OnInit {
 
     changeVerifyCode(verifyImg: Object): void {
         verifyImg['src'] = this.verifySrc + (+new Date());
-    }
-
-    ngOnInit() {
-
-        this.loginCfg = {
-            loginText: this.trans['t_009'],
-            firstInvoke: false,
-            requestFlag: false
-        };
-
-        this.loginInfo = {
-            name: '',
-            pwd: '',
-            validcode: ''
-        };
     }
 }

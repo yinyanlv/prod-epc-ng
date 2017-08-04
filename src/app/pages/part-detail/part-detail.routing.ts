@@ -8,4 +8,4 @@ const routes: Routes = [{
   component: PartDetailComponent
 }];
 
-export const routing: ModuleWithProviders = RouterModule.forChild(routes);
+export const PartDetailRouting: ModuleWithProviders = RouterModule.forChild(routes);

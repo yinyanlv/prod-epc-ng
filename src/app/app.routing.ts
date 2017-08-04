@@ -1,7 +1,6 @@
 import {ModuleWithProviders} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
-import {LoginComponent} from './pages/login/login.component';
 import {ErrorComponent} from './pages/error/error.component';
 
 const routes:Routes = [{
@@ -10,7 +9,7 @@ const routes:Routes = [{
     pathMatch: 'full'
 }, {
     path: 'login',
-    component: LoginComponent
+    loadChildren: './pages/login/login.module#LoginModule'
 }, {
     path: 'catalog',
     loadChildren: './pages/catalog/catalog.module#CatalogModule'

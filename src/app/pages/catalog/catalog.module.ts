@@ -6,12 +6,12 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { CatalogComponent } from './catalog.component';
 import { CatalogService } from './catalog.service';
 import { AppendRootPathPipe } from '../../pipes/append-root-path.pipe';
-import { routing } from './catalog.routing';
+import { CatalogRouting } from './catalog.routing';
 
 @NgModule({
     imports: [
         CommonModule,
-        routing
+        CatalogRouting
     ],
     declarations: [
         CatalogComponent,

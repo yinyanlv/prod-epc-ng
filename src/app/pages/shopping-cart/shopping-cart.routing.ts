@@ -8,4 +8,4 @@ const routes: Routes = [{
   component: ShoppingCartComponent
 }];
 
-export const routing: ModuleWithProviders = RouterModule.forChild(routes);
+export const ShoppingCartRouting: ModuleWithProviders = RouterModule.forChild(routes);

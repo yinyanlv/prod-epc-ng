@@ -4,8 +4,8 @@ import {Routes, RouterModule} from '@angular/router';
 import {UsageComponent} from './usage.component';
 
 const routes: Routes = [{
-  path: '',
-  component: UsageComponent
+    path: '',
+    component: UsageComponent
 }];
 
-export const routing: ModuleWithProviders = RouterModule.forChild(routes);
+export const UsageRouting: ModuleWithProviders = RouterModule.forChild(routes);

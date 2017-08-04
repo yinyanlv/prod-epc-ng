@@ -2,49 +2,47 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>$i18n['YSX']</title>
+    <title>EPC</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="./byd/favicon.ico">
     <base href="/">
 
     <script type="text/javascript">
         var globalConfig = {
-            homePath: '${homePath}',
-            path: '${path}',
-            resHost: '${resHost}',
-            lang: '$i18n.lang',
-            oemCode: '${oemCode}',
-            mappingSize: '${mappingSize}',
-            structSize: '${structSize}'
+            homePath: '/',  // '${homePath}'
+            path: '',  // '${path}'
+            resHost: 'http://localhost:3000',  // '${resHost}'
+            lang: 'zh',  // '$i18n.lang'
+            oemCode: 'BYD',  // '${oemCode}'
+            mappingSize: 6,  // '${mappingSize}'
+            structSize: 2  // '${structSize}'
         };
         var trans = {
-            '$i18n.lang': {
-                m_1: "$i18n.forJS('m_1')",
-                m_2: "$i18n.forJS('m_2')",
-                m_3: "$i18n.forJS('m_3')",
-                m_4: "$i18n.forJS('m_4')",
-                g_1: "$i18n.forJS('s_1')",
-                m_3_all: "$i18n.forJS('m_3.all')",
-                m_4_all: "$i18n.forJS('m_4.all')",
-                t_001: "$i18n.forJS('KGY')",
-                t_002: "$i18n.forJS('FAQ')",
-                t_003: "$i18n.forJS('DPF')",
-                t_004: "$i18n.forJS('TEJ')",
-                t_005: "$i18n.forJS('ZMQ')",
-                t_006: "$i18n.forJS('VVU')",
-                t_007: "$i18n.forJS('WMJ')",
-                t_008: "$i18n.forJS('JGX')",
-                t_009: "$i18n.forJS('AOW')",
-                t_010: "$i18n.forJS('GLN')",
-                t_011: "$i18n.forJS('JYJ')",
-                t_012: "$i18n.forJS('CRM')",
-                t_013: "$i18n.forJS('MMM')",
-                t_014: "$i18n.forJS('OIS')",
-                t_015: "$i18n.forJS('RFU')",
-                t_016: "$i18n.forJS('YSX')",
-                t_017: "$i18n.forJS('YAU')",
-                t_018: "$i18n.forJS('GHY')",
-                t_019:"$i18n.forJS('RZC')"
+            zh: {  // '$i18n.lang'
+                m_1: '品牌',
+                m_2: '平台',
+                m_3: '左右舵+驱动形式',
+                m_4: '车型系列细分',
+                m_5: '变速箱型号',
+                g_1: '图组',
+                m_3_all: '全部',
+                m_4_all: '全部',
+                m_5_all: '全部',
+                t_001: '您确认要清空全部的搜索历史',
+                t_002: '您确认将当前配件从购物车中移除吗?',
+                t_003: '您没有选中任何配件',
+                t_004: '您确认将选中的配件从购物车中移除吗？',
+                t_005: '您已成功加入购物车',
+                t_006: '更多',
+                t_007: '收起',
+                t_008: '正在登录...',
+                t_009: '登录',
+                t_010: '请输入',
+                t_011: '您确认删除此购物清单吗？',
+                t_012: '正在加载中，请稍后...',
+                t_013: '确定',
+                t_014: '取消',
+                t_015: '提示'
             }
         };
     </script>

@@ -8,4 +8,4 @@ const routes: Routes = [{
   component: OrderHistoryComponent
 }];
 
-export const routing: ModuleWithProviders = RouterModule.forChild(routes);
+export const OrderHistoryRouting: ModuleWithProviders = RouterModule.forChild(routes);

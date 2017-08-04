@@ -10,9 +10,7 @@ import 'rxjs/add/operator/map';
 
 import { GlobalConfigService } from '../../services/global-config.service';
 
-
 @Injectable()
-
 export class LoginService {
     private loginUrl = this.globalConfigService['path'] + '/user/login';// "http://10.0.0.250/Servision.Ebom.Sgmw.Www/Login/YaoWeiTest";
     private langUrl = this.globalConfigService['path'] + 'change-locale?locale=';

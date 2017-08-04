@@ -4,8 +4,6 @@ import { Injectable } from '@angular/core';
 export class LocaleService{
 
     constructor() {
-
         return window['trans'];
     }
-
 }

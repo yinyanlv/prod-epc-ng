@@ -1,23 +1,26 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
 
-import { LoginComponent } from './login.component';
-import { LoginService } from './login.service';
-import { ImgSrcPipe } from '../..//pipes/img-src.pipe';
+import {LoginComponent} from './login.component';
+import {BackgroundSrcPipe} from '../../pipes/background-src.pipe';
+
+import {LoginRouting} from './login.routing';
 
 @NgModule({
     imports: [
         CommonModule,
-        FormsModule
+        FormsModule,
+        LoginRouting
     ],
     declarations: [
         LoginComponent,
-        ImgSrcPipe
+        BackgroundSrcPipe
     ],
     exports: [
-        ImgSrcPipe
+        BackgroundSrcPipe
     ],
-    providers: [LoginService]
+    providers: []
 })
-export class LoginModule { }
+export class LoginModule {
+}

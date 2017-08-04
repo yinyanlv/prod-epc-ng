@@ -3,12 +3,12 @@ import {CommonModule} from '@angular/common';
 
 import {LegendComponent} from './legend/legend.component';
 import {UsageComponent} from './usage.component';
-import {routing} from './usage.routing';
+import {UsageRouting} from './usage.routing';
 
 @NgModule({
     imports: [
         CommonModule,
-        routing
+        UsageRouting
     ],
     declarations: [
         LegendComponent,
