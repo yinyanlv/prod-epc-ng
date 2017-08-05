@@ -1,22 +1,24 @@
-import {Injectable, Inject} from '@angular/core';
-import {Observable} from 'rxjs';
+import {Injectable} from '@angular/core';
 
-import {BaseHttpService, BaseHttpConfig} from '../../services/base-http.service';
+import {BaseHttpService, BaseHttpOptions} from '../../services/base-http.service';
 
 @Injectable()
-@BaseHttpConfig()
 export class LoginService extends BaseHttpService {
 
-    private loginPath: string = '/login';
+    private loginPath: string = '/login1333';
     private changeLangPath: string = '/change-locale?locale=';
 
-    login(params: Object): Observable<any> {
+    login(options: BaseHttpOptions) {
 
-        return this.post(this.globalConfig.path + this.loginPath, params);
+        options.url = this.globalConfig.path + this.loginPath;
+
+        this.post(options);
     }
 
-    changeLang(lang: string): Observable<any> {
+    changeLang(lang: string) {
 
-        return this.get(this.globalConfig.path + this.changeLangPath + lang);
+        this.get({
+            url: this.globalConfig.path + this.changeLangPath + lang
+        });
     }
 }

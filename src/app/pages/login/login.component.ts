@@ -52,21 +52,28 @@ export class LoginComponent implements OnInit {
 
         if (params.form.valid) {
 
-            loginState.isLogining = true;
-            this.loginBtnText = this.trans.t_008;
+            this.loginService.login({
+                body: params.form.value,
+                beforeRequest: () => {
 
-            this.loginService.login(params.form.value).subscribe(res => {
+                    loginState.isLogining = true;
+                    this.loginBtnText = this.trans.t_008;
+                },
+                callback: () => {
 
-                loginState.isLogining = false;
-                this.loginBtnText = this.trans.t_009;
+                    loginState.isLogining = false;
+                    this.loginBtnText = this.trans.t_009;
+                },
+                success: (res) => {
 
-                if (res.success) {
+                    if (res.success) {
 
-                    this.router.navigate(['/catalog']);
-                } else {
+                        this.router.navigate(['/catalog']);
+                    } else {
 
-                    this.errorInfo = res.message || '';
-                    this.changeVerifyCode();
+                        this.errorInfo = res.message || '';
+                        this.changeVerifyCode();
+                    }
                 }
             });
         } else {
@@ -99,9 +106,7 @@ export class LoginComponent implements OnInit {
 
         if (lang === this.lang) return;
 
-        this.loginService.changeLang(lang).subscribe(res => {
-            window.location.reload(true);
-        });
+        this.loginService.changeLang(lang);
     }
 
     changeVerifyCode(): void {
