@@ -1,44 +1,22 @@
-import {Injectable} from "@angular/core";
+import {Injectable, Inject} from '@angular/core';
+import {Observable} from 'rxjs';
 
-import {Headers, Http} from "@angular/http";
-
-import {Observable} from 'rxjs/Observable';
-
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
-
-import {GlobalConfigService} from '../../services/global-config.service';
+import {BaseHttpService, BaseHttpConfig} from '../../services/base-http.service';
 
 @Injectable()
-export class LoginService {
-    private loginUrl = this.globalConfigService['path'] + '/user/login';// "http://10.0.0.250/Servision.Ebom.Sgmw.Www/Login/YaoWeiTest";
-    private langUrl = this.globalConfigService['path'] + 'change-locale?locale=';
-    private headers = new Headers({
-        'Content-Type': 'application/json'
-    });
+@BaseHttpConfig()
+export class LoginService extends BaseHttpService {
 
-    constructor(private http: Http, private globalConfigService: GlobalConfigService) {
-    }
+    private loginPath: string = '/login';
+    private changeLangPath: string = '/change-locale?locale=';
 
     login(params: Object): Observable<any> {
 
-        return this.http
-            .post(this.loginUrl, params)
-            .map((res) => {
-                debugger;
-                let cc = res.json();
-                return cc;
-            }).catch(this.handleError);
+        return this.post(this.globalConfig.path + this.loginPath, params);
     }
 
     changeLang(lang: string): Observable<any> {
-        return this.http
-            .get(this.langUrl + lang).catch(this.handleError);
-    }
 
-    private handleError(error: any): Observable<any> {
-        console.error('An error occurred', error);
-        return Observable.of<any>([]);
+        return this.get(this.globalConfig.path + this.changeLangPath + lang);
     }
 }

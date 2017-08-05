@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HttpModule} from '@angular/http';
+import {RouterModule} from '@angular/router';
 
 import {SharedModule} from './modules/shared.module';
 import {ErrorModule} from './pages/error/error.module';
@@ -15,6 +16,7 @@ import {AppRouting} from './app.routing';
     imports: [
         BrowserModule,
         HttpModule,
+        RouterModule,
         AppRouting,
         SharedModule,
         ErrorModule

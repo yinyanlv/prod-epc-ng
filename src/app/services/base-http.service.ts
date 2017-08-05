@@ -1,11 +1,12 @@
-import {Injectable, ViewContainerRef} from '@angular/core';
+import {Injectable, ViewContainerRef, Inject} from '@angular/core';
 import {Http, Request, Response, RequestMethod, RequestOptionsArgs, RequestOptions} from '@angular/http';
 import {Observable} from 'rxjs';
 import 'rxjs/add/operator/map';
 
+import {GlobalConfigService} from './global-config.service';
 import {LoadingService} from './loading.service';
 
-const dataTypeMap = {
+const dataTypeMap: any = {
     XML: 'xml',
     HTML: 'html',
     SCRIPT: 'script',
@@ -23,7 +24,8 @@ export class BaseHttpService {
 
     constructor(
         protected http: Http,
-        protected loadingService: LoadingService
+        protected loadingService: LoadingService,
+        @Inject(GlobalConfigService) protected globalConfig
     ) {}
 
     protected request(url: string, options: RequestOptionsArgs): Observable<any> {
@@ -35,8 +37,9 @@ export class BaseHttpService {
         requestOptions = this.beforeRequest(requestOptions) || requestOptions;
 
         let observable: Observable<Response> = this.http.request(new Request(requestOptions));
+        let method = RequestMethod[requestOptions.method].toUpperCase();
 
-        if (this.configMap[requestOptions.method].dataType === dataTypeMap.JSON) {
+        if (this.configMap[method].dataType === dataTypeMap.JSON) {
 
             return observable
                 .map(res => {
@@ -51,7 +54,7 @@ export class BaseHttpService {
         }
     }
 
-    protected get(url: string, options: RequestOptionsArgs = {}, body: any = null): Observable<any> {
+    protected get(url: string, body: any = null, options: RequestOptionsArgs = {}): Observable<any> {
 
         options.method = RequestMethod.Get;
         options.body = body;
@@ -59,7 +62,7 @@ export class BaseHttpService {
         return this.request(url, options);
     }
 
-    protected post(url: string, options: RequestOptionsArgs = {}, body: any = null): Observable<any> {
+    protected post(url: string, body: any = null, options: RequestOptionsArgs = {}): Observable<any> {
 
         options.method = RequestMethod.Post;
         options.body = body;
@@ -67,7 +70,7 @@ export class BaseHttpService {
         return this.request(url, options);
     }
 
-    protected put(url: string, options: RequestOptionsArgs = {}, body: any = null): Observable<any> {
+    protected put(url: string, body: any = null, options: RequestOptionsArgs = {}): Observable<any> {
 
         options.method = RequestMethod.Put;
         options.body = body;
@@ -75,7 +78,7 @@ export class BaseHttpService {
         return this.request(url, options);
     }
 
-    protected delete(url: string, options: RequestOptionsArgs = {}, body: any = null): Observable<any> {
+    protected delete(url: string, body: any = null, options: RequestOptionsArgs = {}): Observable<any> {
 
         options.method = RequestMethod.Delete;
         options.body = body;
@@ -85,7 +88,9 @@ export class BaseHttpService {
 
     protected beforeRequest(requestOptions: RequestOptions): RequestOptions {
 
-        if (this.configMap[requestOptions.method].isShowLoading && this.viewContainer) {
+        let method = RequestMethod[requestOptions.method].toUpperCase();
+
+        if (this.configMap[method].isShowLoading && this.viewContainer) {
 
             this.loadingService.show(this.viewContainer);
         }
@@ -93,17 +98,17 @@ export class BaseHttpService {
         return requestOptions;
     }
 
-    protected afterResponse(res: any, requestOptions?: RequestOptions): void {
+    protected afterResponse(res: any, requestOptions: RequestOptions): void {
 
-        if (this.configMap[requestOptions.method].isShowLoading && this.viewContainer) {
+        let method = RequestMethod[requestOptions.method].toUpperCase();
+
+        if (this.configMap[method].isShowLoading && this.viewContainer) {
             this.loadingService.hide();
             this.viewContainer = null;
         }
     }
 
     protected errorHandler(res: any): Observable<any> {
-
-        this.afterResponse(res);
 
         return Observable.throw(res);
     }
@@ -140,10 +145,10 @@ function buildBaseHttpOptions(opts: BaseHttpOptions): BaseHttpOptions {
 
     if (!opts) return defaultOpts;
 
-    return Object.assign(defaultOpts, opts);
+    return (<any>Object).assign(defaultOpts, opts);
 }
 
-export function BaseHttpConfig(configMap?: BaseHttpConfigMap): Function {
+export function BaseHttpConfig(configMap: BaseHttpConfigMap = {}): Function {
 
     return function (target: any) {
 
@@ -154,7 +159,7 @@ export function BaseHttpConfig(configMap?: BaseHttpConfigMap): Function {
             DELETE: buildBaseHttpOptions(configMap.DELETE)
         };
 
-        Object.assign(target.prototype, {
+        (<any>Object).assign(target.prototype, {
             configMap: defaultConfigMap
         });
     }

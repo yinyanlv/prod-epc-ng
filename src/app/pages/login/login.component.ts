@@ -1,9 +1,12 @@
-import {Component, Input, ViewEncapsulation, OnInit, Inject} from '@angular/core';
+import {Component, ViewEncapsulation, OnInit, Inject} from '@angular/core';
+import {Router} from '@angular/router';
+import {NgForm, FormGroup} from '@angular/forms';
 
 import {GlobalConfigService} from '../../services/global-config.service';
 import {TransService} from '../../services/trans.service';
 import {StateService} from '../../services/state.service';
 import {LoginService} from './login.service';
+
 
 @Component({
     encapsulation: ViewEncapsulation.None,
@@ -14,14 +17,16 @@ import {LoginService} from './login.service';
 })
 export class LoginComponent implements OnInit {
 
-    loginInfo: any;
-    errorInfo: any;
-    loginCfg: any;
+    private verifyCodePath: string = '/user/login/captcha';
+    loginState: any;
     lang: string;
-    invokeValided: boolean = false;
-    verifySrc: string;
+    verifyCodeSrc: string;
+    loginErrorCount: number;
+    loginBtnText: string = this.trans.t_009;
+    errorInfo: string;
 
     constructor(
+        private router: Router,
         private loginService: LoginService,
         private stateService: StateService,
         @Inject(GlobalConfigService) public globalConfig,
@@ -31,92 +36,86 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
 
+        this.changeVerifyCode();
         this.lang = this.stateService.getLanguage();
+        this.loginErrorCount = this.getLoginErrorCount();
 
-        this.loginCfg = {
-            loginText: this.trans.t_009,
+        this.loginState = {
             firstInvoke: false,
-            requestFlag: false
-        };
-
-        this.loginInfo = {
-            name: '',
-            pwd: '',
-            validcode: ''
+            isLogining: false
         };
     }
 
-    login(params: any): void {
-        let loginInfo = this.loginInfo;
-        let loginCfg = this.loginCfg;
+    login(params: NgForm): void {
 
-        if (this.validateForm()) {
-            this.loginCfg.loginText = this.trans.t_008;
-            loginCfg.requestFlag = true;
+        let loginState = this.loginState;
 
-            this.loginService.login(params).subscribe(res => {
+        if (params.form.valid) {
+
+            loginState.isLogining = true;
+            this.loginBtnText = this.trans.t_008;
+
+            this.loginService.login(params.form.value).subscribe(res => {
+
+                loginState.isLogining = false;
+                this.loginBtnText = this.trans.t_009;
 
                 if (res.success) {
-                    //     // navigator
-                    window.location.href = this.globalConfig['path'] + "/catalog";
-                } else {
-                    this.errorInfo = res.message || "Error Info";
-                    this.invokeValided = true;// !!res.needVerifyCode;
-                    loginCfg.loginText = this.trans.t_009;
-                    loginCfg.requestFlag = false;
 
-                    this.verifySrc = this.globalConfig['path'] + "/user/login/captcha?_dc=" + (+new Date());
+                    this.router.navigate(['/catalog']);
+                } else {
+
+                    this.errorInfo = res.message || '';
+                    this.changeVerifyCode();
                 }
             });
+        } else {
+            this.updateErrorInfo(params.form);
         }
 
-        loginCfg.firstInvoke = true;
+        loginState.firstInvoke = true;
     }
 
-    validateForm(): boolean {
-        let rst = false;
-        let loginInfo = this.loginInfo;
+    updateErrorInfo(form: FormGroup) {
         let error = this.trans.t_010;
+        let username = form.get('username');
+        let password = form.get('password');
+        let verifyCode = form.get('verifyCode');
 
-        if (this.invokeValided) {
-
-            if (!loginInfo.name.trim() && !loginInfo.pwd.trim() && !loginInfo.validcode.trim()) {
-                error += this.trans.t_017 + '、' + this.trans.t_018;
-            } else if (!loginInfo.name.trim()) {
-                error += this.trans.t_017;
-            } else if (!loginInfo.pwd.trim()) {
-                error += this.trans.t_018;
-            } else if (!loginInfo.validcode.trim()) {
-                error += this.trans.t_019;
-            } else {
-                rst = true;
-            }
-        } else {
-            if (!loginInfo.name.trim() && !loginInfo.pwd.trim()) {
-                error += this.trans.t_017 + '、' + this.trans.t_018;
-            } else if (!loginInfo.name.trim()) {
-                error += this.trans.t_017;
-            } else if (!loginInfo.pwd.trim()) {
-                error += this.trans.t_018;
-            } else {
-                rst = true;
-            }
+        if (username.invalid && password.invalid) {
+            error += this.trans.t_017 + '、' + this.trans.t_018;
+        } else if (username.invalid) {
+            error += this.trans.t_017;
+        } else if (password.invalid) {
+            error += this.trans.t_018;
+        } else if (verifyCode && verifyCode.invalid) {
+            error += this.trans.t_019;
         }
+
         this.errorInfo = error;
-        return rst;
     }
 
     changeLang(lang: string): void {
 
-        if (lang == this.lang) return;
+        if (lang === this.lang) return;
 
         this.loginService.changeLang(lang).subscribe(res => {
             window.location.reload(true);
         });
     }
 
-    changeVerifyCode(verifyImg: Object): void {
+    changeVerifyCode(): void {
 
-        verifyImg['src'] = this.verifySrc + (+new Date());
+        this.verifyCodeSrc = this.verifyCodePath + '?_dc=' + (+new Date());
+    }
+
+    getLoginErrorCount(): number {
+
+        return parseInt(sessionStorage.getItem('loginErrorCount') || '0');
+    }
+
+    setLoginErrorCount(num: number): void {
+
+        sessionStorage.setItem('loginErrorCount', num.toString());
     }
 }
