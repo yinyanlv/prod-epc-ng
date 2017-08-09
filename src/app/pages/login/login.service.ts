@@ -5,7 +5,7 @@ import {BaseHttpService, BaseHttpOptions} from '../../services/base-http.service
 @Injectable()
 export class LoginService extends BaseHttpService {
 
-    private loginPath: string = '/login1333';
+    private loginPath: string = '/login';
     private changeLangPath: string = '/change-locale?locale=';
 
     login(options: BaseHttpOptions) {
