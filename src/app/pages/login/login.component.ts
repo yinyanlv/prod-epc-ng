@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     loginState: any;
     lang: string;
     verifyCodeSrc: string;
-    loginErrorCount: number;
+    isShowVerifyCode: boolean;
     loginBtnText: string = this.trans.t_009;
     errorInfo: string;
 
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
 
         this.changeVerifyCode();
         this.lang = this.stateService.getLanguage();
-        this.loginErrorCount = this.getLoginErrorCount();
+        this.isShowVerifyCode = this.getIsShowVerifyCode();
 
         this.loginState = {
             firstInvoke: false,
@@ -70,6 +70,10 @@ export class LoginComponent implements OnInit {
 
                         this.router.navigate(['/catalog']);
                     } else {
+
+                        if (res.needVerifyCode) {
+                            this.setIsShowVerifyCode(true);
+                        }
 
                         this.errorInfo = res.message || '';
                         this.changeVerifyCode();
@@ -114,13 +118,14 @@ export class LoginComponent implements OnInit {
         this.verifyCodeSrc = this.verifyCodePath + '?_dc=' + (+new Date());
     }
 
-    getLoginErrorCount(): number {
+    getIsShowVerifyCode(): boolean {
 
-        return parseInt(sessionStorage.getItem('loginErrorCount') || '0');
+        return sessionStorage.getItem('isShowVerifyCode') === 'true';
     }
 
-    setLoginErrorCount(num: number): void {
+    setIsShowVerifyCode(isShow: boolean): void {
 
-        sessionStorage.setItem('loginErrorCount', num.toString());
+        this.isShowVerifyCode = isShow;
+        sessionStorage.setItem('isShowVerifyCode', isShow.toString());
     }
 }
