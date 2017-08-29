@@ -6,7 +6,7 @@
 .loading-indicator {
     height: 60px;
     width: 60px;
-    background: url('../../../assets/styles/images/loading_big.gif');
+    background: url('../../../assets/common/styles/images/loading_big.gif');
     background-repeat: no-repeat;
     background-position: center center;
     position: absolute;
@@ -32,7 +32,7 @@
     display: inline-block;
     height: 40px;
     width: 40px;
-    background: url('../../../assets/styles/images/loading_big.gif');
+    background: url('../../../assets/common/styles/images/loading_big.gif');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 100% 100%;
@@ -42,6 +42,6 @@
     display: inline-block;
     width: 16px;
     height: 16px;
-    background: url('../../../assets/styles/images/loading_small.gif');
+    background: url('../../../assets/common/styles/images/loading_small.gif');
     vertical-align: middle;
 }

@@ -1,9 +1,10 @@
-import {Component, Inject} from '@angular/core';
+import {Component, Inject, ViewEncapsulation} from '@angular/core';
 
 import {GlobalConfigService} from './services/global-config.service';
 import {StateService} from './services/state.service';
 
 @Component({
+    encapsulation: ViewEncapsulation.None,
     selector: 'app-root',
     templateUrl: './app.html',
     styleUrls: ['./app.scss']

@@ -36,14 +36,14 @@ a {
     width: 16px;
     height: 17px;
     display: inline-block;
-    background: url("~assets/styles/images/assistive-tool-bg.png") no-repeat;
+    background: url("~assets/common/styles/images/assistive-tool-bg.png") no-repeat;
     position: absolute;
 }
 
 .icon-main {
     overflow: hidden;
     zoom: 1;
-    background:url("~assets/styles/images/assistive-tool-bg.png") no-repeat;
+    background:url("~assets/common/styles/images/assistive-tool-bg.png") no-repeat;
     height: 66px;
     width: 96px;
     position: absolute;
@@ -141,7 +141,7 @@ a {
 
 /* tool2 style */
 .assistive-toolBg {
-    background:url("~assets/styles/images/assistive-tool-bg.png") no-repeat;
+    background:url("~assets/common/styles/images/assistive-tool-bg.png") no-repeat;
     display: block;
 }
 
@@ -222,7 +222,7 @@ a {
     height: 18px;
     margin: 6px 5px;
     width: 18px;
-    background:url("~assets/styles/images/assistive-tool-bg.png") no-repeat;
+    background:url("~assets/common/styles/images/assistive-tool-bg.png") no-repeat;
 }
 
 .assistive-tool3 .assistive-tool-reset {
