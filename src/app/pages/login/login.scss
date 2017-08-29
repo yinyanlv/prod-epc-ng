@@ -6,7 +6,7 @@ $main-font-size: 12px;
 $font: 12px/2em "Microsoft Yahei", "Arial", "Simhei", "SimSun", "sans-serif";
 $text-color: #333;
 // base-text-color
-$language-btn-bg-color: #f82f3f;
+$language-btn-bg-color: #1b77b9 !default;
 $login-icon-color: #999999;
 $active-text-color: #ffffff;
 $active-input-border: #c1c1c1;
@@ -19,10 +19,10 @@ $btn-border-color: #e0e0e0;
 // 登录按钮
 $login-btn-color: #fff;
 $login-btn-over-color: #fff;
-$login-btn-bg-color: #fd4452;
-$login-btn-border-color: #fd4452;
-$login-btn-bg-over-color: #ff5865;
-$login-btn-border-over-color: #ff5865;
+$login-btn-bg-color: #289bee !default;
+$login-btn-border-color: $login-btn-bg-color !default;
+$login-btn-bg-over-color: #ff5865 !default;
+$login-btn-border-over-color: #ff5865 !default;
 // 禁用
 $disabled-bg-color: #ddd;
 $disabled-border-color: $disabled-bg-color;
