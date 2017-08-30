@@ -7,7 +7,6 @@ import {TransService} from '../../services/trans.service';
 import {StateService} from '../../services/state.service';
 import {LoginService} from './login.service';
 
-
 @Component({
     encapsulation: ViewEncapsulation.None,
     selector: 'app-login',
@@ -75,7 +74,7 @@ export class LoginComponent implements OnInit {
                             this.setIsShowVerifyCode(true);
                         }
 
-                        this.errorInfo = res.message || '';
+                        this.errorInfo = res.message || '用户名或密码错误';
                         this.changeVerifyCode();
                     }
                 }

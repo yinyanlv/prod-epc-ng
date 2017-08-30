@@ -2,11 +2,13 @@
     display: inline-block;
     *zoom: 1;
 }
+
 @mixin textOverflow() {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
+
 @mixin setAutoImg() {
     width: auto;
     height: auto;
@@ -15,6 +17,7 @@
     vertical-align: middle;
     outline: none;
 }
+
 @mixin setHeightGroup($height, $border:0) {
     height: $height;
     line-height: $height - $border;
