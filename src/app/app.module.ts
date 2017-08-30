@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router';
 
-import {SharedModule} from './modules/shared.module';
+import {SharedServicesModule} from './modules/shared-services.module';
 import {ErrorModule} from './pages/error/error.module';
 
 import {AppComponent} from './app.component';
@@ -18,7 +18,7 @@ import {AppRouting} from './app.routing';
         HttpModule,
         RouterModule,
         AppRouting,
-        SharedModule,
+        SharedServicesModule,
         ErrorModule
     ],
     providers: [],

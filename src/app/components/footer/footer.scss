@@ -1,0 +1,13 @@
+@import "../../sass/etc/mixin";
+@import "../../sass/var/frame";
+
+.footer {
+    position: absolute;
+    width: 100%;
+    height: $footer-height;
+    border-top: $footer-border-style;
+    bottom: 0;
+    padding-top: $footer-padding-top;
+    text-align:center;
+    z-index: 10001;
+}

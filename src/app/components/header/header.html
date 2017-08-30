@@ -1,0 +1,163 @@
+<header class="header">
+    <!-- navigation -->
+    <nav class="navigation">
+        <div class="user-box">
+            <a href="/user" class="username text-link">刘小强</a>
+            <span>, 欢迎使用上汽大通电子配件目录</span>
+        </div>
+        <ul class="nav-box">
+            <li><a href="/" class="nav-link">首页</a></li>
+            <li id="shoppingCartNotice" class="toggleBg">
+                <a href="/cart" class="nav-link">
+                    <i class="icon-active iconfont icon-cart"></i>
+                    <span class="text">购物车</span>
+                    <span>(</span>
+                    <span class="important-text" id="shoppingcart-kindCount">4</span>
+                    <span>)</span>
+                    <i class="icon-down iconfont icon-arrow-down"></i>
+                    <i class="icon-up iconfont icon-arrow-up"></i>
+                </a>
+                <div class="cart-wrapper cart-header-wrap cart-content dropdowncontent condition-block"><div class="headline">
+                    <span class="text bold-text">购物车</span>
+                </div>
+                    <div class="item-list">
+                        <div class="item clearfix" data-id="59">
+                            <div class="part">
+                                <div>
+                                    <a href="/part/C00080864" class="text-link" target="_blank">C00080864</a>
+                                </div>
+                                <div>换档杆护板总成</div>
+                            </div>
+                            <div class="info">
+                                <span class="num">x 99999</span>
+                                <a href="javascript:;" class="text-link secondary delete-btn" data-action="delete-header-single">
+                                    <i class="iconfont icon-delete"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="item clearfix" data-id="58">
+                            <div class="part">
+                                <div>
+                                    <a href="/part/C00076249" class="text-link" target="_blank">C00076249</a>
+                                </div>
+                                <div>变速器操纵杆防尘罩</div>
+                            </div>
+                            <div class="info">
+                                <span class="num">x 99999</span>
+                                <a href="javascript:;" class="text-link secondary delete-btn" data-action="delete-header-single">
+                                    <i class="iconfont icon-delete"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="item clearfix" data-id="57">
+                            <div class="part">
+                                <div>
+                                    <a href="/part/C00076248" class="text-link" target="_blank">C00076248</a>
+                                </div>
+                                <div>变速器操纵杆防尘罩</div>
+                            </div>
+                            <div class="info">
+                                <span class="num">x 1</span>
+                                <a href="javascript:;" class="text-link secondary delete-btn" data-action="delete-header-single">
+                                    <i class="iconfont icon-delete"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="item clearfix" data-id="56">
+                            <div class="part">
+                                <div>
+                                    <a href="/part/90000050" class="text-link" target="_blank">90000050</a>
+                                </div>
+                                <div></div>
+                            </div>
+                            <div class="info">
+                                <span class="num">x 1</span>
+                                <a href="javascript:;" class="text-link secondary delete-btn" data-action="delete-header-single">
+                                    <i class="iconfont icon-delete"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="total">
+    <span class="total-item">
+        共<span class="important-text product-num">4</span>件商品
+    </span>
+                    </div>
+                    <div class="btn-wrapper">
+                        <a href="/cart" class="btn">去购物车结算</a>
+                    </div>
+                </div>
+            </li>
+            <li id="languages" class="toggleBg">
+                <a href="javascript:;" class="nav-link">
+                    <span class="icon"></span>
+                    <span class="text">语言</span>
+                    <i class="icon-down iconfont icon-arrow-down"></i>
+                    <i class="icon-up iconfont icon-arrow-up"></i>
+                </a>
+                <ul id="languages" class="dropdownlist dropdowncontent">
+                    <li>
+                        <a href="javascript:;" class="link-btn" data-action="change-lang" data-lang-code="zh">中文</a>
+                    </li>
+                    <li>
+                        <a href="javascript:;" class="link-btn" data-action="change-lang" data-lang-code="en">English</a>
+                    </li>
+                </ul>
+            </li>
+            <li id="settings" class="toggleBg">
+                <a href="/user" class="nav-link" target="_blank">
+                    <span class="icon"></span>
+                    <span class="text">用户中心</span>
+                </a>
+
+            </li>
+
+            <li><a href="/user/logout" class="nav-link">退出</a></li>
+
+        </ul>
+
+    </nav>
+    <!-- banner -->
+    <section class="banner v-middle">
+        <a href="/" class="logo-wrapper">
+            <img src="http://res2.dev.servision.com.cn/tis/logo/MAXUS.png">
+        </a>
+        <div id="header-search-box" class="header-searxh-box">
+            <div class="search-input-wrapper">
+                <input name="q" class="header-input" value="" placeholder="配件编码、配件名称或VIN" autocomplete="off">
+                <div id="search-tips-wrapper" class="search-tips" style="display: none;">
+                    <script type="text/template" id="search-tip-template">
+                        {{#data}}
+                        <a href="/search?q={{input}}" class="search-tip-item clearfix">
+                            <span class="text">{{output}}</span>
+                            <span class="tip-btn delete-btn" data-action="delete">删除</span>
+                        </a>
+
+                        {{/data}}
+                        <div class="clear-btn-wrapper clearfix">
+                            <a href="javascript:;" class="tip-btn close-btn" data-action="close">关闭</a>
+                            <a href="javascript:;" class="tip-btn clear-btn" data-action="reset">清空</a>
+                        </div>
+                    </script>
+                </div>
+            </div>
+
+            <a href="javascript:;" class="header-search-btn btn-two v-middle">
+                <i class="icon iconfont icon-search"></i>
+                <span class="text">搜索</span>
+            </a>
+        </div>
+
+    </section>
+    <div class="float-tip float-tip-block normal hide">
+        <div class="tip-content">
+            <span class="text"></span>
+        </div>
+    </div>
+
+    <div class="float-tip float-tip-block price hide">
+        <div class="tip-content">
+            <span class="text"></span>
+        </div>
+    </div>
+</header>

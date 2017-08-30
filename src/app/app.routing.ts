@@ -29,6 +29,9 @@ const routes:Routes = [{
     path: 'order-history',
     loadChildren: './pages/order-history/order-history.module#OrderHistoryModule'
 }, {
+    path: 'search',
+    loadChildren: './pages/search/search.module#SearchModule'
+}, {
     path: '**',
     component: ErrorComponent
 }];

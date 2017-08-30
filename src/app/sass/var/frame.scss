@@ -1,6 +1,6 @@
 @import "../etc/config";
 
-$important-text-color: #f72f3e !default;   //main-style-text-color
+$important-text-color: #1B77B9 !default;   // main-style-text-color bugong
 $condition-btn-color: #6c6c6c !default;
 $condition-btn-border-color: #b3b3b3 !default;
 $float-tip-color: #ffffff !default;
@@ -10,12 +10,12 @@ $icon-cbtn-color: #494c6c !default;
 $cart-item-discheckbg: #ececec !default;
 
 // common color start
-$important-color: #fd4452 !default;     // main color
-$theme-color: #353751 !default; // BreadcrumbNavigation-background-color
+$important-color: #238BD7 !default;     // main color bugong
+$theme-color: #25415F !default; // BreadcrumbNavigation-background-color bugong
 $text-color: #333333 !default; // base-text-color
 $bg-color: #fafafa !default;   // base-background-color
-$hover-color: #ff5865 !default; //base-text-hover-color
-$active-color: #f72f3e !default; //base-text-active-color
+$hover-color: #289bee !default; //base-text-hover-color bugong
+$active-color: #1C77B8 !default; //base-text-active-color bugong
 $disabled-color: #bababa !default;
 $img-wrapper-bg-color: #ffffff !default;
 // common border color
@@ -24,8 +24,8 @@ $solid-line-color: #e0e0e0 !default;
 $dotted-line-color: #bababa !default;
 $footer-border-color: #666666 !default;
 
-$parts-item-activebg: #fcedef !default;
-$parts-item-hoverbg: #efeaeb !default;
+$parts-item-activebg: #E3F3FF !default;  // bugong
+$parts-item-hoverbg: #d7eaf7 !default;  // bugong
 $gray-text: #b3b3b3 !default;
 $warn-color: #ffbb04 !default;
 $cart-item-disabledbg: #f4f4f4 !default;
@@ -48,10 +48,10 @@ $common-prompt-color: #E50D19 !default;
 /* begin size vars */
 
 $top-nav-height: 30px !default;
-$banner-height: 85px !default;
-$footer-height: 65px !default;
+$banner-height: 74px !default;  // bugong
+$footer-height: 28px !default;  // bugong
 $footer-border-height: 1px !default;
-$footer-padding-top: 10px !default;
+$footer-padding-top: 0 !default;  // bugong
 $common-padding: 20px !default;
 
 $main-font-size: 12px !default;
@@ -59,7 +59,7 @@ $main-line-height: 2em !default;
 
 $wrapper-padding: 0 $common-padding !default;
 
-$nav-bar-height: 40px !default;
+$nav-bar-height: 35px !default;  // bugong
 $nav-bar-padding: 0 $common-padding !default;
 
 $common-border-width: 1px !default;
@@ -73,16 +73,16 @@ $dashe-line-opacity: 0.3 !default;
 
 $paging-goto-block-width: 220px !default;
 
-$headline-top-padding: 20px !default;
+$headline-top-padding: 10px !default;  // bugong
 
-$condition-entity-top: 51px !default;
-$condition-title-margin-bottom: 15px !default;
-$condition-title-line-height: 1.2em !default;
-$condition-content-line-height: 2.35em !default;
-$condition-content-margin-bottom: 25px !default;
+$condition-entity-top: 41px !default;  // bugong
+$condition-title-margin-bottom: 0 !default;  // bugong
+$condition-title-line-height: 1.85em !default;  // bugong
+$condition-content-line-height: 1.8em !default;  // bugong
+$condition-content-margin-bottom: 5px !default;  // bugong
 
-$parts-item-height: 80px !default;
-$parts-item-padding-top: 20px !default;
+$parts-item-height: 61px !default;  // bugong
+$parts-item-padding-top: 10px !default;  // bugong
 /* end size vars */
 
 /* begin style vars */
@@ -133,7 +133,7 @@ $btn-common-color: #ffffff !default;
 $btn-common-bg-color: $theme-color !default;
 $btn-common-fsize: $main-font-size !default;
 $btn-common-hover-color: #ffffff !default;
-$btn-common-hover-bgcolor: #494c6c !default;
+$btn-common-hover-bgcolor: #289bee !default;  // bugong
 $btn-common-active-color: #494c6c !default;
 $btn-common-active-bgcolor: #303249 !default;
 //small-btn

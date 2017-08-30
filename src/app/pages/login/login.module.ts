@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 
-import {SharedModule} from '../../modules/shared.module';
+import {SharedServicesModule} from '../../modules/shared-services.module';
 import {LoginComponent} from './login.component';
 import {LoginRouting} from './login.routing';
 
@@ -10,7 +10,7 @@ import {LoginRouting} from './login.routing';
     imports: [
         CommonModule,
         FormsModule,
-        SharedModule,
+        SharedServicesModule,
         LoginRouting
     ],
     declarations: [

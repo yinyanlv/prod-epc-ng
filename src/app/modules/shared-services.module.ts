@@ -28,6 +28,6 @@ import {BackgroundUrlPipe} from '../pipes/background-url.pipe';
         StateService
     ]
 })
-export class SharedModule {
+export class SharedServicesModule {
 
 }

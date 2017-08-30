@@ -1,0 +1,54 @@
+@import "../../sass/etc/mixin";
+@import "../../sass/var/frame";
+
+.navbar {
+    @include setHeightGroup($nav-bar-height);
+    padding: $nav-bar-padding;
+    background: $theme-color;
+    color: $nav-bar-color;
+    .title {
+        color: $nav-bar-active-color;
+        margin-right: 10px;
+    }
+    .search-bar-item-wrapper {
+        @include setInlineBlock();
+    }
+    .search-bar-item {
+        @include setInlineBlock();
+        text-decoration: none;
+        color: $nav-bar-color;
+        line-height: 1.2em;
+        border-left: 1px solid $nav-bar-color;
+        padding: 0 20px;
+        &:first-child {
+            padding-left: 0;
+            border-left: none;
+        }
+        &:hover {
+            color: $nav-bar-active-color;
+            .paging-icon {
+                color: $nav-bar-active-color;
+            }
+        }
+    }
+    .crumbs-item {
+        color: #ffffff;
+        text-decoration: none;
+        .paging-icon {
+            color: #ffffff;
+            margin: 0 10px 0 20px;
+        }
+        &:first-child {
+            .paging-icon {
+                display: none;
+            }
+        }
+        &:hover {
+            text-decoration: underline;
+        }
+        &[data-crumbskey="g_1"] {
+            text-decoration: none;
+            cursor: default;
+        }
+    }
+}
