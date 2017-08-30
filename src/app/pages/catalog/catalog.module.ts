@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {RouterModule} from '@angular/router';
 
 import {SharedComponentsModule} from '../../modules/shared-components.module';
 import {CatalogComponent} from './catalog.component';
@@ -9,6 +10,7 @@ import {CatalogRouting} from './catalog.routing';
 @NgModule({
     imports: [
         CommonModule,
+        RouterModule,
         SharedComponentsModule,
         CatalogRouting
     ],

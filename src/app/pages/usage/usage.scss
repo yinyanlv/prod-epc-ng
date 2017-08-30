@@ -240,7 +240,7 @@ $group-block-width: 273px !default
     .parts-table-wrapper {
         min-height: 100%;
         position: relative;
-        border-style: $coomon-datted-style;
+        border-style: $common-dotted-style;
         border-width: 0 0 $common-border-width 0;
         border-color: $dotted-line-color;
         overflow: hidden;
@@ -386,10 +386,10 @@ $group-block-width: 273px !default
             padding-top: 5px;
         }
         &.active {
-            background: $parts-item-activebg;
+            background: $parts-item-active-bg;
         }
         &.hover {
-            background: $parts-item-hoverbg;
+            background: $parts-item-hover-bg;
         }
     }
 }

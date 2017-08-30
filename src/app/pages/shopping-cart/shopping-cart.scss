@@ -27,11 +27,11 @@ $info-color: #00c0ff !default;
                     min-height: 70px;
                 }
                 &.checked {
-                    background: $parts-item-activebg;
+                    background: $parts-item-active-bg;
                 }
                 &.disabled {
                     color: $gray-text;
-                    background: $cart-item-disabledbg;
+                    background: $cart-item-disabled-bg;
                     .text-link {
                         color: $gray-text;
                         text-decoration: none;

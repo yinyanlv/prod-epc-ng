@@ -5,7 +5,7 @@ import {ErrorComponent} from './pages/error/error.component';
 
 const routes:Routes = [{
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'catalog',
     pathMatch: 'full'
 }, {
     path: 'login',
@@ -17,10 +17,10 @@ const routes:Routes = [{
     path: 'usage',
     loadChildren: './pages/usage/usage.module#UsageModule'
 }, {
-    path: 'part-detail',
+    path: 'part',
     loadChildren: './pages/part-detail/part-detail.module#PartDetailModule'
 }, {
-    path: 'shopping-cart',
+    path: 'cart',
     loadChildren: './pages/shopping-cart/shopping-cart.module#ShoppingCartModule'
 }, {
     path: 'purchase-history',

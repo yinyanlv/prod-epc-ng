@@ -1,0 +1,85 @@
+@import "../../../sass/etc/mixin";
+@import "../../../sass/var/frame";
+
+.cart-content {
+    width: 275px !important;
+    max-height: 456px !important;
+    min-height: 94px !important;
+    padding: 0 20px 20px !important;
+    .headline {
+        margin-bottom: 0;
+        .text {
+            color: $text-color;
+            background: #fff;
+        }
+    }
+    .item-list {
+        max-height: 308px;
+        overflow: auto;
+        margin-right: -18px;
+    }
+    .item {
+        width: 233px;
+        line-height: 20px;
+        padding: 11px 0;
+        border-bottom: $common-dotted-border;
+        cursor: default;
+        &:first-child {
+            padding-top: 4px;
+        }
+        .part {
+            width: 125px;
+            @include setInlineBlock();
+            vertical-align: middle;
+
+        }
+        .info {
+            width: 98px;
+            @include setInlineBlock();
+            vertical-align: middle;
+            text-align: right;
+            .num {
+                color: $gray-text;
+            }
+            .delete-btn {
+                margin-left: 5px;
+            }
+        }
+        &.disabled {
+            color: $gray-text;
+            background: $cart-item-disabled-bg;
+            .text-link {
+                color: $gray-text;
+                text-decoration: none;
+                cursor: default;
+            }
+            * {
+                color: $gray-text;
+            }
+        }
+    }
+    .total {
+        text-align: right;
+        margin: 10px 0;
+        .product-num {
+            margin: 0 3px;
+        }
+    }
+    .btn-wrapper {
+        text-align: right;
+    }
+    .no-goods-header-wrapper {
+        margin: 30px -17px 10px;
+        .icon {
+            font-size: 0;
+            vertical-align: middle;
+            margin-right: 5px;
+            .iconfont {
+                font-size: 30px;
+            }
+        }
+        .text {
+            vertical-align: middle;
+        }
+    }
+}

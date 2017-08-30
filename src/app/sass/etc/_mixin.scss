@@ -43,7 +43,7 @@
 
 @mixin opacity($prop) {
     opacity: $prop;
-    filter: alpha(opacity = $prop * 100 );
+    filter: alpha(opacity=$prop * 100);
 }
 
 @mixin transition($prop...) { // ie10+
@@ -117,7 +117,7 @@ $prefixList: '-webkit-' '-moz-' '';
     }
 }
 
-@mixin icon-btn($width,
+@mixin iconBtn($width,
 	$height,
 	$font-size,
 	$color,
@@ -167,19 +167,19 @@ $prefixList: '-webkit-' '-moz-' '';
     }
 }
 
-@mixin common-btn (
-  $height,
-  $padding,
-  $color,
-  $bg-color,
-  $border,
-  $font-size,
-  $radius,
-  $min-width,
-  $hover-color,
-  $hover-bgcolor,
-  $active-color,
-  $active-bgcolor
+@mixin commonBtn(
+    $height,
+    $padding,
+    $color,
+    $bg-color,
+    $border,
+    $font-size,
+    $radius,
+    $min-width,
+    $hover-color,
+    $hover-bg-color,
+    $active-color,
+    $active-bg-color
 ) {
     display: inline-block;
     @include setHeightGroup($height, 2px);
@@ -195,13 +195,13 @@ $prefixList: '-webkit-' '-moz-' '';
     vertical-align: top;
     &:hover {
         color: $hover-color;
-        background-color: $hover-bgcolor;
-        border-color: $hover-bgcolor;
+        background-color: $hover-bg-color;
+        border-color: $hover-bg-color;
     }
     &.active, &.active {
         color: $active-color;
-        background-color: $active-bgcolor;
-        border-color: $active-bgcolor;
+        background-color: $active-bg-color;
+        border-color: $active-bg-color;
     }
 }
 

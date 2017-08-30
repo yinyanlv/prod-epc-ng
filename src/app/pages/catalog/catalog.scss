@@ -69,7 +69,7 @@
         &:hover, &.active {
             .img-wrapper {
                 border: solid 1px $active-color;
-                background: $parts-item-activebg;
+                background: $parts-item-active-bg;
                 @include boxShadow(3px 0px 0 #e8e8e8, 0px 3px 0 #e8e8e8);
             }
             .text {

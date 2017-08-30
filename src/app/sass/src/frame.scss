@@ -149,19 +149,19 @@ em.hl {
 //btn
 
 .btn {
-    @include common-btn(
+    @include commonBtn(
         $height: $btn-common-height,
         $padding: $btn-common-padding,
         $color: $btn-common-color,
         $bg-color: $btn-common-bg-color,
         $border: solid 1px $btn-common-bg-color,
-        $font-size: $btn-common-fsize,
+        $font-size: $btn-common-font-size,
         $radius: $btn-common-radius,
         $min-width: $btn-common-min-width,
         $hover-color: $btn-common-hover-color,
-        $hover-bgcolor: $btn-common-hover-bgcolor,
+        $hover-bg-color: $btn-common-hover-bg-color,
         $active-color: $btn-common-active-color,
-        $active-bgcolor: $btn-common-active-bgcolor
+        $active-bg-color: $btn-common-active-bg-color
     );
     &.small {
         @include setHeightGroup($btn-small-height);
@@ -190,7 +190,7 @@ em.hl {
 
 .btn-two {
     width: 182px;
-    @include common-btn(
+    @include commonBtn(
         $height: 40px,
         $padding: $btn-common-padding,
         $color: $btn-common-color,
@@ -200,9 +200,9 @@ em.hl {
         $radius: $btn-common-radius,
         $min-width: $btn-common-min-width,
         $hover-color: $btn-common-hover-color,
-        $hover-bgcolor: $hover-color,
+        $hover-bg-color: $hover-color,
         $active-color: $btn-common-active-color,
-        $active-bgcolor: $active-color
+        $active-bg-color: $active-color
     );
     // line-height: 0;
     .text {
@@ -215,7 +215,7 @@ em.hl {
 
 
 .icon-btn {
-    @include icon-btn(
+    @include iconBtn(
         $width: $icon-btn-width,
         $height: $icon-btn-width,
         $border: $common-solid-border,
@@ -231,7 +231,7 @@ em.hl {
     );
 }
 .icon-btn-two {
-    @include icon-btn(
+    @include iconBtn(
         $width: 24px,
         $height: 24px,
         $border: 1px solid $theme-color,
@@ -247,7 +247,7 @@ em.hl {
     );
 }
 .paging-icon {
-    @include icon-btn(
+    @include iconBtn(
         $width: $icon-sbtn-width,
         $height: $icon-sbtn-height,
         $color: $icon-sbtn-color,
@@ -267,7 +267,7 @@ em.hl {
 }
 
 .condition-icon {
-    @include icon-btn(
+    @include iconBtn(
         $width: 11px,
         $height: 11px,
         $color: $condition-btn-color,
@@ -413,7 +413,7 @@ em.hl {
     &.disabled {
         .icon {
             border: solid 1px $condition-btn-border-color;
-            background: $cart-item-discheckbg;
+            background: $cart-item-discheck-bg;
         }
     }
 }
@@ -518,7 +518,7 @@ em.hl {
         background: $float-tip-color;
         border: $common-solid-border;
         @include borderRadius($common-radius);
-        @include boxShadow(2px 4px 14px 0 $float-tip-bdcolor, 0px 0px 2px 0 $float-tip-bdcolor);
+        @include boxShadow(2px 4px 14px 0 $float-tip-bd-color, 0px 0px 2px 0 $float-tip-bd-color);
         min-height: 27px;
         padding: 0 10px;
         &:before {
@@ -560,7 +560,7 @@ em.hl {
         }
         &:after {
             border-width: 8px 10px 0 8px;
-            border-color: $float-tip-bdcolor transparent transparent transparent;
+            border-color: $float-tip-bd-color transparent transparent transparent;
             left: 50%;
             margin-left: -9px;
         }
@@ -575,7 +575,7 @@ em.hl {
         }
         &:after {
             border-width: 0 10px 8px 8px;
-            border-color: transparent transparent $float-tip-bdcolor transparent;
+            border-color: transparent transparent $float-tip-bd-color transparent;
             top: -8px;
             left: 50%;
             margin-bottom: -2px;
@@ -585,9 +585,9 @@ em.hl {
     &.price {
         .tip-content {
             color: $important-text-color;
-            border: solid 1px $float-tip-bdccolor;
+            border: solid 1px $float-tip-bd-ccolor;
             @include borderRadius(2px);
-            @include boxShadow(1px 1px 4px 0 $float-tip-bdccolor);
+            @include boxShadow(1px 1px 4px 0 $float-tip-bd-ccolor);
         }
         &.left {
             &:before {
@@ -599,7 +599,7 @@ em.hl {
             }
             &:after {
                 border-width:  4px 5px 4px 0;
-                border-color: transparent $float-tip-bdccolor transparent transparent;
+                border-color: transparent $float-tip-bd-ccolor transparent transparent;
                 top: 50%;
                 left: -5px;
                 margin-top: -4px;
@@ -980,7 +980,7 @@ em.hl {
     .dialog-btn-wrapper {
         height: 50px;
         line-height: 50px;
-        background-color: $dialog-btnbg-color;
+        background-color: $dialog-btn-bg-color;
         text-align: center;
         vertical-align: middle;
         border-bottom-left-radius: $common-radius;
