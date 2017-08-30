@@ -16,7 +16,7 @@ import {LoginService} from './login.service';
 })
 export class LoginComponent implements OnInit {
 
-    private verifyCodePath: string = '/user/login/captcha';
+    private verifyCodePath: string = this.globalConfig.path + '/login/captcha';
     loginState: any;
     lang: string;
     verifyCodeSrc: string;
