@@ -23,6 +23,8 @@ export class BaseHttpService {
 
         options.method = method;
 
+        options.withCredentials = true;  // 解决ajax跨域，session无效的问题
+
         let requestOptions = new RequestOptions(options);
 
         options.beforeRequest && options.beforeRequest(requestOptions);

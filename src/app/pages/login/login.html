@@ -28,7 +28,7 @@
             </span>
             <input name="password" #password="ngModel" type="password" class="input-box pwd" ngModel required />
         </div>
-        <div id="verify-code-wrapper" *ngIf="isShowVerifyCode" class="data-item" [ngClass]="{error: validcode.invalid}">
+        <div id="verify-code-wrapper" *ngIf="isShowVerifyCode" class="data-item" [ngClass]="{error: validcode.invalid && loginState.firstInvoke}">
             <label class="title">{{trans.t_019}}：</label>
             <span class="sign-icon">
                 <i class="iconfont icon-verify"></i>

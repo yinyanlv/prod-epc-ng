@@ -67,12 +67,11 @@ export class LoginComponent implements OnInit {
 
                     if (res.success) {
 
+                        this.setIsShowVerifyCode(false);
                         this.router.navigate(['/catalog']);
                     } else {
 
-                        if (res.needVerifyCode) {
-                            this.setIsShowVerifyCode(true);
-                        }
+                        res.needVerifyCode ? this.setIsShowVerifyCode(true) : this.setIsShowVerifyCode(false);
 
                         this.errorInfo = res.message || '用户名或密码错误';
                         this.changeVerifyCode();
