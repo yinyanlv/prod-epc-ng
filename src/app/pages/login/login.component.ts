@@ -1,4 +1,4 @@
-import {Component, ViewEncapsulation, OnInit, Inject} from '@angular/core';
+import {Component, ViewEncapsulation, OnInit, OnDestroy, Inject, Renderer2} from '@angular/core';
 import {Router} from '@angular/router';
 import {NgForm, FormGroup} from '@angular/forms';
 
@@ -14,7 +14,7 @@ import {LoginService} from './login.service';
     styleUrls: ['./login.scss'],
     providers: [LoginService]
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
 
     private verifyCodePath: string = this.globalConfig.path + '/login/captcha';
     loginState: any;
@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
         private router: Router,
         private loginService: LoginService,
         private stateService: StateService,
+        private renderer2: Renderer2,
         @Inject(GlobalConfigService) public globalConfig,
         @Inject(TransService) public trans
     ) {
@@ -43,6 +44,13 @@ export class LoginComponent implements OnInit {
             firstInvoke: false,
             isLogining: false
         };
+
+        this.renderer2.addClass(document.documentElement, 'page-login');  // 给html标签，增加class，解决与主框架的css冲突
+    }
+
+    ngOnDestroy(): void {
+
+        this.renderer2.removeClass(document.documentElement, 'page-login');
     }
 
     login(params: NgForm): void {
@@ -68,6 +76,7 @@ export class LoginComponent implements OnInit {
                     if (res.success) {
 
                         this.setIsShowVerifyCode(false);
+                        this.errorInfo = '';
                         this.router.navigate(['/catalog']);
                     } else {
 

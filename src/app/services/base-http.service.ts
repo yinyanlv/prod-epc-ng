@@ -23,7 +23,7 @@ export class BaseHttpService {
 
         options.method = method;
 
-        options.withCredentials = true;  // 解决ajax跨域，session无效的问题
+        options.withCredentials = true;  // 解决ajax跨域时，session在各请求间不共享，总是新建一条的问题
 
         let requestOptions = new RequestOptions(options);
 

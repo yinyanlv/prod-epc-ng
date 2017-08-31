@@ -1,4 +1,4 @@
-<section class="banner"
+<section class="banner login-banner"
          [style.background-image]="'/assets/' + globalConfig.oemCode.toLowerCase() + '/images/banner.jpg' | backgroundUrl">
     <a [routerLink]="['/login']" class="logo-wrapper">
         <img src="{{ '/tis/logo/' + globalConfig.oemCode + '.png' | resHost }}" />
@@ -13,7 +13,7 @@
         <a href="javascript:;" class="language-btn" [ngClass]="{active: lang == 'zh'}" (click)="changeLang('zh')">中文</a>
         <a href="javascript:;" class="language-btn" [ngClass]="{active: lang == 'en'}" (click)="changeLang('en')">English</a>
     </div>
-    <form id="login-form" class="login-form" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <form class="login-form" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
         <div class="data-item" [ngClass]="{error: username.invalid && loginState.firstInvoke}">
             <label class="title">{{trans.t_017}}：</label>
             <span class="sign-icon">
@@ -28,7 +28,7 @@
             </span>
             <input name="password" #password="ngModel" type="password" class="input-box pwd" ngModel required />
         </div>
-        <div id="verify-code-wrapper" *ngIf="isShowVerifyCode" class="data-item" [ngClass]="{error: validcode.invalid && loginState.firstInvoke}">
+        <div *ngIf="isShowVerifyCode" class="data-item" [ngClass]="{error: validcode.invalid && loginState.firstInvoke}">
             <label class="title">{{trans.t_019}}：</label>
             <span class="sign-icon">
                 <i class="iconfont icon-verify"></i>
