@@ -1,6 +1,7 @@
 import {Component, ViewEncapsulation, HostListener, ElementRef, OnInit, OnDestroy} from "@angular/core";
 import {Observable, Subscription, Subject} from 'rxjs';
 
+import {SubjectService} from '../../../services/subject.service';
 import {SearchService} from './search.service';
 
 @Component({
@@ -22,7 +23,8 @@ export class SearchComponent implements OnInit, OnDestroy {
     private subscription: Subscription;
 
     constructor(
-        private searchService: SearchService
+        private searchService: SearchService,
+        private subjectService: SubjectService
     ) {
     }
 
@@ -71,12 +73,23 @@ export class SearchComponent implements OnInit, OnDestroy {
 
     hideSearchTips(): void {
 
-        this.curTipIndex = -1;  //
+        this.curTipIndex = -1;
         this.isShowSearchTips = false;
     }
 
     clearSearchTips(): void {
 
+        this.subjectService.publish('dialog:show', {
+            content: '您确认要清空全部的搜索历史？',
+            onConfirm: () => {
+
+                console.log('confirm');
+            },
+            onCancel: () => {
+
+                console.log('cancel');
+            }
+        });
     }
 
     deleteTip(tip: string) {
@@ -109,6 +122,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
                 this.curTipIndex = this.tips.length - 1;
             }
+
         } else if (keyCode === 40) {  // down
 
             if (this.curTipIndex >= this.tips.length - 1) {  // 当前选中为最后一条时
@@ -119,5 +133,7 @@ export class SearchComponent implements OnInit, OnDestroy {
                 this.curTipIndex++;
             }
         }
+
+        this.keyword = this.tips[this.curTipIndex].input;  // 更新input框内容
     }
 }

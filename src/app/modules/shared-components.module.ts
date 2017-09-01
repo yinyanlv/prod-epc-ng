@@ -10,13 +10,15 @@ import {FooterComponent} from '../components/footer/footer.component';
 import {CrumbComponent} from '../components/crumb/crumb.component';
 import {SearchComponent} from '../components/header/search/search.component';
 import {CartComponent} from '../components/header/cart/cart.component';
+import {DialogComponent} from '../components/dialog/dialog.component';
 
 const components = [
     HeaderComponent,
     FooterComponent,
     CrumbComponent,
     SearchComponent,
-    CartComponent
+    CartComponent,
+    DialogComponent
 ];
 
 @NgModule({
