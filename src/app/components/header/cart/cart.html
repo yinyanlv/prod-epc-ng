@@ -2,53 +2,45 @@
     <i class="icon-active iconfont icon-cart"></i>
     <span class="text">购物车</span>
     <span>(</span>
-    <span class="important-text">4</span>
+    <span class="important-text">{{orders.length}}</span>
     <span>)</span>
     <i class="icon-down iconfont icon-arrow-down"></i>
     <i class="icon-up iconfont icon-arrow-up"></i>
 </a>
 <div class="cart-wrapper cart-header-wrap cart-content dropdown-content condition-block">
-    <div class="headline">
-        <span class="text bold-text">购物车</span>
+
+    <div *ngIf="orders.length === 0; else cart;" class="no-goods-header-wrapper info-text">
+        <span class="icon"><i class="iconfont icon-cart"></i></span>
+        <span>您的购物车还是空的，赶紧挑选配件吧~~~</span>
     </div>
-    <div class="item-list">
-        <div class="item clearfix" data-id="59">
-            <div class="part">
-                <div>
-                    <a href="/part/C00080864" class="text-link" target="_blank">C00080864</a>
+
+    <ng-template #cart>
+        <div class="headline">
+            <span class="text bold-text">购物车</span>
+        </div>
+        <div class="item-list">
+            <div *ngFor="let item of orders;" class="item clearfix">
+                <div class="part">
+                    <div>
+                        <a [routerLink]="['/part', item.partCode]" class="text-link">{{item.partCode}}</a>
+                    </div>
+                    <div>{{item.partName}}</div>
                 </div>
-                <div>换档杆护板总成</div>
-            </div>
-            <div class="info">
-                <span class="num">x 99999</span>
-                <a href="javascript:;" class="text-link secondary delete-btn"
-                   data-action="delete-header-single">
-                    <i class="iconfont icon-delete"></i>
-                </a>
+                <div class="info">
+                    <span class="num">x {{item.num}}</span>
+                    <a href="javascript:;" class="text-link secondary delete-btn" (click)="deleteOrder(item.id)">
+                        <i class="iconfont icon-delete"></i>
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="item clearfix" data-id="58">
-            <div class="part">
-                <div>
-                    <a href="/part/C00076249" class="text-link" target="_blank">C00076249</a>
-                </div>
-                <div>变速器操纵杆防尘罩</div>
-            </div>
-            <div class="info">
-                <span class="num">x 99999</span>
-                <a href="javascript:;" class="text-link secondary delete-btn"
-                   data-action="delete-header-single">
-                    <i class="iconfont icon-delete"></i>
-                </a>
-            </div>
+        <div class="total">
+            <span class="total-item">
+                共<span class="important-text product-num">{{orders.length}}</span>件商品
+            </span>
         </div>
-    </div>
-    <div class="total">
-        <span class="total-item">
-            共<span class="important-text product-num">4</span>件商品
-        </span>
-    </div>
-    <div class="btn-wrapper">
-        <a [routerLink]="['/cart']" class="btn">去购物车结算</a>
-    </div>
+        <div class="btn-wrapper">
+            <a [routerLink]="['/cart']" class="btn">去购物车结算</a>
+        </div>
+    </ng-template>
 </div>

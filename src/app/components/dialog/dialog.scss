@@ -1,0 +1,136 @@
+@import "../../sass/etc/mixin";
+@import "../../sass/var/frame";
+
+.dialog-overlay {
+    position: fixed;
+    z-index: 11000;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}
+
+.dialog {
+    position: fixed;
+    z-index: 12000;
+    width: 400px;
+    height: auto;
+    left: 50%;
+    top: 50%;
+    background-color: #fff;
+    @include transform(translate(-50%, -50%));
+    @include boxShadow(3px 0px 3px #707070, 0px 3px 3px #707070);
+    @include borderRadius($common-radius);
+    &:focus {
+        outline: none;
+        border: none;
+    }
+    .dialog-title {
+        height: 40px;
+        line-height: 40px;
+        font-size: 14px;
+        padding: 0 10px;
+        background-color: #ffffff;
+        border-bottom: solid 1px $dialog-line-color;
+        border-top-left-radius: $common-radius;
+        border-top-right-radius: $common-radius;
+        .close-btn {
+            display: inline-block;
+            width: 20px;
+            height: 18px;
+            line-height: 18px;
+            float: right;
+            text-decoration: none;
+            margin-top: 10px;
+            color: $dialog-close-color;
+            &:hover {
+                color: $hover-color;
+            }
+            .iconfont {
+                font-size: 20px;
+            }
+        }
+        .text {
+            display: inline-block;
+            height: 16px;
+            line-height: 16px;
+            font-weight: bold;
+            border-left: solid 2px $theme-color;
+            padding-left: 5px;
+        }
+    }
+    .dialog-content {
+        background-color: #fff;
+        padding: 20px 20px;
+        min-height: 70px;
+        line-height: 70px;
+        text-align: center;
+        .content-text {
+            .icon {
+                display: inline-block;
+                width: 24px;
+                height: 24px;
+                background: url('~assets/common/styles/images/dialog_icons.png');
+                margin-right: -24px;
+                vertical-align: middle;
+            }
+            .text {
+                display: inline-block;
+                font-size: 16px;
+                padding-left: 34px;
+                vertical-align: middle;
+                line-height: 24px;
+                text-align: left;
+            }
+        }
+    }
+    .dialog-btn-wrapper {
+        height: 50px;
+        line-height: 50px;
+        background-color: $dialog-btn-bg-color;
+        text-align: center;
+        vertical-align: middle;
+        border-bottom-left-radius: $common-radius;
+        border-bottom-right-radius: $common-radius;
+        font-size: 0;
+        .btn {
+            width: 90px;
+            min-width: 90px;
+            height: 30px;
+            line-height: 28px;
+            text-align: center;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+    }
+    &.ok {
+        .dialog-content {
+            .content-text {
+                .icon {
+                    background-position: -24px -0;
+                }
+            }
+        }
+    }
+    &.warn {
+        .dialog-content {
+            .content-text {
+                .icon {
+                    background-position: -34px -0;
+                }
+            }
+        }
+    }
+    &.error {
+        .dialog-content {
+            .content-text {
+                .icon {
+                    background-position: -48px -0;
+                }
+            }
+        }
+    }
+}
