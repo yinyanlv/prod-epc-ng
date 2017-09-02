@@ -1,16 +1,25 @@
 import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 
+import {CrumbService} from './crumb.service';
+
 @Component({
     encapsulation: ViewEncapsulation.None,
     selector: 'app-crumb',
     templateUrl: './crumb.html',
-    styleUrls: ['./crumb.scss']
+    styleUrls: ['./crumb.scss'],
+    providers: [CrumbService]
 })
 export class CrumbComponent implements OnInit {
 
-    constructor() {
+    crumbs: Array<any>;
+
+    constructor(
+        private crumbService: CrumbService
+    ) {
     }
 
     ngOnInit() {
+
+        this.crumbs = this.crumbService.getCrumbs();
     }
 }

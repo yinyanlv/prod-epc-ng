@@ -1,6 +1,7 @@
-import {Component, ViewEncapsulation, OnInit} from '@angular/core';
+import {Component, ViewEncapsulation, OnInit, Inject} from '@angular/core';
 
 import {SubjectService} from '../../services/subject.service';
+import {EventMapService} from '../../services/event-map.service';
 
 @Component({
     encapsulation: ViewEncapsulation.None,
@@ -16,12 +17,13 @@ export class DialogComponent implements OnInit{
     private cancelHandler: Function;
 
     constructor(
-        private subjectService: SubjectService
+        private subjectService: SubjectService,
+        @Inject(EventMapService) private eventMap
     ) {
     }
 
     ngOnInit() {
-        this.subjectService.subscribe('dialog:show', (opts) => {
+        this.subjectService.subscribe(this.eventMap.showDialog, (opts) => {
 
             this.content = opts.content;
             this.confirmHandler = opts.onConfirm;

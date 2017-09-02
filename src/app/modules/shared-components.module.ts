@@ -11,6 +11,7 @@ import {CrumbComponent} from '../components/crumb/crumb.component';
 import {SearchComponent} from '../components/header/search/search.component';
 import {CartComponent} from '../components/header/cart/cart.component';
 import {DialogComponent} from '../components/dialog/dialog.component';
+import {PaginationComponent} from '../components/pagination/pagination.component';
 
 const components = [
     HeaderComponent,
@@ -18,7 +19,8 @@ const components = [
     CrumbComponent,
     SearchComponent,
     CartComponent,
-    DialogComponent
+    DialogComponent,
+    PaginationComponent
 ];
 
 @NgModule({

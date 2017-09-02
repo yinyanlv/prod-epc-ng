@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 
-import {BaseHttpService, BaseHttpOptions} from '../../services/base-http.service';
+import {BaseHttp, BaseHttpOptions} from '../../base/base-http';
 
 @Injectable()
-export class LoginService extends BaseHttpService {
+export class LoginService extends BaseHttp {
 
     private loginPath: string = '/login';
     private changeLangPath: string = '/change-locale?locale=';

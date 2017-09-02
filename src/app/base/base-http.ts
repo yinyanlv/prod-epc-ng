@@ -3,7 +3,7 @@ import {Http, Request, Response, RequestMethod, RequestOptionsArgs, RequestOptio
 import {Observable, Subscription} from 'rxjs';
 import 'rxjs/add/operator/map';
 
-import {GlobalConfigService} from './global-config.service';
+import {GlobalConfigService} from '../services/global-config.service';
 
 export interface BaseHttpOptions extends RequestOptionsArgs {
     beforeRequest?: Function,
@@ -13,7 +13,7 @@ export interface BaseHttpOptions extends RequestOptionsArgs {
 }
 
 @Injectable()
-export class BaseHttpService {
+export class BaseHttp {
 
     constructor(protected http: Http,
                 @Inject(GlobalConfigService) protected globalConfig) {

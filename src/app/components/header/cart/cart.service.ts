@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 
-import {BaseHttpService, BaseHttpOptions} from '../../../services/base-http.service';
+import {BaseHttp, BaseHttpOptions} from '../../../base/base-http';
 
 @Injectable()
-export class CartService extends BaseHttpService {
+export class CartService extends BaseHttp {
 
     getOrders(): Array<any> {
         return [{

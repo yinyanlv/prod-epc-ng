@@ -1,19 +1,7 @@
-<div id="crumbs-bar" class="navbar"><a class="crumbs-item" href="/#m_1=MAXUS" data-crumbskey="m_1"><span
-    class="paging-icon"><i class="iconfont icon-arrow-right"></i></span><span>品牌：</span><span>上汽大通</span></a><a
-    class="crumbs-item" href="/#m_1=MAXUS&amp;m_2=SV91" data-crumbskey="m_2"><span class="paging-icon"><i
-    class="iconfont icon-arrow-right"></i></span><span>平台：</span><span>D90</span></a><a class="crumbs-item"
-                                                                                        href="/#m_1=MAXUS&amp;m_2=SV91&amp;m_3=-1"
-                                                                                        data-crumbskey="m_3"><span
-    class="paging-icon"><i class="iconfont icon-arrow-right"></i></span><span>左右舵+驱动形式：</span><span>全部</span></a><a
-    class="crumbs-item" href="/#m_1=MAXUS&amp;m_2=SV91&amp;m_3=-1&amp;m_4=-1" data-crumbskey="m_4"><span
-    class="paging-icon"><i class="iconfont icon-arrow-right"></i></span><span>车型系列细分：</span><span>全部</span></a><a
-    class="crumbs-item"
-    href="http://maxus.tinyepc.dev.servision.com.cn/usage?m_1=MAXUS&amp;m_2=SV91&amp;m_3=-1&amp;m_4=-1&amp;m_5=E00N#s_2=BE131A001&amp;s_1=13&amp;part_id=C00064853"
-    data-crumbskey="m_5"><span class="paging-icon"><i
-    class="iconfont icon-arrow-right"></i></span><span>变速箱型号：</span><span>6MT 上汽齿</span></a><a class="crumbs-item"
-                                                                                               href="javascript:;"
-                                                                                               data-crumbskey="g_1"><span
-    class="paging-icon"><i
-    class="iconfont icon-arrow-right"></i></span><span>图组：</span><span>动力总成控制&amp;诊断 - 发动机控制器</span></a>
+<div class="navbar">
+    <a *ngFor="let item of crumbs;" class="crumbs-item" [routerLink]="[item.href]" [queryParams]="item.queryParams">
+        <span class="paging-icon"><i class="iconfont icon-arrow-right"></i></span>
+        <span>{{item.name}}</span>
+    </a>
 </div>
 
