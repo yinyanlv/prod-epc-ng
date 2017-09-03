@@ -8,9 +8,8 @@
     height: 100%;
     top: 0;
     left: 0;
-    background-color: #000;
-    opacity: 0.5;
-    filter: alpha(opacity=50);
+    background-color: rgba(0,0,0,0.5);
+    opacity: 0;
 }
 
 .dialog {
@@ -24,6 +23,7 @@
     @include transform(translate(-50%, -50%));
     @include boxShadow(3px 0px 3px #707070, 0px 3px 3px #707070);
     @include borderRadius($common-radius);
+    opacity: 0;
     &:focus {
         outline: none;
         border: none;

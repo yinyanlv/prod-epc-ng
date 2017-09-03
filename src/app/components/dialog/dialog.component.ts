@@ -2,12 +2,14 @@ import {Component, ViewEncapsulation, OnInit} from '@angular/core';
 
 import {SubjectService} from '../../services/subject.service';
 import {eventMap} from '../../etc/provider';
+import {fadeAnimation} from '../../animations/fade.animation';
 
 @Component({
     encapsulation: ViewEncapsulation.None,
     selector: 'app-dialog',
     templateUrl: './dialog.html',
-    styleUrls: ['./dialog.scss']
+    styleUrls: ['./dialog.scss'],
+    animations: [fadeAnimation]
 })
 export class DialogComponent implements OnInit{
 
