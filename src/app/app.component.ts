@@ -1,7 +1,6 @@
-import {Component, Inject, ViewEncapsulation} from '@angular/core';
+import {Component, ViewEncapsulation, OnInit} from '@angular/core';
 
-import {GlobalConfigService} from './services/global-config.service';
-import {StateService} from './services/state.service';
+import {BaseComponent} from './base/base-component';
 
 @Component({
     encapsulation: ViewEncapsulation.None,
@@ -9,13 +8,7 @@ import {StateService} from './services/state.service';
     templateUrl: './app.html',
     styleUrls: ['./app.scss']
 })
-export class AppComponent {
-
-    constructor(
-        @Inject(GlobalConfigService) private globalConfig,
-        private stateService: StateService
-    ) {
-    }
+export class AppComponent extends BaseComponent implements OnInit {
 
     ngOnInit() {
 

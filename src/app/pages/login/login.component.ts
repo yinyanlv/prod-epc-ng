@@ -2,9 +2,7 @@ import {Component, ViewEncapsulation, OnInit, OnDestroy, Inject, Renderer2} from
 import {Router} from '@angular/router';
 import {NgForm, FormGroup} from '@angular/forms';
 
-import {GlobalConfigService} from '../../services/global-config.service';
-import {TransService} from '../../services/trans.service';
-import {StateService} from '../../services/state.service';
+import {BaseComponent} from '../../base/base-component';
 import {LoginService} from './login.service';
 
 @Component({
@@ -14,7 +12,7 @@ import {LoginService} from './login.service';
     styleUrls: ['./login.scss'],
     providers: [LoginService]
 })
-export class LoginComponent implements OnInit, OnDestroy {
+export class LoginComponent extends BaseComponent implements OnInit, OnDestroy {
 
     private verifyCodePath: string = this.globalConfig.path + '/login/captcha';
     loginState: any;
@@ -27,11 +25,9 @@ export class LoginComponent implements OnInit, OnDestroy {
     constructor(
         private router: Router,
         private loginService: LoginService,
-        private stateService: StateService,
         private renderer2: Renderer2,
-        @Inject(GlobalConfigService) public globalConfig,
-        @Inject(TransService) public trans
     ) {
+        super();
     }
 
     ngOnInit() {

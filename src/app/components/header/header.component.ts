@@ -1,6 +1,6 @@
-import {Component, OnInit, Inject, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 
-import {GlobalConfigService} from '../../services/global-config.service';
+import {BaseComponent} from '../../base/base-component';
 
 @Component({
     encapsulation: ViewEncapsulation.None,
@@ -8,12 +8,7 @@ import {GlobalConfigService} from '../../services/global-config.service';
     templateUrl: './header.html',
     styleUrls: ['./header.scss'],
 })
-export class HeaderComponent implements OnInit {
-
-    constructor(
-        @Inject(GlobalConfigService) public globalConfig
-    ) {
-    }
+export class HeaderComponent extends BaseComponent implements OnInit {
 
     ngOnInit() {
     }

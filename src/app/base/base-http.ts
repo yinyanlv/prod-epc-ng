@@ -1,9 +1,9 @@
-import {Injectable, Inject} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Http, Request, Response, RequestMethod, RequestOptionsArgs, RequestOptions} from '@angular/http';
 import {Observable, Subscription} from 'rxjs';
 import 'rxjs/add/operator/map';
 
-import {GlobalConfigService} from '../services/global-config.service';
+import {globalConfig} from '../etc/provider';
 
 export interface BaseHttpOptions extends RequestOptionsArgs {
     beforeRequest?: Function,
@@ -15,8 +15,9 @@ export interface BaseHttpOptions extends RequestOptionsArgs {
 @Injectable()
 export class BaseHttp {
 
-    constructor(protected http: Http,
-                @Inject(GlobalConfigService) protected globalConfig) {
+    protected globalConfig: any = globalConfig;
+
+    constructor(protected http: Http) {
     }
 
     protected request(method: RequestMethod, options: BaseHttpOptions = {}): Subscription {

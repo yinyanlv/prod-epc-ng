@@ -1,8 +1,8 @@
-import {Component, ViewEncapsulation, HostListener, ElementRef, Inject, OnInit, OnDestroy} from "@angular/core";
+import {Component, ViewEncapsulation, HostListener, ElementRef, OnInit, OnDestroy} from "@angular/core";
 import {Observable, Subscription, Subject} from 'rxjs';
 
 import {SubjectService} from '../../../services/subject.service';
-import {EventMapService} from '../../../services/event-map.service';
+import {eventMap} from '../../../etc/provider';
 import {SearchService} from './search.service';
 
 @Component({
@@ -25,8 +25,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
     constructor(
         private searchService: SearchService,
-        private subjectService: SubjectService,
-        @Inject(EventMapService) private eventMap
+        private subjectService: SubjectService
     ) {
     }
 
@@ -81,7 +80,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
     clearSearchTips(): void {
 
-        this.subjectService.publish(this.eventMap.showDialog, {
+        this.subjectService.publish(eventMap.showDialog, {
             content: '您确认要清空全部的搜索历史？',
             onConfirm: () => {
 
