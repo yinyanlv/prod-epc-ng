@@ -6,6 +6,8 @@ import {SharedComponentsModule} from '../../modules/shared-components.module';
 import {CatalogComponent} from './catalog.component';
 import {CatalogService} from './catalog.service';
 import {CatalogRouting} from './catalog.routing';
+import {BrandSeriesComponent} from './brand-series/brand-series.component';
+import {SearchConditionComponent} from './search-condition/search-condition.component';
 
 @NgModule({
     imports: [
@@ -15,7 +17,9 @@ import {CatalogRouting} from './catalog.routing';
         CatalogRouting
     ],
     declarations: [
-        CatalogComponent
+        CatalogComponent,
+        BrandSeriesComponent,
+        SearchConditionComponent
     ],
     providers: [CatalogService]
 })
