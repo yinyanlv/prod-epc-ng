@@ -33,7 +33,7 @@ $group-block-width: 273px !default
         width: 11px;
         height: 11px;
         background: url('~assets/common/styles/images/tree_icon.png') no-repeat;
-        &.btn-collaspe {
+        &.btn-collapse {
             background-position: -0 -0;
         }
         &.btn-expand {
@@ -41,7 +41,7 @@ $group-block-width: 273px !default
         }
     }
     &.expand {
-        .btn-collaspe, .btn-leaf {
+        .btn-collapse, .btn-leaf {
             display: none;
         }
         > .child {
@@ -60,7 +60,7 @@ $group-block-width: 273px !default
         .condition-icon {
             border: none;
         }
-        .btn-collaspe, .btn-expand {
+        .btn-collapse, .btn-expand {
             display: none;
         }
         .btn-leaf {

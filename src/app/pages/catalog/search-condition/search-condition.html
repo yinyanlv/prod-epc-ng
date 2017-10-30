@@ -1,77 +1,70 @@
-<aside id="serach-block" class="search-condition condition-block home-search-condition">
+<aside class="search-condition condition-block home-search-condition">
     <div class="headline">
         <span class="text bold-text">配置</span>
     </div>
-    <div id="condition-item-wrapper" class="hide" style="display: block;">
-
-        <div class="condition-item hide collapse" data-key="m_3" style="display: block;">
-            <div class="condition-title"><span class="bold-text title-text">左右舵+驱动形式</span><span
-                class="current-choice-wrapper"><span class="current">[</span><span class="current current-choice"> 全部 </span><span
-                class="current">]</span></span></div>
-            <div class="condition-content">
-                <div><a href="javascript:;" target="_self" class="text-link secondary active" data-id="-1"
-                        data-code="-1" data-lvl="3" data-name="全部" data-leaf="false">全部</a></div>
-                <div><a href="javascript:;" target="_self" class="text-link secondary" data-id="B204"
-                        data-code="B204" data-lvl="3" data-name="右舵+4X2（两驱）" data-leaf="false">右舵+4X2（两驱）</a></div>
-                <div><a href="javascript:;" target="_self" class="text-link secondary" data-id="B202"
-                        data-code="B202" data-lvl="3" data-name="右舵+4X4（四驱）" data-leaf="false">右舵+4X4（四驱）</a></div>
-                <div><a href="javascript:;" target="_self" class="text-link secondary" data-id="B203"
-                        data-code="B203" data-lvl="3" data-name="左舵+4X2（两驱）" data-leaf="false">左舵+4X2（两驱）</a></div>
-                <div><a href="javascript:;" target="_self" class="text-link secondary" data-id="B201"
-                        data-code="B201" data-lvl="3" data-name="左舵+4X4（四驱）" data-leaf="false">左舵+4X4（四驱）</a></div>
+    <div *ngIf="isShowConditions; else holder;">
+        <div class="condition-item" [ngClass]="{collapse: isCollapsed1, expand: !isCollapsed1}">
+            <div class="condition-title">
+                <span class="bold-text title-text">左右舵+驱动形式</span>
+                <span class="current-choice-wrapper">
+                    <span class="current">[</span>
+                    <span class="current current-choice"> 全部 </span>
+                    <span class="current">]</span>
+                </span>
             </div>
-            <div class="condition-btn-wrapper"><a href="javascript:;" class="condition-btn"><span
-                class="btn-collaspe"><i class="iconfont icon-collapse"></i><span class="text">更多</span></span><span
-                class="btn-expand"><i class="iconfont icon-expand"></i><span class="text">收起</span></span></a></div>
-        </div>
-        <div class="condition-item hide collapse" data-key="m_4" style="display: block;">
-            <div class="condition-title"><span class="bold-text title-text">车型系列细分</span><span
-                class="current-choice-wrapper"><span class="current">[</span><span class="current current-choice"> 旗舰版 </span><span
-                class="current">]</span></span></div>
             <div class="condition-content">
-                <div><a href="javascript:;" target="_self" class="text-link secondary" data-id="-1" data-code="-1"
-                        data-lvl="4" data-name="全部" data-leaf="false">全部</a></div>
-                <div><a href="javascript:;" target="_self" class="text-link secondary active" data-id="A50Y"
-                        data-code="A50Y" data-lvl="4" data-name="旗舰版" data-leaf="false">旗舰版</a></div>
-                <div><a href="javascript:;" target="_self" class="text-link secondary" data-id="A50L"
-                        data-code="A50L" data-lvl="4" data-name="精英版" data-leaf="false">精英版</a></div>
-                <div><a href="javascript:;" target="_self" class="text-link secondary" data-id="A50K"
-                        data-code="A50K" data-lvl="4" data-name="豪华版" data-leaf="false">豪华版</a></div>
-                <div><a href="javascript:;" target="_self" class="text-link secondary" data-id="A50Z"
-                        data-code="A50Z" data-lvl="4" data-name="领先版" data-leaf="false">领先版</a></div>
+                <div><a class="text-link secondary active">全部</a></div>
             </div>
-            <div class="condition-btn-wrapper"><a href="javascript:;" class="condition-btn"><span
-                class="btn-collaspe"><i class="iconfont icon-collapse"></i><span class="text">更多</span></span><span
-                class="btn-expand"><i class="iconfont icon-expand"></i><span class="text">收起</span></span></a></div>
+            <div class="condition-btn-wrapper">
+                <a class="condition-btn">
+                    <span class="btn-collapse" *ngIf="isCollapsed1" (click)="toggleList('list1', false)"><i class="iconfont icon-collapse"></i><span class="text">更多</span></span>
+                    <span class="btn-expand" *ngIf="!isCollapsed1" (click)="toggleList('list1', true)"><i class="iconfont icon-expand"></i><span class="text">收起</span></span>
+                </a>
+            </div>
         </div>
-        <div class="condition-item hide collapse" data-key="m_5" style="display: block;">
-            <div class="condition-title"><span class="bold-text title-text">变速箱型号</span><span
-                class="current-choice-wrapper"></span></div>
+        <div class="condition-item" [ngClass]="{collapse: isCollapsed2, expand: !isCollapsed2}">
+            <div class="condition-title">
+                <span class="bold-text title-text">车型系列细分</span>
+                <span class="current-choice-wrapper">
+                    <span class="current">[</span>
+                    <span class="current current-choice"> 旗舰版 </span>
+                    <span class="current">]</span>
+                </span>
+            </div>
             <div class="condition-content">
-                <div><a href="/usage?m_1=MAXUS&amp;m_2=SV91&amp;m_3=-1&amp;m_4=A50Y&amp;m_5=-1" target="_blank"
-                        class="text-link secondary" data-id="-1" data-code="-1" data-lvl="5" data-name="全部"
-                        data-leaf="true">全部</a></div>
-                <div><a href="/usage?m_1=MAXUS&amp;m_2=SV91&amp;m_3=-1&amp;m_4=A50Y&amp;m_5=E00P" target="_blank"
-                        class="text-link secondary" data-id="E00P" data-code="E00P" data-lvl="5" data-name="6AT 邦奇"
-                        data-leaf="true">6AT 邦奇</a></div>
-                <div><a href="/usage?m_1=MAXUS&amp;m_2=SV91&amp;m_3=-1&amp;m_4=A50Y&amp;m_5=E00N" target="_blank"
-                        class="text-link secondary" data-id="E00N" data-code="E00N" data-lvl="5" data-name="6MT 上汽齿"
-                        data-leaf="true">6MT 上汽齿</a></div>
-                <div><a href="/usage?m_1=MAXUS&amp;m_2=SV91&amp;m_3=-1&amp;m_4=A50Y&amp;m_5=E00Q" target="_blank"
-                        class="text-link secondary" data-id="E00Q" data-code="E00Q" data-lvl="5" data-name="6MT 戴莫斯"
-                        data-leaf="true">6MT 戴莫斯</a></div>
+                <div><a class="text-link secondary">全部</a></div>
+                <div><a class="text-link secondary active">旗舰版</a></div>
             </div>
-            <div class="condition-btn-wrapper"><a href="javascript:;" class="condition-btn"><span
-                class="btn-collaspe"><i class="iconfont icon-collapse"></i><span class="text">更多</span></span><span
-                class="btn-expand"><i class="iconfont icon-expand"></i><span class="text">收起</span></span></a></div>
+            <div class="condition-btn-wrapper">
+                <a class="condition-btn">
+                    <span class="btn-collapse" *ngIf="isCollapsed2" (click)="toggleList('list2', false)"><i class="iconfont icon-collapse"></i><span class="text">更多</span></span>
+                    <span class="btn-expand" *ngIf="!isCollapsed2" (click)="toggleList('list2', true)"><i class="iconfont icon-expand"></i><span class="text">收起</span></span>
+                </a>
+            </div>
         </div>
-        <div class="condition-item hide" data-key="m_6"></div>
-    </div>
-
-    <div class="lead-content" style="display: none;">
-        <div class="lead-info">
-            <div class="lead-info-icon"></div>
-            <span class="text">请先选择左侧车系图片</span>
+        <div class="condition-item" [ngClass]="{collapse: isCollapsed3, expand: !isCollapsed3}">
+            <div class="condition-title">
+                <span class="bold-text title-text">变速箱型号</span>
+                <span class="current-choice-wrapper"></span>
+            </div>
+            <div class="condition-content">
+                <div><a class="text-link secondary">全部</a></div>
+                <div><a class="text-link secondary">6AT 邦奇</a></div>
+            </div>
+            <div class="condition-btn-wrapper">
+                <a class="condition-btn">
+                    <span class="btn-collapse" *ngIf="isCollapsed3" (click)="toggleList('list3', false)"><i class="iconfont icon-collapse"></i><span class="text">更多</span></span>
+                    <span class="btn-expand" *ngIf="!isCollapsed3" (click)="toggleList('list3', true)"><i class="iconfont icon-expand"></i><span class="text">收起</span></span>
+                </a>
+            </div>
         </div>
     </div>
+    <ng-template #holder>
+        <div class="lead-content">
+            <div class="lead-info">
+                <div class="lead-info-icon"></div>
+                <span class="text">请先选择左侧车系图片</span>
+            </div>
+        </div>
+    </ng-template>
 </aside>

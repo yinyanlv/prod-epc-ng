@@ -3,19 +3,17 @@
         <span class="text bold-text">品牌</span>
     </div>
     <div class="condition-entity">
-        <div class="brand-tab-btn" data-key="m_1">
-            <a href="javascript:;" class="btn secondary tab-btn active" data-id="MAXUS" data-lvl="1"
-               data-code="MAXUS" data-name="上汽大通">上汽大通</a>
+        <div class="brand-tab-btn">
+            <a *ngFor="let item of brandList;" class="btn secondary tab-btn" [class.active]="item.code === activeBrand ? true : false" (click)="setActiveBrand(item.code)">{{item.name}}</a>
         </div>
-        <div id="series-content" class="series-tab-content">
-            <ul class="tab-content disapper" data-key="m_2">
-                <li class="series-item">
-                    <a href="javascript:;" target="_self" class="series-btn active" data-id="SV91" data-code="SV91"
-                       data-lvl="2" data-name="D90">
+        <div class="series-tab-content">
+            <ul class="tab-content disappear">
+                <li *ngFor="let item of seriesList;" class="series-item" (click)="setActiveSeries(item.code)">
+                    <a class="series-btn" [class.active]="item.code === activeSeries ? true : false">
                         <div class="img-wrapper">
-                            <img class="lazy" src="http://res2.dev.servision.com.cn/epc/mapping/SV91.png">
+                            <img class="lazy" src="{{item.imgUrl}}">
                         </div>
-                        <div class="text">D90</div>
+                        <div class="text">{{item.name}}</div>
                     </a>
                 </li>
             </ul>

@@ -19,6 +19,10 @@ input::-ms-clear, input::-ms-reveal{
     display:none;
 }
 
+a {
+    cursor: pointer;
+}
+
 .clearfix {
     zoom: 1;
 }
@@ -844,20 +848,14 @@ em.hl {
             .condition-content {
                 overflow: auto;
             }
-            .btn-collaspe {
-                display: none;
-            }
         }
         &.collapse {
             .condition-content {
                 overflow: hidden;
                 max-height: 82px;
             }
-            .btn-expand {
-                display: none;
-            }
         }
-        &.disapper {
+        &.disappear {
             .condition-content {
                 overflow: hidden;
                 max-height: 82px;
@@ -894,7 +892,7 @@ em.hl {
           max-height: 164px;
         }
       }
-      &.disapper {
+      &.disappear {
         .condition-content {
           max-height: 164px;
         }
