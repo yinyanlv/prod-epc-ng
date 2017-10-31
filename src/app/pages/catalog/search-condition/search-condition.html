@@ -13,7 +13,7 @@
                 </span>
             </div>
             <div class="condition-content">
-                <div><a class="text-link secondary active">全部</a></div>
+                <div *ngFor="let item of list1;"><a class="text-link secondary active">{{item.name}}</a></div>
             </div>
             <div class="condition-btn-wrapper">
                 <a class="condition-btn">
@@ -32,8 +32,7 @@
                 </span>
             </div>
             <div class="condition-content">
-                <div><a class="text-link secondary">全部</a></div>
-                <div><a class="text-link secondary active">旗舰版</a></div>
+                <div *ngFor="let item of list2;"><a class="text-link secondary active">{{item.name}}</a></div>
             </div>
             <div class="condition-btn-wrapper">
                 <a class="condition-btn">
@@ -48,8 +47,7 @@
                 <span class="current-choice-wrapper"></span>
             </div>
             <div class="condition-content">
-                <div><a class="text-link secondary">全部</a></div>
-                <div><a class="text-link secondary">6AT 邦奇</a></div>
+                <div *ngFor="let item of list3;"><a class="text-link secondary active">{{item.name}}</a></div>
             </div>
             <div class="condition-btn-wrapper">
                 <a class="condition-btn">

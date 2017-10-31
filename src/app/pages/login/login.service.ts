@@ -8,11 +8,11 @@ export class LoginService extends BaseHttp {
     private loginPath: string = '/login';
     private changeLangPath: string = '/change-locale?locale=';
 
-    login(options: BaseHttpOptions) {
+    login(opts: BaseHttpOptions) {
 
-        options.url = this.globalConfig.path + this.loginPath;
+        opts.url = this.globalConfig.path + this.loginPath;
 
-        this.post(options);
+        this.post(opts);
     }
 
     changeLang(lang: string) {
