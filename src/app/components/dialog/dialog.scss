@@ -20,7 +20,8 @@
     left: 50%;
     top: 50%;
     background-color: #fff;
-    @include transform(translate(-50%, -50%));
+    margin-left: -200px;
+    margin-top: -100px;
     @include boxShadow(3px 0px 3px #707070, 0px 3px 3px #707070);
     @include borderRadius($common-radius);
     opacity: 0;

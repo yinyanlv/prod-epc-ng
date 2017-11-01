@@ -15,6 +15,7 @@ export class DialogComponent implements OnInit{
 
     isShow: boolean = false;
     content: string;
+    fadeState: string;
     private confirmHandler: Function;
     private cancelHandler: Function;
 
@@ -31,6 +32,7 @@ export class DialogComponent implements OnInit{
             this.cancelHandler = opts.onCancel;
 
             this.isShow = true;
+            this.fadeState = 'in';
         })
     }
 
@@ -38,11 +40,13 @@ export class DialogComponent implements OnInit{
 
         this.confirmHandler && this.confirmHandler();
         this.isShow = false;
+        this.fadeState = 'out';
     }
 
     cancel() {
 
         this.cancelHandler && this.cancelHandler();
         this.isShow = false;
+        this.fadeState = 'out';
     }
 }

@@ -1,6 +1,6 @@
 <ng-container *ngIf="isShow">
-    <div class="dialog-overlay" [@fade]="isShow"></div>
-    <div class="dialog" [@fade]="isShow">
+    <div class="dialog-overlay" [ngStyle]="{display: isShow ? 'block' : 'none', opacity: isShow ? '1' : '0'}"></div>
+    <div class="dialog" [@fade]="fadeState">
         <div class="dialog-title">
             <a href="javascript:;" class="close-btn" (click)="cancel()"><i class="iconfont icon-close"></i></a>
             <span class="text">提示</span>
