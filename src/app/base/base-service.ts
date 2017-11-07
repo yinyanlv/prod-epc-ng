@@ -1,52 +1,108 @@
 import {Injectable} from '@angular/core';
-import {RequestOptionsArgs} from '@angular/http';
-import {HttpClient, HttpHeaders, HttpParams, HttpObserve} from '@angular/common/http';
-import {Observable} from 'rxjs/Observable';
+import {
+    HttpClient,
+    HttpHeaders,
+    HttpParams,
+    HttpRequest,
+    HttpHandler,
+    HttpEvent,
+    HttpInterceptor
+} from '@angular/common/http';
+import {Observable, Subscription} from 'rxjs';
 
 import {globalConfig} from '../etc/provider';
 
-export interface IBaseHttpOptions {
+export interface BaseHttpOptions {
+    url: string;
     body?: any;
     headers?: HttpHeaders;
     params?: HttpParams;
-    observe?: HttpObserve;
+    observe?: 'body' | 'events' | 'response';
     reportProgress?: boolean;
     responseType?: 'arraybuffer' | 'blob' | 'json' | 'text';
     withCredentials?: boolean;
 }
 
 @Injectable()
-export class BaseService {
+export class BaseHttp {
 
-    protected globalConfig: Object = globalConfig;
+    public globalConfig: any = globalConfig;
 
-    constructor(
-        protected http: HttpClient
-    ) {
+    constructor(public http: HttpClient) {
     }
 
-    protected get(opts: RequestOptionsArgs): Observable<any> {
+    public get(opts: BaseHttpOptions): HttpProxy {
 
-        return this.request('GET', opts);
+        return new HttpProxy(this, 'GET', opts);
     }
 
-    protected post(opts: RequestOptionsArgs): Observable<any> {
+    public post(opts: BaseHttpOptions): HttpProxy {
 
-        return this.request('POST', opts);
+        return new HttpProxy(this, 'POST', opts);
     }
 
-    protected put(opts: RequestOptionsArgs): Observable<any> {
+    public put(opts: BaseHttpOptions): HttpProxy {
 
-        return this.request('PUT', opts);
+        return new HttpProxy(this, 'PUT', opts);
     }
 
-    protected delete(opts: RequestOptionsArgs): Observable<any> {
+    public delete(opts: BaseHttpOptions): HttpProxy {
 
-        return this.request('DELETE', opts);
+        return new HttpProxy(this, 'DELETE', opts);
     }
 
-    protected request(method: string, opts: RequestOptionsArgs): Observable<any> {
+    public request(method: string, opts: BaseHttpOptions): Observable<any> {
 
-        return this.http.request(method, '');
+        let newOpts = Object.assign({
+            responseType: 'json',
+            withCredentials: true  // 解决ajax跨域时，session在各请求间不共享，总是新建一条的问题
+        }, opts);
+
+        return this.http.request(method, opts.url, newOpts);
+    }
+
+    public serial() {
+
+    }
+
+    public parallel() {
+
+    }
+}
+
+class HttpProxy {
+
+    public subscribe: Function;
+
+    constructor(baseHttp: BaseHttp, method: string, opts: BaseHttpOptions) {
+
+        this.subscribe = (handlers: {
+            next?: (value: any) => void;
+            error?: (value: any) => void;
+            complete?: () => void
+        }): Subscription => {
+
+            return baseHttp.request(method, opts).subscribe(
+                handlers.next,
+                (err) => {
+
+                    console.log('global error handler');
+                    handlers.error && handlers.error(err);
+                },
+                handlers.complete
+            );
+        };
+    }
+}
+
+@Injectable()
+export class AuthInterceptor implements HttpInterceptor {
+
+    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+        return next.handle(req).map((event) => {
+
+            return event;
+        });
     }
 }

@@ -6,10 +6,10 @@ import 'rxjs/add/operator/map';
 import {globalConfig} from '../etc/provider';
 
 export interface BaseHttpOptions extends RequestOptionsArgs {
-    beforeRequest?: Function,
-    success?: Function,
-    failure?: Function,
-    callback?: Function
+    beforeRequest?: Function;
+    success?: Function;
+    failure?: Function;
+    callback?: Function;
 }
 
 @Injectable()

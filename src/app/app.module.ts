@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {HttpModule} from '@angular/http';
 import {RouterModule} from '@angular/router';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HttpClientModule} from '@angular/common/http';
 
 import {SharedServicesModule} from './modules/shared-services.module';
 import {ErrorModule} from './pages/error/error.module';
@@ -19,6 +20,7 @@ import {AppRouting} from './app.routing';
         HttpModule,
         RouterModule,
         BrowserAnimationsModule,
+        HttpClientModule,
         AppRouting,
         SharedServicesModule,
         ErrorModule
