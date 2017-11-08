@@ -57,12 +57,12 @@ export class LoginComponent extends BaseComponent implements OnInit, OnDestroy {
 
             this.loginService.login({
                 body: params.form.value,
-                beforeRequest: () => {
+                beforeSend: () => {
 
                     loginState.isLogining = true;
                     this.loginBtnText = this.trans.t_008;
                 },
-                callback: () => {
+                complete: () => {
 
                     loginState.isLogining = false;
                     this.loginBtnText = this.trans.t_009;

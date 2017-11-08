@@ -1,78 +1,110 @@
 import {Injectable} from '@angular/core';
-import {Http, Request, Response, RequestMethod, RequestOptionsArgs, RequestOptions} from '@angular/http';
+import {
+    HttpClient,
+    HttpHeaders,
+    HttpParams,
+    HttpRequest,
+    HttpHandler,
+    HttpEvent,
+    HttpInterceptor
+} from '@angular/common/http';
 import {Observable, Subscription} from 'rxjs';
-import 'rxjs/add/operator/map';
 
 import {globalConfig} from '../etc/provider';
 
-export interface BaseHttpOptions extends RequestOptionsArgs {
-    beforeRequest?: Function;
+export interface BaseHttpOptions {
+    url?: string;
+    body?: any;
+    headers?: HttpHeaders;
+    params?: HttpParams;
+    observe?: 'body' | 'events' | 'response';
+    reportProgress?: boolean;
+    responseType?: 'arraybuffer' | 'blob' | 'json' | 'text';
+    withCredentials?: boolean;
+    beforeSend?: Function;
     success?: Function;
-    failure?: Function;
-    callback?: Function;
+    error?: Function;
+    complete?: Function;
 }
 
 @Injectable()
 export class BaseHttp {
 
-    protected globalConfig: any = globalConfig;
+    public globalConfig: any = globalConfig;
 
-    constructor(protected http: Http) {
+    constructor(public http: HttpClient) {
     }
 
-    protected request(method: RequestMethod, options: BaseHttpOptions = {}): Subscription {
+    public get(opts: BaseHttpOptions): HttpProxy {
 
-        options.method = method;
-
-        options.withCredentials = true;  // 解决ajax跨域时，session在各请求间不共享，总是新建一条的问题
-
-        let requestOptions = new RequestOptions(options);
-
-        options.beforeRequest && options.beforeRequest(requestOptions);
-
-        let observable: Observable<Response> = this.http.request(new Request(requestOptions));
-
-        return observable
-            .map(res => {
-
-                return res.json();
-            })
-            .catch(this.errorHandler.bind(this))
-            .subscribe((res) => {
-
-                options.success && options.success(res);
-                options.callback && options.callback(res);
-            }, (err) => {
-
-                options.failure && options.failure(err);
-                options.callback && options.callback(err);
-            });
+        return new HttpProxy(this, 'GET', opts);
     }
 
-    protected get(options: BaseHttpOptions): Subscription {
+    public post(opts: BaseHttpOptions): HttpProxy {
 
-        return this.request(RequestMethod.Get, options);
+        return new HttpProxy(this, 'POST', opts);
     }
 
-    protected post(options: BaseHttpOptions): Subscription {
+    public put(opts: BaseHttpOptions): HttpProxy {
 
-        return this.request(RequestMethod.Post, options);
+        return new HttpProxy(this, 'PUT', opts);
     }
 
-    protected put(options: BaseHttpOptions): Subscription {
+    public delete(opts: BaseHttpOptions): HttpProxy {
 
-        return this.request(RequestMethod.Put, options);
+        return new HttpProxy(this, 'DELETE', opts);
     }
 
-    protected delete(options: BaseHttpOptions): Subscription {
+    public request(method: string, opts: BaseHttpOptions): Observable<any> {
 
-        return this.request(RequestMethod.Delete, options);
+        let newOpts = Object.assign({
+            responseType: 'json',
+            withCredentials: true  // 解决ajax跨域时，session在各请求间不共享，总是新建一条的问题
+        }, opts);
+
+        return this.http.request(method, opts.url, newOpts);
     }
 
-    protected errorHandler(err: any): Observable<any> {
+    public serial() {
 
-        return Observable.throw(err);
+    }
+
+    public parallel() {
+
     }
 }
 
+class HttpProxy {
 
+    public subscribe: Function;
+
+    constructor(baseHttp: BaseHttp, method: string, opts: BaseHttpOptions) {
+
+        this.subscribe = (handlers: {
+            next?: (value: any) => void;
+            error?: (value: any) => void;
+            complete?: () => void
+        }): Subscription => {
+
+            return baseHttp.request(method, opts).subscribe(
+                handlers.next,
+                handlers.error ? handlers.error : (err) => {
+                    console.log('global error handler');
+                },
+                handlers.complete
+            );
+        };
+    }
+}
+
+@Injectable()
+export class AuthInterceptor implements HttpInterceptor {
+
+    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+        return next.handle(req).map((event) => {
+
+            return event;
+        });
+    }
+}

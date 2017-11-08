@@ -5,7 +5,7 @@ import {LoadingService} from '../services/loading.service';
 import {SubjectService} from '../services/subject.service';
 import {StateService} from '../services/state.service';
 import {LoginGuardService} from '../services/guard.service';
-import {AuthInterceptor} from '../base/base-service';
+import {AuthInterceptor} from '../base/base-http';
 
 const services = [
     LoadingService,
