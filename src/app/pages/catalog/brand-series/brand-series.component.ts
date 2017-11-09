@@ -2,6 +2,7 @@ import {Component, ViewEncapsulation, OnInit} from '@angular/core';
 
 import {BaseComponent} from '../../../base/base-component';
 import {BrandSeriesService} from './brand-series.service';
+import {BaseHttp, BaseHttpProxy} from "../../../base/base-http";
 
 @Component({
     encapsulation: ViewEncapsulation.None,
@@ -25,20 +26,14 @@ export class BrandSeriesComponent extends BaseComponent implements OnInit {
 
     ngOnInit() {
 
-        this.brandSeriesService.getBrandList({
-            success: (res) => {
+        this.brandSeriesService.getBrandList()
+            .serial((res) => {
 
                 this.brandList = res.list;
                 this.activeBrand = res.list[0].code;
 
-                this.brandSeriesService.getSeriesList(this.activeBrand, {
-                    success: (res) => {
-
-                        this.seriesList = res.list;
-                    }
-                });
-            }
-        });
+                return this.brandSeriesService.getSeriesList(this.activeBrand);
+            });
     }
 
     setActiveBrand(brandCode: string) {

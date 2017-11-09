@@ -8,7 +8,7 @@ import {
     HttpEvent,
     HttpInterceptor
 } from '@angular/common/http';
-import {Observable, Subscription} from 'rxjs';
+import {Observable, Subscription, Subject} from 'rxjs';
 
 import {globalConfig} from '../etc/provider';
 
@@ -22,9 +22,9 @@ export interface BaseHttpOptions {
     responseType?: 'arraybuffer' | 'blob' | 'json' | 'text';
     withCredentials?: boolean;
     beforeSend?: Function;
-    success?: Function;
-    error?: Function;
-    complete?: Function;
+    success?: (val1: any, val2?: any) => void;
+    error?: (value: any) => void;
+    complete?: () => void;
 }
 
 @Injectable()
@@ -35,24 +35,24 @@ export class BaseHttp {
     constructor(public http: HttpClient) {
     }
 
-    public get(opts: BaseHttpOptions): HttpProxy {
+    public get(opts: BaseHttpOptions): BaseHttpProxy {
 
-        return new HttpProxy(this, 'GET', opts);
+        return new BaseHttpProxy(this, 'GET', opts);
     }
 
-    public post(opts: BaseHttpOptions): HttpProxy {
+    public post(opts: BaseHttpOptions): BaseHttpProxy {
 
-        return new HttpProxy(this, 'POST', opts);
+        return new BaseHttpProxy(this, 'POST', opts);
     }
 
-    public put(opts: BaseHttpOptions): HttpProxy {
+    public put(opts: BaseHttpOptions): BaseHttpProxy {
 
-        return new HttpProxy(this, 'PUT', opts);
+        return new BaseHttpProxy(this, 'PUT', opts);
     }
 
-    public delete(opts: BaseHttpOptions): HttpProxy {
+    public delete(opts: BaseHttpOptions): BaseHttpProxy {
 
-        return new HttpProxy(this, 'DELETE', opts);
+        return new BaseHttpProxy(this, 'DELETE', opts);
     }
 
     public request(method: string, opts: BaseHttpOptions): Observable<any> {
@@ -64,36 +64,79 @@ export class BaseHttp {
 
         return this.http.request(method, opts.url, newOpts);
     }
-
-    public serial() {
-
-    }
-
-    public parallel() {
-
-    }
 }
 
-class HttpProxy {
+export class BaseHttpProxy {
 
+    public baseHttpOptions;
     public subscribe: Function;
+    public middlewares: Array<Function>;
 
     constructor(baseHttp: BaseHttp, method: string, opts: BaseHttpOptions) {
 
+        this.baseHttpOptions = opts;
         this.subscribe = (handlers: {
             next?: (value: any) => void;
             error?: (value: any) => void;
             complete?: () => void
         }): Subscription => {
 
+            let middleware;
+
+            if (this.middlewares.length) {
+
+                middleware = this.middlewares.shift();
+            }
+            opts.beforeSend && opts.beforeSend();
+
             return baseHttp.request(method, opts).subscribe(
-                handlers.next,
-                handlers.error ? handlers.error : (err) => {
-                    console.log('global error handler');
+                (res) => {
+
+                    if (middleware) {
+                        return middleware(res).subscribe();
+                    }
+
+                    let fn = handlers.next ?  handlers.next : (opts.success ? opts.success : null);
+
+                    fn && fn(res);
                 },
-                handlers.complete
+                handlers.error ? handlers.error : (opts.error ? opts.error : (err) => {
+                    console.log('global error handler');
+                    console.log(err);
+                }),
+                handlers.complete ? handlers.complete : (opts.complete ? opts.complete : null)
             );
         };
+    }
+
+    public serial(middleware: Function): any {
+
+        this.middlewares.push(middleware);
+    }
+
+    static parallel(tasks: BaseHttpProxy[]): Observable<any> {
+
+        let completedTaskCount = 0;
+        let result = [];
+        let subject = new Subject();
+        let subject$= subject.asObservable();
+
+        tasks.forEach((task: BaseHttpProxy, index: number) => {
+
+            task.subscribe({
+                next: (res) => {
+
+                    result[index] = task.baseHttpOptions.success && task.baseHttpOptions.success(res);
+                    completedTaskCount++;
+                    if (completedTaskCount === tasks.length) {
+
+                        subject.next(result);
+                    }
+                }
+            });
+        });
+
+        return subject$;
     }
 }
 

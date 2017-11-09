@@ -6,15 +6,15 @@ export class BrandSeriesService extends BaseHttp {
 
     private selectorPath: string = this.globalConfig.path + '/selector/catalog';
 
-    getBrandList(opts: BaseHttpOptions) {
+    getBrandList() {
 
-        opts.url = this.selectorPath;
-        this.get(opts);
+        return this.get(this.selectorPath);
     }
 
-    getSeriesList(parentCode: string, opts: BaseHttpOptions) {
+    getSeriesList(parentCode: string) {
 
-        opts.url = this.selectorPath + '?parentGrade=g1&parentCode=' + parentCode;
-        this.get(opts);
+        return this.get({
+            url: this.selectorPath + '?parentGrade=g1&parentCode=' + parentCode
+        });
     }
 }
