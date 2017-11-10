@@ -2,7 +2,6 @@ import {Component, ViewEncapsulation, OnInit} from '@angular/core';
 
 import {BaseComponent} from '../../../base/base-component';
 import {BrandSeriesService} from './brand-series.service';
-import {BaseHttp, BaseHttpProxy} from "../../../base/base-http";
 
 @Component({
     encapsulation: ViewEncapsulation.None,
@@ -33,6 +32,12 @@ export class BrandSeriesComponent extends BaseComponent implements OnInit {
                 this.activeBrand = res.list[0].code;
 
                 return this.brandSeriesService.getSeriesList(this.activeBrand);
+            })
+            .subscribe({
+                next: (res) => {
+
+                    this.seriesList = res.list;
+                }
             });
     }
 

@@ -8,7 +8,9 @@ export class BrandSeriesService extends BaseHttp {
 
     getBrandList() {
 
-        return this.get(this.selectorPath);
+        return this.get({
+            url: this.selectorPath
+        });
     }
 
     getSeriesList(parentCode: string) {

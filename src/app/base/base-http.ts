@@ -70,7 +70,7 @@ export class BaseHttpProxy {
 
     public baseHttpOptions;
     public subscribe: Function;
-    public middlewares: Array<Function>;
+    public middlewares: Array<Function> = [];
 
     constructor(baseHttp: BaseHttp, method: string, opts: BaseHttpOptions) {
 
@@ -83,17 +83,24 @@ export class BaseHttpProxy {
 
             let middleware;
 
+            if (!handlers) {
+
+                handlers = {};
+            }
+
             if (this.middlewares.length) {
 
                 middleware = this.middlewares.shift();
             }
+
             opts.beforeSend && opts.beforeSend();
 
             return baseHttp.request(method, opts).subscribe(
                 (res) => {
 
                     if (middleware) {
-                        return middleware(res).subscribe();
+
+                        return middleware(res).subscribe(handlers);
                     }
 
                     let fn = handlers.next ?  handlers.next : (opts.success ? opts.success : null);
@@ -101,8 +108,8 @@ export class BaseHttpProxy {
                     fn && fn(res);
                 },
                 handlers.error ? handlers.error : (opts.error ? opts.error : (err) => {
-                    console.log('global error handler');
-                    console.log(err);
+
+                    console.error(err);
                 }),
                 handlers.complete ? handlers.complete : (opts.complete ? opts.complete : null)
             );
@@ -112,6 +119,8 @@ export class BaseHttpProxy {
     public serial(middleware: Function): any {
 
         this.middlewares.push(middleware);
+
+        return this;
     }
 
     static parallel(tasks: BaseHttpProxy[]): Observable<any> {
