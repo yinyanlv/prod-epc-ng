@@ -7,21 +7,24 @@ export class SearchConditionService extends BaseHttp {
 
     private selectorPath: string = this.globalConfig.path + '/selector/catalog';
 
-    getConditionList1(parentCode: string, opts: BaseHttpOptions) {
+    getConditionList1(parentCode: string) {
 
-        opts.url = this.selectorPath + '?parentGrade=g2&parentCode=' + parentCode;
-        this.get(opts);
+        return this.get({
+            url: this.selectorPath + '?parentGrade=g2&parentCode=' + parentCode
+        });
     }
 
-    getConditionList2(parentCode: string, opts: BaseHttpOptions) {
+    getConditionList2(parentCode: string) {
 
-        opts.url = this.selectorPath + '?parentGrade=g3&parentCode=' + parentCode;
-        this.get(opts);
+        return this.get({
+            url: this.selectorPath + '?parentGrade=g3&parentCode=' + parentCode
+        });
     }
 
-    getConditionList3(parentCode: string, opts: BaseHttpOptions) {
+    getConditionList3(parentCode: string) {
 
-        opts.url = this.selectorPath + '?parentGrade=g4&parentCode=' + parentCode;
-        this.get(opts);
+        return this.get({
+            url: this.selectorPath + '?parentGrade=g4&parentCode=' + parentCode
+        });
     }
 }

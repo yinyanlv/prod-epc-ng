@@ -27,26 +27,25 @@ export class SearchConditionComponent extends BaseComponent implements OnInit {
 
     ngOnInit() {
 
-        this.searchConditionService.getConditionList1('D90', {
-            success: (res) => {
+        this.searchConditionService.getConditionList1('D90')
+            .serial((res) => {
 
                 this.list1 = res.list;
 
-                this.searchConditionService.getConditionList2(this.list1[0].code, {
-                    success: (res) => {
+                return this.searchConditionService.getConditionList2(this.list1[0].code);
+            })
+            .serial((res) => {
 
-                        this.list2 = res.list;
+                this.list2 = res.list;
 
-                        this.searchConditionService.getConditionList3(this.list2[0].code, {
-                            success: (res) => {
+                return this.searchConditionService.getConditionList3(this.list2[0].code);
+            })
+            .subscribe({
+                next: (res) => {
 
-                                this.list3 = res.list;
-                            }
-                        });
-                    }
-                });
-            }
-        });
+                    this.list3 = res.list;
+                }
+            });
     }
 
     toggleList(list: string, isCollapse: boolean) {

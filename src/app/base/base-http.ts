@@ -100,7 +100,11 @@ export class BaseHttpProxy {
 
                     if (middleware) {
 
-                        return middleware(res).subscribe(handlers);
+                        let next = middleware(res);
+
+                        next.middlewares = this.middlewares;
+
+                        return next.subscribe(handlers);
                     }
 
                     let fn = handlers.next ?  handlers.next : (opts.success ? opts.success : null);
@@ -116,7 +120,7 @@ export class BaseHttpProxy {
         };
     }
 
-    public serial(middleware: Function): any {
+    public serial(middleware: (res: any) => BaseHttpProxy): any {
 
         this.middlewares.push(middleware);
 
