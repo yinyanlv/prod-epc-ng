@@ -1,5 +1,9 @@
 <div class="navbar">
-    <a *ngFor="let item of crumbs;" class="crumbs-item" [routerLink]="[item.href]" [queryParams]="item.queryParams">
+    <a class="crumbs-item"
+       *ngFor="let item of crumbs;"
+       [routerLink]="[item.href]"
+       [queryParams]="item.queryParams"
+    >
         <span class="paging-icon"><i class="iconfont icon-arrow-right"></i></span>
         <span>{{item.name}}</span>
     </a>
