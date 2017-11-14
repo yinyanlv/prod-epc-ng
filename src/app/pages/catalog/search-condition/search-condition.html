@@ -3,59 +3,7 @@
         <span class="text bold-text">配置</span>
     </div>
     <div *ngIf="isShowConditions; else holder;">
-        <div class="condition-item" [ngClass]="{collapse: isCollapsed1, expand: !isCollapsed1}">
-            <div class="condition-title">
-                <span class="bold-text title-text">左右舵+驱动形式</span>
-                <span class="current-choice-wrapper">
-                    <span class="current">[</span>
-                    <span class="current current-choice"> 全部 </span>
-                    <span class="current">]</span>
-                </span>
-            </div>
-            <div class="condition-content">
-                <div *ngFor="let item of list1;"><a class="text-link secondary active">{{item.name}}</a></div>
-            </div>
-            <div class="condition-btn-wrapper">
-                <a class="condition-btn">
-                    <span class="btn-collapse" *ngIf="isCollapsed1" (click)="toggleList('list1', false)"><i class="iconfont icon-collapse"></i><span class="text">更多</span></span>
-                    <span class="btn-expand" *ngIf="!isCollapsed1" (click)="toggleList('list1', true)"><i class="iconfont icon-expand"></i><span class="text">收起</span></span>
-                </a>
-            </div>
-        </div>
-        <div class="condition-item" [ngClass]="{collapse: isCollapsed2, expand: !isCollapsed2}">
-            <div class="condition-title">
-                <span class="bold-text title-text">车型系列细分</span>
-                <span class="current-choice-wrapper">
-                    <span class="current">[</span>
-                    <span class="current current-choice"> 旗舰版 </span>
-                    <span class="current">]</span>
-                </span>
-            </div>
-            <div class="condition-content">
-                <div *ngFor="let item of list2;"><a class="text-link secondary active">{{item.name}}</a></div>
-            </div>
-            <div class="condition-btn-wrapper">
-                <a class="condition-btn">
-                    <span class="btn-collapse" *ngIf="isCollapsed2" (click)="toggleList('list2', false)"><i class="iconfont icon-collapse"></i><span class="text">更多</span></span>
-                    <span class="btn-expand" *ngIf="!isCollapsed2" (click)="toggleList('list2', true)"><i class="iconfont icon-expand"></i><span class="text">收起</span></span>
-                </a>
-            </div>
-        </div>
-        <div class="condition-item" [ngClass]="{collapse: isCollapsed3, expand: !isCollapsed3}">
-            <div class="condition-title">
-                <span class="bold-text title-text">变速箱型号</span>
-                <span class="current-choice-wrapper"></span>
-            </div>
-            <div class="condition-content">
-                <div *ngFor="let item of list3;"><a class="text-link secondary active">{{item.name}}</a></div>
-            </div>
-            <div class="condition-btn-wrapper">
-                <a class="condition-btn">
-                    <span class="btn-collapse" *ngIf="isCollapsed3" (click)="toggleList('list3', false)"><i class="iconfont icon-collapse"></i><span class="text">更多</span></span>
-                    <span class="btn-expand" *ngIf="!isCollapsed3" (click)="toggleList('list3', true)"><i class="iconfont icon-expand"></i><span class="text">收起</span></span>
-                </a>
-            </div>
-        </div>
+        <ng-content></ng-content>
     </div>
     <ng-template #holder>
         <div class="lead-content">

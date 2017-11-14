@@ -21,4 +21,24 @@ export class CatalogService extends BaseHttp {
         });
     }
 
+    getConditionList1(parentCode: string) {
+
+        return this.get({
+            url: this.selectorPath + '?parentGrade=g2&parentCode=' + parentCode
+        });
+    }
+
+    getConditionList2(parentCode: string) {
+
+        return this.get({
+            url: this.selectorPath + '?parentGrade=g3&parentCode=' + parentCode
+        });
+    }
+
+    getConditionList3(parentCode: string) {
+
+        return this.get({
+            url: this.selectorPath + '?parentGrade=g4&parentCode=' + parentCode
+        });
+    }
 }

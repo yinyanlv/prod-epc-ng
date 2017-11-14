@@ -8,6 +8,7 @@ import {CatalogService} from './catalog.service';
 import {CatalogRouting} from './catalog.routing';
 import {BrandSeriesComponent} from './brand-series/brand-series.component';
 import {SearchConditionComponent} from './search-condition/search-condition.component';
+import {ConditionComponent} from './condition/condition.component';
 
 @NgModule({
     imports: [
@@ -19,7 +20,8 @@ import {SearchConditionComponent} from './search-condition/search-condition.comp
     declarations: [
         CatalogComponent,
         BrandSeriesComponent,
-        SearchConditionComponent
+        SearchConditionComponent,
+        ConditionComponent
     ],
     providers: [CatalogService]
 })

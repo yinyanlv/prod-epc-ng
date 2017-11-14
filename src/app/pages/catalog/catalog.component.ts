@@ -20,6 +20,14 @@ export class CatalogComponent extends BaseComponent implements OnInit {
     activeBrand: string;
     activeSeries: string;
 
+    isShowConditions: boolean = true;
+    list1: Array<any>;
+    list2: Array<any>;
+    list3: Array<any>;
+    isCollapsed1: boolean = true;
+    isCollapsed2: boolean = true;
+    isCollapsed3: boolean = true;
+
     constructor(
         private service: CatalogService,
         private router: Router
@@ -41,6 +49,26 @@ export class CatalogComponent extends BaseComponent implements OnInit {
                 next: (res) => {
 
                     this.seriesList = res.list;
+                }
+            });
+
+        this.service.getConditionList1('D90')
+            .serial((res) => {
+
+                this.list1 = res.list;
+
+                return this.service.getConditionList2(this.list1[0].code);
+            })
+            .serial((res) => {
+
+                this.list2 = res.list;
+
+                return this.service.getConditionList3(this.list2[0].code);
+            })
+            .subscribe({
+                next: (res) => {
+
+                    this.list3 = res.list;
                 }
             });
     }
