@@ -1,14 +1,19 @@
-<section id="brand-block" class="condition-block brand-block">
+<section class="condition-block brand-block">
     <div class="headline">
         <span class="text bold-text">品牌</span>
     </div>
     <div class="condition-entity">
         <div class="brand-tab-btn">
-            <a *ngFor="let item of brandList;" class="btn secondary tab-btn" [class.active]="item.code === activeBrand ? true : false" (click)="setActiveBrand(item.code)">{{item.name}}</a>
+            <a class="btn secondary tab-btn"
+               *ngFor="let item of brandList;"
+               [class.active]="item.code === activeBrand ? true : false"
+               (click)="onClickBrand(item.code)">
+                {{item.name}}
+            </a>
         </div>
         <div class="series-tab-content">
             <ul class="tab-content disappear">
-                <li *ngFor="let item of seriesList;" class="series-item" (click)="setActiveSeries(item.code)">
+                <li class="series-item" *ngFor="let item of seriesList;" (click)="onClickSeries(item.code)">
                     <a class="series-btn" [class.active]="item.code === activeSeries ? true : false">
                         <div class="img-wrapper">
                             <img class="lazy" src="{{item.imgUrl}}">

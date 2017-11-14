@@ -1,53 +1,39 @@
-import {Component, ViewEncapsulation, OnInit} from '@angular/core';
-
-import {BaseComponent} from '../../../base/base-component';
-import {BrandSeriesService} from './brand-series.service';
+import {Component, ViewEncapsulation, ChangeDetectionStrategy, Input, Output, EventEmitter} from '@angular/core';
 
 @Component({
     encapsulation: ViewEncapsulation.None,
     selector: 'brand-series',
     templateUrl: './brand-series.html',
     styleUrls: ['./brand-series.scss'],
-    providers: [BrandSeriesService]
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BrandSeriesComponent extends BaseComponent implements OnInit {
+export class BrandSeriesComponent {
 
-    private brandList: Array<any>;
-    private seriesList: Array<any>;
-    private activeBrand: string;
-    private activeSeries: string;
+    @Input()
+    brandList: Array<any>;
 
-    constructor(
-        private brandSeriesService: BrandSeriesService
-    ) {
-        super();
+    @Input()
+    seriesList: Array<any>;
+
+    @Input()
+    activeBrand: string;
+
+    @Input()
+    activeSeries: string;
+
+    @Output()
+    private clickBrand: EventEmitter<string> = new EventEmitter<string>();
+
+    @Output()
+    private clickSeries: EventEmitter<string> = new EventEmitter<string>();
+
+    onClickBrand(brandCode: string) {
+
+        this.clickBrand.emit(brandCode);
     }
 
-    ngOnInit() {
+    onClickSeries(seriesCode: string) {
 
-        this.brandSeriesService.getBrandList()
-            .serial((res) => {
-
-                this.brandList = res.list;
-                this.activeBrand = res.list[0].code;
-
-                return this.brandSeriesService.getSeriesList(this.activeBrand);
-            })
-            .subscribe({
-                next: (res) => {
-
-                    this.seriesList = res.list;
-                }
-            });
-    }
-
-    setActiveBrand(brandCode: string) {
-
-        this.activeBrand = brandCode;
-    }
-
-    setActiveSeries(seriesCode: string) {
-
-        this.activeSeries = seriesCode;
+        this.clickSeries.emit(seriesCode);
     }
 }

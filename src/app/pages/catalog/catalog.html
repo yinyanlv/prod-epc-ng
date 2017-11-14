@@ -3,7 +3,15 @@
 
 <section class="wrapper clearfix">
     <search-condition></search-condition>
-    <brand-series></brand-series>
+    <brand-series
+        [brandList]="brandList"
+        [seriesList]="seriesList"
+        [activeBrand]="activeBrand"
+        [activeSeries]="activeSeries"
+        (clickBrand)="setActiveBrand($event)"
+        (clickSeries)="setActiveSeries($event)"
+        >
+    </brand-series>
 </section>
 
 <app-footer></app-footer>
