@@ -1,25 +1,18 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
-
-import {CrumbService} from './crumb.service';
+import {Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation} from '@angular/core';
 
 @Component({
     encapsulation: ViewEncapsulation.None,
     selector: 'app-crumb',
     templateUrl: './crumb.html',
     styleUrls: ['./crumb.scss'],
-    providers: [CrumbService]
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CrumbComponent implements OnInit {
 
-    crumbs: Array<any>;
-
-    constructor(
-        private crumbService: CrumbService
-    ) {
-    }
+    @Input()
+    list: Array<any>;
 
     ngOnInit() {
 
-        this.crumbs = this.crumbService.getCrumbs();
     }
 }

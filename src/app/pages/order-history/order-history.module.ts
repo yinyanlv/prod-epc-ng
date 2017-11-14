@@ -1,12 +1,12 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
 
+import {SharedModule} from '../../modules/shared.module';
 import {OrderHistoryComponent} from './order-history.component';
 import {OrderHistoryRouting} from './order-history.routing';
 
 @NgModule({
     imports: [
-        CommonModule,
+        SharedModule,
         OrderHistoryRouting
     ],
     declarations: [

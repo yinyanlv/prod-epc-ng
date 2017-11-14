@@ -1,9 +1,9 @@
 <app-header></app-header>
-<app-crumb></app-crumb>
+<app-crumb [list]="crumbs"></app-crumb>
 <section class="wrapper clearfix">
     <search-condition>
-        <condition title="左右舵+驱动形式" [list]="list1" [isCollapsed]="isCollapsed1"></condition>
-        <condition title="车型系列细分" [list]="list2" [isCollapsed]="isCollapsed2"></condition>
+        <condition title="左右舵+驱动形式" [list]="list1" [isCollapsed]="isCollapsed1" [activeItemCode]="activeCode1"></condition>
+        <condition title="车型系列细分" [list]="list2" [isCollapsed]="isCollapsed2" [activeItemCode]="activeCode2"></condition>
         <condition title="变速箱型号" [list]="list3" [isCollapsed]="isCollapsed3"></condition>
     </search-condition>
     <brand-series

@@ -1,8 +1,6 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
-import {RouterModule} from '@angular/router';
 
-import {SharedComponentsModule} from '../../modules/shared-components.module';
+import {SharedModule} from '../../modules/shared.module';
 import {CatalogComponent} from './catalog.component';
 import {CatalogService} from './catalog.service';
 import {CatalogRouting} from './catalog.routing';
@@ -12,9 +10,7 @@ import {ConditionComponent} from './condition/condition.component';
 
 @NgModule({
     imports: [
-        CommonModule,
-        RouterModule,
-        SharedComponentsModule,
+        SharedModule,
         CatalogRouting
     ],
     declarations: [

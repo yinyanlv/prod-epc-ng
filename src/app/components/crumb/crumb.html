@@ -1,6 +1,6 @@
 <div class="navbar">
     <a class="crumbs-item"
-       *ngFor="let item of crumbs;"
+       *ngFor="let item of list;"
        [routerLink]="[item.href]"
        [queryParams]="item.queryParams"
     >

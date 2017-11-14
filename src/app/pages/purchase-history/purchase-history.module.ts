@@ -1,12 +1,12 @@
 import {NgModule} from '@angular/core';
-import {CommonModule} from '@angular/common';
 
+import {SharedModule} from '../../modules/shared.module';
 import {PurchaseHistoryComponent} from './purchase-history.component';
 import {PurchaseHistoryRouting} from './purchase-history.routing';
 
 @NgModule({
     imports: [
-        CommonModule,
+        SharedModule,
         PurchaseHistoryRouting
     ],
     declarations: [

@@ -9,11 +9,11 @@ import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy, OnInit}
 export class ConditionComponent implements OnInit {
 
     private _list: Array<any>;
-
+    activeItem: {code: string, name: string};
     @Input() withAll: boolean = true;
     @Input() isCollapsed: boolean = true;
     @Input() title: boolean = true;
-    @Input() activeItem: {code: string; name: string;};
+    @Input() activeItemCode: string;
     @Input()
     set list(val) {
 
@@ -30,6 +30,14 @@ export class ConditionComponent implements OnInit {
     }
 
     ngOnInit() {
+
+        this.list.some((item) => {
+
+            if (item && item.code === this.activeItemCode) {
+
+                return this.activeItem = item;
+            }
+        });
     }
 
     select(item) {

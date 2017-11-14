@@ -15,12 +15,16 @@ import {CatalogService} from './catalog.service';
 })
 export class CatalogComponent extends BaseComponent implements OnInit {
 
+    crumbs: Array<any>;
+
     brandList: Array<any>;
     seriesList: Array<any>;
     activeBrand: string;
     activeSeries: string;
 
     isShowConditions: boolean = true;
+    activeCode1: string = '';
+    activeCode2: string = '';
     list1: Array<any>;
     list2: Array<any>;
     list3: Array<any>;
@@ -71,6 +75,8 @@ export class CatalogComponent extends BaseComponent implements OnInit {
                     this.list3 = res.list;
                 }
             });
+
+        this.crumbs = this.service.getCrumbs();
     }
 
     setActiveBrand(code: string) {

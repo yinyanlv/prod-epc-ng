@@ -1,13 +1,9 @@
-import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {HttpModule} from '@angular/http';
-import {RouterModule} from '@angular/router';
+import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HttpClientModule} from '@angular/common/http';
 
-import {SharedServicesModule} from './modules/shared-services.module';
+import {SharedModule} from './modules/shared.module';
 import {ErrorModule} from './pages/error/error.module';
-
 import {AppComponent} from './app.component';
 import {AppRouting} from './app.routing';
 
@@ -17,12 +13,9 @@ import {AppRouting} from './app.routing';
     ],
     imports: [
         BrowserModule,
-        HttpModule,
-        RouterModule,
         BrowserAnimationsModule,
-        HttpClientModule,
+        SharedModule,
         AppRouting,
-        SharedServicesModule,
         ErrorModule
     ],
     providers: [],

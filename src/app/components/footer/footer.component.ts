@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy} from '@angular/core';
+import {Component, ViewEncapsulation, ChangeDetectionStrategy} from '@angular/core';
 
 @Component({
     encapsulation: ViewEncapsulation.None,
@@ -7,11 +7,4 @@ import {Component, OnInit, ViewEncapsulation, ChangeDetectionStrategy} from '@an
     styleUrls: ['./footer.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FooterComponent implements OnInit {
-
-    constructor() {
-    }
-
-    ngOnInit() {
-    }
-}
+export class FooterComponent {}
