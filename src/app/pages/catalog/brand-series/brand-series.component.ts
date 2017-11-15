@@ -4,7 +4,6 @@ import {Component, ViewEncapsulation, ChangeDetectionStrategy, Input, Output, Ev
     encapsulation: ViewEncapsulation.None,
     selector: 'brand-series',
     templateUrl: './brand-series.html',
-    styleUrls: ['./brand-series.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BrandSeriesComponent {

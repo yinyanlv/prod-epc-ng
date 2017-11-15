@@ -6,7 +6,6 @@ import {BaseComponent} from '../../../base/base-component';
     encapsulation: ViewEncapsulation.None,
     selector: 'search-condition',
     templateUrl: './search-condition.html',
-    styleUrls: ['./search-condition.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SearchConditionComponent extends BaseComponent {

@@ -1,0 +1,28 @@
+<ul class="navigation-tree parent">
+    <li class="condition-item-group" *ngFor="let item of list;" [ngClass]="{
+         expand: item.isExpanded,
+         collapse: !item.isExpanded,
+         active: activeItemCode === item.code
+    }">
+        <a class="title text-link secondary bold-text tree-node" (click)="selectItem(item)">
+            <span class="condition-icon" (click)="toggle(item)">
+                <i class="tree-icon btn-collapse"></i>
+                <i class="tree-icon btn-expand"></i>
+            </span>
+            <span class="text">{{item.code}} - {{item.name}}</span>
+        </a>
+        <ul class="child">
+            <li class="condition-item-group leaf" *ngFor="let subItem of item.children;" [ngClass]="{
+                 expand: subItem.isExpanded,
+                 active: activeItemCode === subItem.code
+            }">
+                <a class="title text-link secondary bold-text tree-node" (click)="selectItem(subItem)">
+                    <span class="condition-icon">
+                        <i class="leaf-icon btn-leaf"></i>
+                    </span>
+                    <span class="text">{{subItem.code}} - {{subItem.name}}</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>

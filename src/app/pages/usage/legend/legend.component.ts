@@ -18,16 +18,16 @@ class LegendOptions {
     swfLegendWidth: number= 0;
     swfLegendHeight: number= 0;
     percent: number=1;
-    dictList: object;
+    dictList: Object;
     isDone: boolean =true;
     curCoords: Array<string>;
     curCallouts: Array<string>;
-    dragLegendPosition: object;
+    dragLegendPosition: Object;
     data: Array<string>;
-    dragAssisactiveToolPosition: object;
+    dragAssisactiveToolPosition: Object;
     buildData: Array<string>;
-    legendRawSize: object
-};
+    legendRawSize: Object
+}
 
 class LegendCallbacks {
     onPrint: Function;
@@ -37,12 +37,12 @@ class LegendCallbacks {
     onLegendBeforeLoad: Function;
     onLegendAfterLoad: Function;
     onSelectionPartError: Function;
-};
+}
 
 @Component({
     selector: 'app-legend',
-    templateUrl: './legend.component.html',
-    styleUrls: ['./legend.component.scss']
+    templateUrl: 'legend.html',
+    styleUrls: ['./legend.scss']
 })
 export class LegendComponent implements OnInit {
     private jsGraphics: {};

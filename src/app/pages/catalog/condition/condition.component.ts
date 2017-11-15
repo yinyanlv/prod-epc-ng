@@ -3,7 +3,6 @@ import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy, OnInit}
 @Component({
     selector: 'condition',
     templateUrl: 'condition.html',
-    styleUrls: ['condition.css'],
     changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ConditionComponent implements OnInit {
