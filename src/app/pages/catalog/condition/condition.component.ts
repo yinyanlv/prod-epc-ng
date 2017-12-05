@@ -20,7 +20,7 @@ export class ConditionComponent implements OnInit {
     }
     get list() {
         return this._list;
-    };
+    }
 
     @Output()
     private selectItem = new EventEmitter<any>();
