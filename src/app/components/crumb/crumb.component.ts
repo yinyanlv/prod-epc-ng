@@ -2,7 +2,7 @@ import {Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy,
 
 @Component({
     encapsulation: ViewEncapsulation.None,
-    selector: 'app-crumb',
+    selector: 's-crumb',
     templateUrl: './crumb.html',
     styleUrls: ['./crumb.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush

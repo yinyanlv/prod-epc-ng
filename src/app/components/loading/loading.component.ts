@@ -1,7 +1,7 @@
 import {Component, ViewEncapsulation, ChangeDetectionStrategy, ElementRef, Renderer2} from '@angular/core';
 
 @Component({
-    selector: 'loading',
+    selector: 's-loading',
     templateUrl: './loading.html',
     styleUrls: ['./loading.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
