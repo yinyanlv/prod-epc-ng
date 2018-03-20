@@ -1,13 +1,5 @@
 import {Injectable} from '@angular/core';
-import {
-    HttpClient,
-    HttpHeaders,
-    HttpParams,
-    HttpRequest,
-    HttpHandler,
-    HttpEvent,
-    HttpInterceptor
-} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams, HttpRequest, HttpHandler, HttpEvent, HttpInterceptor} from '@angular/common/http';
 import {Observable, Subscription, Subject} from 'rxjs';
 
 import {globalConfig} from '../etc/provider';
