@@ -3,4 +3,26 @@
     font-size: 0;
     vertical-align: middle;
     cursor: pointer;
+
+    .icon {
+        display: inline-block;
+        width: 13px;
+        height: 13px;
+        line-height: 11px;
+        border: 1px solid #b3b3b3;
+        border-radius: 4px;
+        background: #ffffff;
+        vertical-align: middle;
+        margin-right: 5px;
+    }
+
+    &.checked {
+
+        .icon {
+            border: 1px solid #1b77b9;
+            background: #1b77b9;
+        }
+    }
 }
+
+

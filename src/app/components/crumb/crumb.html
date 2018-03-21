@@ -1,11 +1,11 @@
-<div class="navbar">
-    <a class="crumbs-item"
+<div class="crumb">
+    <a class="crumb-item"
        *ngFor="let item of list;"
        [routerLink]="[item.href]"
        [queryParams]="item.queryParams"
     >
-        <span class="paging-icon"><i class="iconfont icon-arrow-right"></i></span>
-        <span>{{item.name}}</span>
+        <span class="icon"><i class="iconfont icon-arrow-right"></i></span>
+        <span class="text">{{item.text}}</span>
     </a>
 </div>
 

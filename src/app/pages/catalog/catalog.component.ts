@@ -88,4 +88,9 @@ export class CatalogComponent extends BaseComponent implements OnInit {
 
         this.activeSeries = code;
     }
+
+    handleStatusChange(isChecked: boolean) {
+
+        console.log(isChecked);
+    }
 }

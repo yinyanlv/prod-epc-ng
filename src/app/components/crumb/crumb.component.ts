@@ -1,7 +1,6 @@
-import {Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy} from '@angular/core';
 
 @Component({
-    encapsulation: ViewEncapsulation.None,
     selector: 's-crumb',
     templateUrl: './crumb.html',
     styleUrls: ['./crumb.scss'],
