@@ -1,14 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
-  selector: 's-checkbox',
-  templateUrl: 'checkbox.html',
-  styleUrls: ['checkbox.scss']
+    selector: 's-checkbox',
+    templateUrl: 'checkbox.html',
+    styleUrls: ['checkbox.scss']
 })
 export class CheckboxComponent implements OnInit {
 
-  constructor() { }
+    checked: boolean;
 
-  ngOnInit() {
-  }
+    constructor() {
+    }
+
+    ngOnInit() {
+    }
+
+    toggleStatus(e) {
+
+        this.checked = !this.checked;
+        console.log(e);
+    }
 }

@@ -7,6 +7,9 @@ import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import {HeaderComponent} from '../components/header/header.component';
 import {FooterComponent} from '../components/footer/footer.component';
 import {CrumbComponent} from '../components/crumb/crumb.component';
+import {CheckboxComponent} from '../components/checkbox/checkbox.component';
+import {GridComponent} from '../components/grid/grid.component';
+import {LoadingComponent} from '../components/loading/loading.component';
 import {SearchComponent} from '../components/header/search/search.component';
 import {CartComponent} from '../components/header/cart/cart.component';
 import {DialogComponent} from '../components/dialog/dialog.component';
@@ -34,7 +37,10 @@ const components = [
     SearchComponent,
     CartComponent,
     DialogComponent,
-    PaginationComponent
+    PaginationComponent,
+    CheckboxComponent,
+    GridComponent,
+    LoadingComponent
 ];
 
 const pipes = [
@@ -65,6 +71,9 @@ const services = [
         ...modules,
         ...components,
         ...pipes
+    ],
+    entryComponents: [
+        LoadingComponent
     ],
     providers: services
 })

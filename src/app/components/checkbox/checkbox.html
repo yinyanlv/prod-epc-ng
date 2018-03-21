@@ -1,4 +1,4 @@
-<span class="checkbox">
-    <i class="icon"></i>
+<span class="checkbox" (click)="toggleStatus($event)" [ngClass]="{checked: checked}">
+    <i class="icon icon-checked"></i>
     <span class="text">文字</span>
 </span>
