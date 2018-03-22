@@ -72,9 +72,6 @@ const services = [
         ...components,
         ...pipes
     ],
-    entryComponents: [
-        LoadingComponent
-    ],
     providers: services
 })
 export class SharedModule {

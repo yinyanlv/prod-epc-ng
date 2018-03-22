@@ -1,13 +1,15 @@
-import {Component, ViewEncapsulation, ChangeDetectionStrategy, ElementRef, Renderer2} from '@angular/core';
+import {Directive, Input, ElementRef, Renderer2, OnInit} from '@angular/core';
 
-@Component({
-    selector: 's-loading',
-    templateUrl: './loading.html',
-    styleUrls: ['./loading.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    encapsulation: ViewEncapsulation.None
+@Directive({
+    selector: '[s-loading]'
 })
-export class LoadingComponent {
+export class LoadingComponent implements OnInit {
+
+    @Input()
+    private text: string = '正在加载...';
+
+    private visible: boolean = false;
+    private loadingElement: Element;
 
     constructor(
         private elem: ElementRef,
@@ -15,11 +17,26 @@ export class LoadingComponent {
     ) {
     }
 
-    show(): void {
-        this.renderer.addClass(this.elem.nativeElement, 'hidden');
+    ngOnInit() {
+
+        let hostElement = this.elem.nativeElement;
+        let tempElement: HTMLElement = this.renderer.createElement('div');
+
+        tempElement.innerHTML = this.getLoadingHtml();
+
+        this.loadingElement = tempElement.children[0];
+
+        this.renderer.setStyle(hostElement, 'position', 'relative');
+        this.renderer.appendChild(hostElement, this.loadingElement);
     }
 
-    hide(): void {
-        this.renderer.removeClass(this.elem.nativeElement, 'hidden');
+    getLoadingHtml(): string {
+
+        return `
+            <div class="loading">
+                <span class="icon"><i></i><i></i><i></i><i></i></span>
+                <span class="text">${this.text}</span>
+            </div>
+        `;
     }
 }
