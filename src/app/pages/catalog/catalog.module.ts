@@ -8,6 +8,10 @@ import {BrandSeriesComponent} from './brand-series/brand-series.component';
 import {SearchConditionComponent} from './search-condition/search-condition.component';
 import {ConditionComponent} from './condition/condition.component';
 
+import {ParentComponent} from './parent.component';
+import {ChildAComponent} from './child-a.component';
+import {ChildBComponent} from './child-b.component';
+
 @NgModule({
     imports: [
         SharedModule,
@@ -17,7 +21,10 @@ import {ConditionComponent} from './condition/condition.component';
         CatalogComponent,
         BrandSeriesComponent,
         SearchConditionComponent,
-        ConditionComponent
+        ConditionComponent,
+        ParentComponent,
+        ChildAComponent,
+        ChildBComponent
     ],
     providers: [CatalogService]
 })

@@ -15,6 +15,8 @@ import {CartComponent} from '../components/header/cart/cart.component';
 import {DialogComponent} from '../components/dialog/dialog.component';
 import {PaginationComponent} from '../components/pagination/pagination.component';
 
+import {LoadingDirective} from '../directives/loading.directive';
+
 import {ResHostPipe} from '../pipes/res-host.pipe';
 import {BackgroundUrlPipe} from '../pipes/background-url.pipe';
 
@@ -28,6 +30,10 @@ const modules = [
     CommonModule,
     RouterModule,
     FormsModule
+];
+
+const directives = [
+    LoadingDirective
 ];
 
 const components = [
@@ -64,13 +70,18 @@ const services = [
 @NgModule({
     imports: modules,
     declarations: [
+        ...directives,
         ...components,
         ...pipes
     ],
     exports: [
         ...modules,
+        ...directives,
         ...components,
         ...pipes
+    ],
+    entryComponents: [
+        LoadingComponent
     ],
     providers: services
 })

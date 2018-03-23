@@ -1,7 +1,9 @@
-import {Directive, Input, ElementRef, Renderer2, OnInit} from '@angular/core';
+import {Component, Input, ElementRef, Renderer2, OnInit} from '@angular/core';
 
-@Directive({
-    selector: '[s-loading]'
+@Component({
+    selector: 's-loading',
+    templateUrl: './loading.html',
+    styleUrls: ['./loading.scss']
 })
 export class LoadingComponent implements OnInit {
 
@@ -9,7 +11,6 @@ export class LoadingComponent implements OnInit {
     private text: string = '正在加载...';
 
     private visible: boolean = false;
-    private loadingElement: Element;
 
     constructor(
         private elem: ElementRef,
@@ -19,24 +20,5 @@ export class LoadingComponent implements OnInit {
 
     ngOnInit() {
 
-        let hostElement = this.elem.nativeElement;
-        let tempElement: HTMLElement = this.renderer.createElement('div');
-
-        tempElement.innerHTML = this.getLoadingHtml();
-
-        this.loadingElement = tempElement.children[0];
-
-        this.renderer.setStyle(hostElement, 'position', 'relative');
-        this.renderer.appendChild(hostElement, this.loadingElement);
-    }
-
-    getLoadingHtml(): string {
-
-        return `
-            <div class="loading">
-                <span class="icon"><i></i><i></i><i></i><i></i></span>
-                <span class="text">${this.text}</span>
-            </div>
-        `;
     }
 }

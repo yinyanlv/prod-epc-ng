@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, OnInit, ViewEncapsulation, ViewChild, ViewContainerRef} from '@angular/core';
 import {Router, ActivatedRoute, Params} from '@angular/router';
 
 import {BaseComponent} from '../../base/base-component';
@@ -32,6 +32,11 @@ export class CatalogComponent extends BaseComponent implements OnInit {
     isCollapsed2: boolean = true;
     isCollapsed3: boolean = true;
 
+    parent: string = 'parent';
+    childA: string = 'child a';
+    childB: string = 'child b';
+
+
     constructor(
         private service: CatalogService,
         private router: Router
@@ -40,6 +45,14 @@ export class CatalogComponent extends BaseComponent implements OnInit {
     }
 
     ngOnInit() {
+
+        // setTimeout(() => {
+        //     let a = new Date();
+        //
+        //     this.parent = 'parent ' + a;
+        //     this.childA = 'child a ' + a;
+        //
+        // }, 5000);
 
         this.service.getBrandList()
             .serial((res) => {
