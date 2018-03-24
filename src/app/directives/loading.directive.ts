@@ -1,4 +1,4 @@
-import {Directive, ViewContainerRef, ComponentRef, ViewChild, Injector, ElementRef, ComponentFactoryResolver, Renderer2, OnInit} from '@angular/core';
+import {Directive, ViewContainerRef, Injector, ViewChild, ElementRef, ComponentFactoryResolver, Renderer2, OnInit} from '@angular/core';
 
 import {LoadingComponent} from '../components/loading/loading.component';
 
@@ -8,6 +8,11 @@ import {LoadingComponent} from '../components/loading/loading.component';
 export class LoadingDirective implements OnInit{
 
     private hostElement: HTMLElement;
+
+    @ViewChild('abc', {
+        read: Injector
+    })
+    private a: Injector;
 
     constructor(
         private viewContainer: ViewContainerRef,
@@ -27,9 +32,12 @@ export class LoadingDirective implements OnInit{
             this.renderer.setStyle(this.hostElement, 'position', 'relative');
         }
 
-        let cmpFactory = this.cmpFactoryResolver.resolveComponentFactory(LoadingComponent);
-
         console.log(this.viewContainer);
-        this.viewContainer.createComponent(cmpFactory, 0, this.injector)
+        console.log(this.injector);
+
+        let cmpFactory = this.cmpFactoryResolver.resolveComponentFactory(LoadingComponent);
+        let cmp = cmpFactory.create(this.injector);
+
+        this.renderer.appendChild(this.hostElement, cmp.hostView['rootNodes'][0]);
     }
 }
