@@ -9,11 +9,6 @@ export class LoadingDirective implements OnInit{
 
     private hostElement: HTMLElement;
 
-    @ViewChild('abc', {
-        read: Injector
-    })
-    private a: Injector;
-
     constructor(
         private viewContainer: ViewContainerRef,
         private elem: ElementRef,
