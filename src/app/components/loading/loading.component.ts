@@ -1,4 +1,4 @@
-import {Component, Input, ElementRef, Renderer2, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
     selector: 's-loading',
@@ -11,12 +11,6 @@ export class LoadingComponent implements OnInit {
     private text: string = '正在加载...';
 
     private visible: boolean = false;
-
-    constructor(
-        public elem: ElementRef,
-        private renderer: Renderer2
-    ) {
-    }
 
     ngOnInit() {
 
