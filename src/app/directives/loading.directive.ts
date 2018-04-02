@@ -10,29 +10,26 @@ export class LoadingDirective implements OnInit{
     private hostElement: HTMLElement;
 
     constructor(
-        private viewContainer: ViewContainerRef,
-        private elem: ElementRef,
+        private vcRef: ViewContainerRef,
+        private elemRef: ElementRef,
         private cmpFactoryResolver: ComponentFactoryResolver,
-        private renderer: Renderer2,
-        private injector: Injector
+        private renderer: Renderer2
     ) {
     }
 
     ngOnInit() {
 
-        this.hostElement = this.elem.nativeElement;
+        this.hostElement = this.elemRef.nativeElement;
         let defaultPositionStyle = window.getComputedStyle(this.hostElement).position;
 
         if (defaultPositionStyle === 'static') {
             this.renderer.setStyle(this.hostElement, 'position', 'relative');
         }
 
-        console.log(this.viewContainer);
-        console.log(this.injector);
-
         let cmpFactory = this.cmpFactoryResolver.resolveComponentFactory(LoadingComponent);
-        let cmp = cmpFactory.create(this.injector);
 
-        this.renderer.appendChild(this.hostElement, cmp.hostView['rootNodes'][0]);
+        let cmpRef = this.vcRef.createComponent(cmpFactory);
+
+        this.renderer.appendChild(this.hostElement, cmpRef.location.nativeElement);
     }
 }

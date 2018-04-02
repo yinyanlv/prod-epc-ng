@@ -13,7 +13,7 @@ export class LoadingComponent implements OnInit {
     private visible: boolean = false;
 
     constructor(
-        private elem: ElementRef,
+        public elem: ElementRef,
         private renderer: Renderer2
     ) {
     }
