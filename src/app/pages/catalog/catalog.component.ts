@@ -5,6 +5,8 @@ import {BaseComponent} from '../../base/base-component';
 import {CatalogService} from './catalog.service';
 import {LoadingDirective} from "../../directives/loading.directive";
 
+import {fadeAnimation} from '../../animations/fade.animation';
+
 @Component({
     encapsulation: ViewEncapsulation.None,
     selector: 'app-catalog',
@@ -12,7 +14,8 @@ import {LoadingDirective} from "../../directives/loading.directive";
     styleUrls: ['./catalog.scss'],
     providers: [
         CatalogService
-    ]
+    ],
+    animations: [fadeAnimation]
 })
 export class CatalogComponent extends BaseComponent implements OnInit {
 
@@ -40,6 +43,8 @@ export class CatalogComponent extends BaseComponent implements OnInit {
     @ViewChild('loading', {read: LoadingDirective})
     loading;
 
+    isShow: boolean = true;
+
     constructor(
         private service: CatalogService,
         private router: Router
@@ -49,6 +54,10 @@ export class CatalogComponent extends BaseComponent implements OnInit {
 
     ngOnInit() {
 
+        setTimeout(() => {
+
+            this.isShow = false;
+        }, 6000);
 
         setTimeout(() => {
             this.loading.show();
