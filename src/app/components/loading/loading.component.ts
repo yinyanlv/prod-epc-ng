@@ -1,16 +1,17 @@
 import {Component, Input, OnInit} from '@angular/core';
 
+import {fadeAnimation} from '../../animations/fade.animation';
+
 @Component({
     selector: 's-loading',
     templateUrl: './loading.html',
-    styleUrls: ['./loading.scss']
+    styleUrls: ['./loading.scss'],
+    animations: [fadeAnimation]
 })
 export class LoadingComponent implements OnInit {
 
     @Input()
-    private text: string = '正在加载...';
-
-    private visible: boolean = false;
+    text: string = '正在加载...';
 
     ngOnInit() {
 

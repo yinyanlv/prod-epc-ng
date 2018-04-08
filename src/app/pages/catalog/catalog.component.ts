@@ -56,8 +56,8 @@ export class CatalogComponent extends BaseComponent implements OnInit {
             setTimeout(() => {
 
                 this.loading.hide();
-            }, 1000)
-        }, 1000);
+            }, 2000)
+        }, 2000);
         // setTimeout(() => {
         //     let a = new Date();
         //

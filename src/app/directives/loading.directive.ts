@@ -1,18 +1,21 @@
-import {Directive, ViewContainerRef, Input, Output, ComponentRef, ElementRef, ComponentFactoryResolver, Renderer2, OnInit} from '@angular/core';
+import {Directive, Input, ElementRef, ComponentRef, ViewContainerRef, ComponentFactoryResolver, Renderer2, OnInit} from '@angular/core';
 
 import {LoadingComponent} from '../components/loading/loading.component';
 
 @Directive({
     selector: '[loading]'
 })
-export class LoadingDirective implements OnInit{
+export class LoadingDirective implements OnInit {
 
     private hostElement: HTMLElement;
     private hasShown: boolean = false;
     private cmpRef: ComponentRef<LoadingComponent>;
 
+    @Input('loading')
+    private autoShow: boolean = false;
+
     @Input()
-    private autoShow: boolean = true;
+    private text: string;
 
     constructor(
         private vcRef: ViewContainerRef,
@@ -31,6 +34,8 @@ export class LoadingDirective implements OnInit{
 
     show() {
 
+        if (this.hasShown) return;
+
         this.hostElement = this.elemRef.nativeElement;
         let defaultPositionStyle = window.getComputedStyle(this.hostElement).position;
 
@@ -42,13 +47,19 @@ export class LoadingDirective implements OnInit{
 
         this.cmpRef = this.vcRef.createComponent(cmpFactory);
 
+        if (this.text) {
+            this.cmpRef.instance.text = this.text;
+        }
+
         this.renderer.appendChild(this.hostElement, this.cmpRef.location.nativeElement);
         this.hasShown = true;
     }
 
     hide() {
 
-        this.renderer.removeChild(this.hostElement, this.cmpRef.location.nativeElement);
+        if (!this.hasShown) return;
+
+        this.cmpRef.destroy();
         this.hasShown = false;
     }
 }
