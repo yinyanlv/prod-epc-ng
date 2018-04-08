@@ -3,6 +3,7 @@ import {Router, ActivatedRoute, Params} from '@angular/router';
 
 import {BaseComponent} from '../../base/base-component';
 import {CatalogService} from './catalog.service';
+import {LoadingDirective} from "../../directives/loading.directive";
 
 @Component({
     encapsulation: ViewEncapsulation.None,
@@ -36,6 +37,8 @@ export class CatalogComponent extends BaseComponent implements OnInit {
     childA: string = 'child a';
     childB: string = 'child b';
 
+    @ViewChild('loading', {read: LoadingDirective})
+    loading;
 
     constructor(
         private service: CatalogService,
@@ -46,6 +49,15 @@ export class CatalogComponent extends BaseComponent implements OnInit {
 
     ngOnInit() {
 
+
+        setTimeout(() => {
+            this.loading.show();
+
+            setTimeout(() => {
+
+                this.loading.hide();
+            }, 1000)
+        }, 1000);
         // setTimeout(() => {
         //     let a = new Date();
         //

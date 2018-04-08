@@ -1,7 +1,7 @@
 <app-header></app-header>
 <s-checkbox (statusChange)="handleStatusChange($event)">这是文本</s-checkbox>
 <s-crumb [list]="crumbs"></s-crumb>
-<div style="width:300px; height: 300px;" loading>
+<div #loading style="width:300px; height: 300px;" loading [autoShow]="false">
     ddddddddddddd
     <div>ddd</div>
     <div>e3333</div>
