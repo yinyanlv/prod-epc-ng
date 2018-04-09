@@ -6,8 +6,23 @@
     <div>ddd</div>
     <div>e3333</div>
 </div>
-<div  *ngIf="isShow" style="width:400px;height:400px;background:red;" @list (@list.start)="show($event)">
-    <div *ngFor="let item of abc;" style="width:100px;height: 100px;background: green;">{{item}}</div>
+
+<div style="width:100px;background: black;" [@slide]="slideState">
+    ddddddddddddd
+    <div>ddd</div>
+    <div>e3333</div>
+    ddddddddddddd
+    <div>ddd</div>
+    <div>e3333</div>
+    ddddddddddddd
+    <div>ddd</div>
+    <div>e3333</div>
+    ddddddddddddd
+    <div>ddd</div>
+    <div>e3333</div>
+</div>
+<div *ngIf="isShow"  style="width:400px;height:400px;background:red;" [@list]="abc?.length" @removeChildren>
+    <div *ngFor="let item of abc;" style="width:100px;height: 100px;background: green;" @remove>{{item}}</div>
 </div>
 
 

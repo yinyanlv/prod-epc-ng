@@ -2,9 +2,8 @@ import {trigger, AnimationTriggerMetadata, transition, query, stagger, animate, 
 
 export const listAnimation: AnimationTriggerMetadata = trigger('list', [
 
-    transition(':enter, :leave', [
-
-        query('div:enter', [
+    transition('* => *', [
+        query(':enter', [
                 style({transform: 'translate(100px, 0)', opacity: 0}),
                 stagger(200, [
                     animate('200ms ease-in', style({
@@ -16,7 +15,7 @@ export const listAnimation: AnimationTriggerMetadata = trigger('list', [
             {optional: true}
         ),
 
-        query('div:leave', [
+        query(':leave', [
                 style({transform: 'translate(0, 0)', opacity: 1}),
                 stagger(200, [
                     animate('200ms ease-out', style({

@@ -6,8 +6,8 @@ import {CatalogService} from './catalog.service';
 import {LoadingDirective} from "../../directives/loading.directive";
 
 import {fadeAnimation} from '../../animations/fade.animation';
-import {removeAnimation} from '../../animations/remove.animation';
-import {runChildrenAnimation} from '../../animations/run-children.animation';
+import {slideAnimation} from '../../animations/slide.animation';
+import {runChildrenAnimation, removeAnimation} from '../../animations/remove-children.animation';
 import {listAnimation} from '../../animations/list.animation';
 
 @Component({
@@ -18,7 +18,7 @@ import {listAnimation} from '../../animations/list.animation';
     providers: [
         CatalogService
     ],
-    animations: [fadeAnimation, removeAnimation, runChildrenAnimation, listAnimation]
+    animations: [fadeAnimation, removeAnimation, runChildrenAnimation, listAnimation, slideAnimation]
 })
 export class CatalogComponent extends BaseComponent implements OnInit {
 
@@ -46,7 +46,9 @@ export class CatalogComponent extends BaseComponent implements OnInit {
     @ViewChild('loading', {read: LoadingDirective})
     loading;
 
-    abc: Array<any> = [99,9999 ,2233];
+    slideState: string = 'down';
+
+    abc: Array<any>;
 
     isShow: boolean = true;
 
@@ -60,12 +62,30 @@ export class CatalogComponent extends BaseComponent implements OnInit {
     ngOnInit() {
 
         setTimeout(() => {
+            this.slideState = 'up';
+
+            setTimeout(() => {
+                this.slideState = 'down';
+            }, 3000);
+
+        }, 3000);
+        setTimeout(() => {
+            this.abc = [1, 2];
+        }, 0);
+
+        setTimeout(() => {
 
             this.isShow = false;
         }, 6000);
 
         setTimeout(() => {
-            this.abc = [1, 3];
+            this.abc = [1, 2, 4];
+
+            setTimeout(() => {
+
+                this.abc = [1, 2];
+            }, 6000);
+
         }, 3000);
 
         setTimeout(() => {
