@@ -6,11 +6,10 @@
     <div>ddd</div>
     <div>e3333</div>
 </div>
-
-<div *ngIf="isShow" style="width:200px;height:200px;background:red;" @fade>
-
-    <div *ngIf="isShow" style="width: 100px;height:100px;background: yellow;" @fade></div>
+<div  *ngIf="isShow" style="width:400px;height:400px;background:red;" @list (@list.start)="show($event)">
+    <div *ngFor="let item of abc;" style="width:100px;height: 100px;background: green;">{{item}}</div>
 </div>
+
 
 <!--<parent [value]="parent">-->
     <!--<child-a [value]="childA"></child-a>-->

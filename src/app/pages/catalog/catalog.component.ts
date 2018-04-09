@@ -6,6 +6,9 @@ import {CatalogService} from './catalog.service';
 import {LoadingDirective} from "../../directives/loading.directive";
 
 import {fadeAnimation} from '../../animations/fade.animation';
+import {removeAnimation} from '../../animations/remove.animation';
+import {runChildrenAnimation} from '../../animations/run-children.animation';
+import {listAnimation} from '../../animations/list.animation';
 
 @Component({
     encapsulation: ViewEncapsulation.None,
@@ -15,7 +18,7 @@ import {fadeAnimation} from '../../animations/fade.animation';
     providers: [
         CatalogService
     ],
-    animations: [fadeAnimation]
+    animations: [fadeAnimation, removeAnimation, runChildrenAnimation, listAnimation]
 })
 export class CatalogComponent extends BaseComponent implements OnInit {
 
@@ -43,6 +46,8 @@ export class CatalogComponent extends BaseComponent implements OnInit {
     @ViewChild('loading', {read: LoadingDirective})
     loading;
 
+    abc: Array<any> = [99,9999 ,2233];
+
     isShow: boolean = true;
 
     constructor(
@@ -58,6 +63,10 @@ export class CatalogComponent extends BaseComponent implements OnInit {
 
             this.isShow = false;
         }, 6000);
+
+        setTimeout(() => {
+            this.abc = [1, 3];
+        }, 3000);
 
         setTimeout(() => {
             this.loading.show();
@@ -111,6 +120,10 @@ export class CatalogComponent extends BaseComponent implements OnInit {
             });
 
         this.crumbs = this.service.getCrumbs();
+    }
+
+    show(e) {
+        console.log(e);
     }
 
     setActiveBrand(code: string) {
