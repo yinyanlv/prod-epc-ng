@@ -52,11 +52,18 @@ export class CatalogComponent extends BaseComponent implements OnInit {
 
     isShow: boolean = true;
 
+    gridData = [{code: 1, name: 'a'}, {code: 2, name: 'b'}];
+
     constructor(
         private service: CatalogService,
         private router: Router
     ) {
         super();
+    }
+
+    showGridData(data) {
+
+        console.log(data);
     }
 
     ngOnInit() {

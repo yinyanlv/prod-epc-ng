@@ -9,6 +9,7 @@ import {FooterComponent} from '../components/footer/footer.component';
 import {CrumbComponent} from '../components/crumb/crumb.component';
 import {CheckboxComponent} from '../components/checkbox/checkbox.component';
 import {GridComponent} from '../components/grid/grid.component';
+import {GridColumnComponent} from '../components/grid/grid-column.component';
 import {LoadingComponent} from '../components/loading/loading.component';
 import {SearchComponent} from '../components/header/search/search.component';
 import {CartComponent} from '../components/header/cart/cart.component';
@@ -46,6 +47,7 @@ const components = [
     PaginationComponent,
     CheckboxComponent,
     GridComponent,
+    GridColumnComponent,
     LoadingComponent
 ];
 

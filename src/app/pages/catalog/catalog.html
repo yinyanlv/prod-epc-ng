@@ -1,6 +1,13 @@
 <app-header></app-header>
 <s-checkbox (statusChange)="handleStatusChange($event)">这是文本</s-checkbox>
 <s-crumb [list]="crumbs"></s-crumb>
+<s-grid [data]="gridData">
+    <s-grid-column label="编码"></s-grid-column>
+    <s-grid-column label="名称">
+        <a href="http://www.baidu.com">测试</a>
+        <span (click)="showGridData(gridData)">ddfefe</span>
+    </s-grid-column>
+</s-grid>
 <div #loading style="width:300px; height: 300px;" loading>
     ddddddddddddd
     <div>ddd</div>
