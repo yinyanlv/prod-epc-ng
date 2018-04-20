@@ -1,5 +1,4 @@
 import {Component, Input, ContentChildren, QueryList, OnInit, AfterContentInit} from '@angular/core';
-import {DomSanitizer} from '@angular/platform-browser';
 
 import {GridColumnComponent} from './grid-column.component';
 
@@ -22,12 +21,10 @@ export class GridComponent implements OnInit, AfterContentInit {
     columns: Array<GridColumnComponent>;
 
     constructor(
-        private sanitizer: DomSanitizer
     ) {
     }
 
     ngOnInit() {
-        var self = this;
     }
 
     ngAfterContentInit() {
@@ -35,8 +32,8 @@ export class GridComponent implements OnInit, AfterContentInit {
         this.columns = this.columnList.toArray();
     }
 
-    renderHtml(str: string) {
+    isTemplateRef(tplRef) {
 
-        return  this.sanitizer.bypassSecurityTrustHtml(str);
+        return tplRef ? true : false;
     }
 }

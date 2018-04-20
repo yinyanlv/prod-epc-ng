@@ -8,7 +8,21 @@
         </thead>
         <tbody>
             <tr *ngFor="let item of data;">
-                <td *ngFor="let column of columns" [innerHTML]="renderHtml(column.html)"></td>
+                <td *ngFor="let column of columns">
+
+                    <ng-container *ngIf="isTemplateRef(column.tplRef); else text;">
+                        <!-- $implicit，定义未绑定变量名的变量的值 -->
+                        <ng-template
+                            [ngTemplateOutlet]="column.tplRef" [ngTemplateOutletContext]="{
+                            '$implicit': item,
+                            store: data
+                        }"></ng-template>
+                    </ng-container>
+
+                    <ng-template #text>
+                        {{item[column.code]}}
+                    </ng-template>
+                </td>
             </tr>
         </tbody>
     </table>

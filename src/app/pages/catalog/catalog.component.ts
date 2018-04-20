@@ -52,7 +52,7 @@ export class CatalogComponent extends BaseComponent implements OnInit {
 
     isShow: boolean = true;
 
-    gridData = [{code: 1, name: 'a'}, {code: 2, name: 'b'}];
+    gridData = [{code: 1, name: '很好'}, {code: 2, name: 'good'}];
 
     constructor(
         private service: CatalogService,
@@ -61,8 +61,9 @@ export class CatalogComponent extends BaseComponent implements OnInit {
         super();
     }
 
-    showGridData(data) {
+    showGridData(store, data) {
 
+        console.log(store);
         console.log(data);
     }
 

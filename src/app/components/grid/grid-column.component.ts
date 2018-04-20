@@ -1,21 +1,21 @@
-import {Component, Input, ContentChild, ViewChild, OnInit, ElementRef} from '@angular/core';
+import {Component, Input, ContentChild, OnInit, TemplateRef} from '@angular/core';
 
 @Component({
     selector: 's-grid-column',
-    template: `<ng-container #container><ng-content></ng-content></ng-container>`
+    template: `<ng-content></ng-content>`
 })
 export class GridColumnComponent implements OnInit {
 
     @Input()
+    code: string;
+
+    @Input()
     label: string;
 
-    @ViewChild('container')
-    container: ElementRef;
-
-    html: string;
+    @ContentChild('tdContent')
+    tplRef: TemplateRef<any>;
 
     ngOnInit() {
 
-        this.html = this.container.nativeElement.parentElement.innerHTML;
     }
 }
