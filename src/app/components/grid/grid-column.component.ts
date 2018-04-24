@@ -6,6 +6,8 @@ import {Component, Input, ContentChild, OnInit, TemplateRef} from '@angular/core
 })
 export class GridColumnComponent implements OnInit {
 
+    isCheckbox: boolean = false;
+
     @Input()
     code: string;
 

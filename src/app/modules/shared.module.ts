@@ -83,7 +83,8 @@ const services = [
         ...pipes
     ],
     entryComponents: [
-        LoadingComponent
+        LoadingComponent,
+        GridColumnComponent
     ],
     providers: services
 })

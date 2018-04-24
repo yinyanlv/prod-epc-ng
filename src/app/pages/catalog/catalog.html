@@ -1,7 +1,7 @@
 <app-header></app-header>
 <s-checkbox (statusChange)="handleStatusChange($event)">这是文本</s-checkbox>
 <s-crumb [list]="crumbs"></s-crumb>
-<s-grid [data]="gridData">
+<s-grid [store]="gridData" withCheckbox="true">
     <s-grid-column label="编码" code="code"></s-grid-column>
     <s-grid-column label="名称" code="name">
         <ng-template #tdContent let-data let-store="store">
