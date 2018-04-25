@@ -11,7 +11,7 @@ export class CheckboxComponent implements OnInit {
     checked: boolean = false;
 
     @Output()
-    statusChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+    onClick: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     ngOnInit() {
     }
@@ -19,6 +19,6 @@ export class CheckboxComponent implements OnInit {
     toggleStatus() {
 
         this.checked = !this.checked;
-        this.statusChange.emit(this.checked);
+        this.onClick.emit(this.checked);
     }
 }

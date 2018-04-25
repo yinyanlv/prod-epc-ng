@@ -4,7 +4,7 @@
         <thead>
             <tr>
                 <th *ngFor="let column of columns">
-                    <ng-container *ngIf="column.isCheckbox; else text;"><s-checkbox (statusChange)="handleClickHeadCheckbox($event)" [checked]="isSelectAll"></s-checkbox></ng-container>
+                    <ng-container *ngIf="column.isCheckbox; else text;"><s-checkbox (onClick)="handleClickHeadCheckbox($event)" [checked]="isSelectAll"></s-checkbox></ng-container>
                     <ng-template #text>
                         {{column.label}}
                     </ng-template>
@@ -17,7 +17,7 @@
 
                     <ng-container [ngSwitch]="getColumnModel(column)">
 
-                        <s-checkbox *ngSwitchCase="'checkbox'" (statusChange)="handleClickRowCheckbox($event, record)" [checked]="record.checked"></s-checkbox>
+                        <s-checkbox *ngSwitchCase="'checkbox'" (onClick)="handleClickRowCheckbox($event, record)" [checked]="record.checked"></s-checkbox>
 
                         <ng-container *ngSwitchCase="'template'">
                             <!-- $implicit，定义未绑定变量名的变量的值 -->
