@@ -16,6 +16,5 @@ export class LoadingComponent implements OnInit {
     text: string = '正在加载...';
 
     ngOnInit() {
-
     }
 }

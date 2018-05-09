@@ -45,12 +45,6 @@ export class GridComponent implements OnInit, AfterContentInit {
 
     ngOnInit() {
 
-        this.loading.show();
-
-        setTimeout(()=> {
-
-            this.loading.hide();
-        }, 20000);
     }
 
     ngAfterContentInit() {
@@ -132,5 +126,13 @@ export class GridComponent implements OnInit, AfterContentInit {
         });
 
         this.isSelectAll = this.store.length === count;
+    }
+
+    showLoading() {
+        this.loading.show();
+    }
+
+    hideLoading() {
+        this.loading.hide();
     }
 }

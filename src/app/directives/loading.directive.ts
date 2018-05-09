@@ -15,7 +15,7 @@ export class LoadingDirective implements OnInit {
     private autoShow: boolean = false;
 
     @Input()
-    private text: string;
+    private loadingText: string;
 
     constructor(
         private vcRef: ViewContainerRef,
@@ -47,8 +47,8 @@ export class LoadingDirective implements OnInit {
 
         this.cmpRef = this.vcRef.createComponent(cmpFactory);
 
-        if (this.text) {
-            this.cmpRef.instance.text = this.text;
+        if (this.loadingText) {
+            this.cmpRef.instance.text = this.loadingText;
         }
 
         this.renderer.appendChild(this.hostElement, this.cmpRef.location.nativeElement);

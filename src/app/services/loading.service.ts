@@ -23,7 +23,6 @@ export class LoadingService {
             let cmpFactory = this.cmpFactoryResolver.resolveComponentFactory(LoadingComponent);
 
             this.cmpRef = container.createComponent(cmpFactory, container.length, this.injector);
-            // this.cmpRef.instance.show();
         }
     }
 

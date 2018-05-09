@@ -3,8 +3,9 @@
     <table>
         <thead>
             <tr>
-                <th *ngFor="let column of columns;">
-
+                <th *ngFor="let column of columns;" [ngStyle]="{
+                    width: column.width
+                }">
                     <ng-container [ngSwitch]="getColumnModel(column)">
 
                         <s-checkbox *ngSwitchCase="'checkbox'" (onClick)="handleClickHeadCheckbox($event)" [checked]="isSelectAll"></s-checkbox>
@@ -25,7 +26,6 @@
                 isSelected: record.checked
             }">
                 <td *ngFor="let column of columns">
-
                     <ng-container [ngSwitch]="getColumnModel(column)">
 
                         <s-checkbox *ngSwitchCase="'checkbox'" (onClick)="handleClickRowCheckbox($event, record)" [checked]="record.checked"></s-checkbox>

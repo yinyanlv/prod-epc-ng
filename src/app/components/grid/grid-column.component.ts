@@ -16,6 +16,9 @@ export class GridColumnComponent implements OnInit {
     @Input()
     title: string;
 
+    @Input()
+    width: string = 'auto';
+
     @ContentChild('tdContent')
     tplRef: TemplateRef<any>;
 
