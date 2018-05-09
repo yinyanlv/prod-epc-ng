@@ -15,6 +15,7 @@ import {SearchComponent} from '../components/header/search/search.component';
 import {CartComponent} from '../components/header/cart/cart.component';
 import {DialogComponent} from '../components/dialog/dialog.component';
 import {PaginationComponent} from '../components/pagination/pagination.component';
+import {IconComponent} from '../components/icon/icon.component';
 
 import {LoadingDirective} from '../directives/loading.directive';
 
@@ -48,7 +49,8 @@ const components = [
     CheckboxComponent,
     GridComponent,
     GridColumnComponent,
-    LoadingComponent
+    LoadingComponent,
+    IconComponent
 ];
 
 const pipes = [

@@ -4,7 +4,7 @@
     vertical-align: middle;
     cursor: pointer;
 
-    .icon {
+    s-icon {
         display: inline-block;
         width: 13px;
         height: 13px;
@@ -18,7 +18,7 @@
 
     &.checked {
 
-        .icon {
+        s-icon {
             border: 1px solid #1b77b9;
             background: #1b77b9;
         }
