@@ -1,7 +1,6 @@
 .checkbox {
-    display: inline-block;
-    font-size: 0;
-    vertical-align: middle;
+    display: flex;
+    align-items: center;
     cursor: pointer;
 
     s-icon {
