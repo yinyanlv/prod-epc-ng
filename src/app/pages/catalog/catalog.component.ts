@@ -61,6 +61,10 @@ export class CatalogComponent extends BaseComponent implements OnInit {
         super();
     }
 
+    onClickItem(abc) {
+        console.log(abc);
+    }
+
     showGridData(store, data) {
 
         console.log(store);

@@ -1,23 +1,38 @@
-<div class="grid">
+<div class="grid" loading #loading>
     <div hidden><ng-content></ng-content></div>
     <table>
         <thead>
             <tr>
-                <th *ngFor="let column of columns">
-                    <ng-container *ngIf="column.isCheckbox; else text;"><s-checkbox (onClick)="handleClickHeadCheckbox($event)" [checked]="isSelectAll"></s-checkbox></ng-container>
-                    <ng-template #text>
-                        {{column.label}}
-                    </ng-template>
+                <th *ngFor="let column of columns;">
+
+                    <ng-container [ngSwitch]="getColumnModel(column)">
+
+                        <s-checkbox *ngSwitchCase="'checkbox'" (onClick)="handleClickHeadCheckbox($event)" [checked]="isSelectAll"></s-checkbox>
+
+                        <ng-container *ngSwitchCase="'row-number'">
+                            {{ rowNumberTitle }}
+                        </ng-container>
+
+                        <ng-container *ngSwitchDefault>
+                            {{column.title}}
+                        </ng-container>
+                    </ng-container>
                 </th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let record of store;">
+            <tr *ngFor="let record of store;let i = index;" [ngClass]="{
+                isSelected: record.checked
+            }">
                 <td *ngFor="let column of columns">
 
                     <ng-container [ngSwitch]="getColumnModel(column)">
 
                         <s-checkbox *ngSwitchCase="'checkbox'" (onClick)="handleClickRowCheckbox($event, record)" [checked]="record.checked"></s-checkbox>
+
+                        <ng-container *ngSwitchCase="'row-number'">
+                            {{ i + 1 }}
+                        </ng-container>
 
                         <ng-container *ngSwitchCase="'template'">
                             <!-- $implicit，定义未绑定变量名的变量的值 -->

@@ -11,7 +11,9 @@ export class CrumbComponent implements OnInit {
     @Input()
     list: Array<any>;
 
-    ngOnInit() {
+    @Output()
+    onClickItem: EventEmitter<any> = new EventEmitter<any>();
 
+    ngOnInit() {
     }
 }

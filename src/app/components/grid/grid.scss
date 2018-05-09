@@ -5,6 +5,7 @@
         font-size: 12px ;
         line-height: 1.2em;
         border-collapse: collapse;
+        table-layout: fixed;
 
         thead {
             th {
@@ -31,6 +32,10 @@
                     padding: 14px 20px 14px 0;
                     min-height: 60px;
                     word-break: break-all;
+                }
+
+                &.isSelected {
+                    background: #e3f3ff;
                 }
             }
         }

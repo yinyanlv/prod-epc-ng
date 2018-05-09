@@ -1,5 +1,6 @@
-import {Component, Input, ContentChildren, QueryList, ComponentFactoryResolver, ViewContainerRef, OnInit, AfterContentInit} from '@angular/core';
+import {Component, Input, ViewChild, ContentChildren, QueryList, ComponentFactoryResolver, ViewContainerRef, OnInit, AfterContentInit} from '@angular/core';
 
+import {LoadingDirective} from "../../directives/loading.directive";
 import {GridColumnComponent} from './grid-column.component';
 
 @Component({
@@ -9,24 +10,32 @@ import {GridColumnComponent} from './grid-column.component';
 })
 export class GridComponent implements OnInit, AfterContentInit {
 
-    @Input()
-    isDynamic: boolean = false;
+    private rowNumberTitle: string = '序号';
+
+    @ViewChild('loading', {read: LoadingDirective})
+    loading;
 
     @Input()
-    withCheckbox: boolean = false;
+    private isDynamic: boolean = false;
 
     @Input()
-    checkboxModel: string = 'multiple';  // single | multiple
+    private withCheckbox: boolean = false;
+
+    @Input()
+    private withRowNumber: boolean = false;
+
+    @Input()
+    private checkboxModel: string = 'multiple';  // single | multiple
 
     @Input()
     store: Array<any>;
 
     @ContentChildren(GridColumnComponent)
-    columnList: QueryList<GridColumnComponent>;
+    private columnList: QueryList<GridColumnComponent>;
 
-    columns: Array<GridColumnComponent>;
+    private columns: Array<GridColumnComponent>;
 
-    isSelectAll: boolean = false;
+    private isSelectAll: boolean = false;
 
     constructor(
         private vcRef: ViewContainerRef,
@@ -35,37 +44,65 @@ export class GridComponent implements OnInit, AfterContentInit {
     }
 
     ngOnInit() {
+
+        this.loading.show();
+
+        setTimeout(()=> {
+
+            this.loading.hide();
+        }, 20000);
     }
 
     ngAfterContentInit() {
 
-        if (this.withCheckbox) {
+        this.initColumns();
+    }
 
-            let cmpFactory = this.cmpFactoryResolver.resolveComponentFactory(GridColumnComponent);
+    private initColumns() {
+
+        let cmpFactory = this.cmpFactoryResolver.resolveComponentFactory(GridColumnComponent);
+        this.columns = this.columnList.toArray();
+
+        if (this.withRowNumber && this.withCheckbox) {
+
+            let rowNumberCmpRef = this.vcRef.createComponent(cmpFactory);
+            let checkboxCmpRef = this.vcRef.createComponent(cmpFactory);
+
+            rowNumberCmpRef.instance.isRowNumber = true;
+            checkboxCmpRef.instance.isCheckbox = true;
+
+            this.columns.unshift(rowNumberCmpRef.instance);
+            this.columns.unshift(checkboxCmpRef.instance);
+
+        } else if (this.withRowNumber) {
+
+            let cmpRef = this.vcRef.createComponent(cmpFactory);
+
+            cmpRef.instance.isRowNumber = true;
+
+            this.columns.unshift(cmpRef.instance);
+        } else if (this.withCheckbox) {
+
             let cmpRef = this.vcRef.createComponent(cmpFactory);
 
             cmpRef.instance.isCheckbox = true;
-            this.columns = this.columnList.toArray();
 
-            if (this.columns) {
-                this.columns.unshift(cmpRef.instance);
-            }
-        } else {
-
-            this.columns = this.columnList.toArray();
+            this.columns.unshift(cmpRef.instance);
         }
     }
 
-    getColumnModel(column: GridColumnComponent): string {
-
-        if (column.tplRef) return 'template';
+    private getColumnModel(column: GridColumnComponent): string {
 
         if (column.isCheckbox) return 'checkbox';
+
+        if (column.isRowNumber) return 'row-number';
+
+        if (column.tplRef) return 'template';
 
         return 'text';
     }
 
-    handleClickHeadCheckbox(isChecked: boolean) {
+    private handleClickHeadCheckbox(isChecked: boolean) {
 
         if (isChecked) {
             this.store.forEach((item) => {
@@ -78,14 +115,14 @@ export class GridComponent implements OnInit, AfterContentInit {
         }
     }
 
-    handleClickRowCheckbox(isChecked: boolean, record: any) {
+    private handleClickRowCheckbox(isChecked: boolean, record: any) {
 
         record.checked = isChecked;
 
         this.checkIsSelectAll();
     }
 
-    checkIsSelectAll() {
+    private checkIsSelectAll() {
         let count = 0;
 
         this.store.forEach((item) => {

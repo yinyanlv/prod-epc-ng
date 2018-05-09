@@ -8,11 +8,13 @@ export class GridColumnComponent implements OnInit {
 
     isCheckbox: boolean = false;
 
-    @Input()
-    code: string;
+    isRowNumber: boolean = false;
 
     @Input()
-    label: string;
+    index: string;
+
+    @Input()
+    title: string;
 
     @ContentChild('tdContent')
     tplRef: TemplateRef<any>;
