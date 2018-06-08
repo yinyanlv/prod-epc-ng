@@ -16,7 +16,7 @@ export interface CrumbModel {
 export class CrumbComponent implements OnInit {
 
     @Input()
-    list: Array<CrumbModel>;
+    items: Array<CrumbModel>;
 
     @Output()
     onClickItem: EventEmitter<any> = new EventEmitter<any>();

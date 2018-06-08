@@ -1,6 +1,6 @@
 <app-header></app-header>
 <s-checkbox (onClick)="handleStatusChange($event)">这是文本</s-checkbox>
-<s-crumb [list]="crumbs" (onClickItem)="onClickItem($event)"></s-crumb>
+<s-crumb [items]="crumbs" (onClickItem)="onClickItem($event)"></s-crumb>
 <s-grid [store]="gridData" withCheckbox="true" withRowNumber="true">
     <s-grid-column title="编码" index="code" width="200px"></s-grid-column>
     <s-grid-column title="名称" index="name">
