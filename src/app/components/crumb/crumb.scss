@@ -15,7 +15,7 @@
         cursor: pointer;
 
         s-icon {
-            color: #ffffff;
+            color: #fff;
             margin: 0 10px 0 20px;
         }
 
@@ -33,7 +33,7 @@
             }
         }
 
-        &:last-child {
+        &.not-link {
             cursor: text;
 
             .text {
@@ -42,6 +42,14 @@
                     text-decoration: none;
                 }
             }
+        }
+    }
+}
+
+:host ::ng-deep {
+    s-icon {
+        i {
+            color: inherit !important;
         }
     }
 }

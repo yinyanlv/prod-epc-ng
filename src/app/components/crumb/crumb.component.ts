@@ -3,7 +3,7 @@ import {Component, OnInit, Input, Output, EventEmitter, ChangeDetectionStrategy}
 export interface CrumbModel {
     code: string;
     text: string;
-    url: string;
+    path?: string;
     queryParams?: any;
 }
 

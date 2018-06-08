@@ -12,23 +12,21 @@ export class CatalogService extends BaseHttp {
         return [{
             code: 'a',
             text: '品牌：上汽大通',
-            href: '/catalog',
+            path: '/catalog',
             queryParams: {m_1: 'MAXUS'}
         }, {
             code: 'b',
             text: '平台：D90',
-            href: '/catalog',
+            path: '/catalog',
             queryParams: {m_1: 'MAXUS'}
         }, {
             code: 'c',
             text: '左右舵+驱动形式：全部',
-            href: '/catalog',
+            path: '/catalog',
             queryParams: {m_1: 'MAXUS'}
         }, {
             code: 'd',
-            text: '车型系列细分：全部',
-            href: '',
-            queryParams: ''
+            text: '车型系列细分：全部'
         }];
     }
 
