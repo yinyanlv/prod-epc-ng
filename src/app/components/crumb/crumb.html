@@ -2,7 +2,7 @@
     <ng-container *ngFor="let item of list;">
 
         <a *ngIf="item.path" class="crumb-item"
-           [routerLink]="item.path ? item.path : null"
+           [routerLink]="item.path"
            [queryParams]="item.queryParams ? item.queryParams : null"
            (click)="onClickItem.emit(item)"
         >
