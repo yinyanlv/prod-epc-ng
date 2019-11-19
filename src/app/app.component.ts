@@ -1,17 +1,10 @@
-import {Component, ViewEncapsulation, OnInit} from '@angular/core';
-
-import {BaseComponent} from './base/base-component';
+import { Component } from '@angular/core';
 
 @Component({
-    encapsulation: ViewEncapsulation.None,
-    selector: 'app-root',
-    templateUrl: './app.html',
-    styleUrls: ['./app.scss']
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent extends BaseComponent implements OnInit {
-
-    ngOnInit() {
-
-        this.stateService.setLanguage(this.globalConfig.lang);
-    }
+export class AppComponent {
+  title = 'epc-ng';
 }
