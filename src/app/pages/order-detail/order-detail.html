@@ -1,0 +1,44 @@
+<!-- 页头 -->
+<app-header1></app-header1>
+
+<!-- 面包屑 -->
+<s-crumb></s-crumb>
+
+<!-- 页面身体 -->
+<section class="common-wrapper">
+  <div id="order-wrapper" class="common-table cart-table cart-detail-table" data-order-id="${order.id}">
+    <table>
+      <thead>
+      <tr>
+        <!-- 动态列 -->
+        <th *ngFor='let c of columns' width="{{c.width}}%">{{c.name}}</th>
+      </tr>
+      </thead>
+      <tbody>
+
+      <tr class="item" *ngFor='let item of list'>
+        <!-- 动态列 -->
+        <td *ngFor='let c of columns' align="{{c.align}}">
+          <span>{{item[c.code]}}</span>
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+    <div class="total-wrapper">
+      <div class="total-info fix">
+                <span class="item total-selection">共
+                    <span class="important-text product-num">{{list.length}}</span>件商品</span>
+
+        <span class="item total-price">总价（元）：
+                    <span class="important-text price"></span>
+                </span>
+
+      </div>
+    </div>
+    <div class="btn-wrapper">
+      <a href="" class="btn middle">再次订购</a>
+      <a href="" class="btn middle">导出清单</a>
+    </div>
+  </div>
+</section>

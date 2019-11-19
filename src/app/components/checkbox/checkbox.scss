@@ -1,0 +1,29 @@
+@import "styles/scss/sdk";
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  s-icon {
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    line-height: 11px;
+    border: 1px solid $light-bd-color;
+    border-radius: $btn-bd-radius;
+    background: #fff;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+
+  &.checked {
+
+    s-icon {
+      border: 1px solid $btn-bg-color;
+      background: $btn-bg-color;
+    }
+  }
+}
+
+

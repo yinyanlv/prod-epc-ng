@@ -1,0 +1,51 @@
+/**
+ * 缩写对照表：
+ * bg => background
+ * bd => border
+ */
+
+
+/**
+ * 基础变量
+ */
+$theme-color: #1c77b8; // 主题颜色
+
+$font-color: #333; // 字体颜色
+$light-font-color: #666; // 浅色调字体颜色
+
+$bd-color: #666; // 边框颜色
+$light-bd-color: #e0e0e0; // 浅色调边框颜色
+
+$bg-color: #e3f3ff; // 背景颜色
+$light-bg-color: #fafafa; // 浅色调背景颜色
+
+$shadow-color: #e8e8e8; // 阴影颜色
+$light-shadow-color: #e8e8e8; // 浅色调阴影颜色
+
+/**
+ * 按钮相关
+ */
+$btn-bd-radius: 4px; // 按钮圆弧半径
+$btn-font-color: #fff; // 按钮字体颜色
+$btn-hover-font-color: #fff; // 鼠标移入时，按钮字体颜色
+$btn-bg-color: #1c77b8; // 按钮背景颜色
+$btn-hover-bg-color: #1c77b8; // 鼠标移入时，按钮背景颜色
+
+/**
+ * grid列表相关
+ */
+$grid-active-bg-color: #1c77b8; // grid 选中颜色
+$grid-hover-bg-color: #e3f3ff; // 鼠标移入时，grid行颜色
+
+/**
+ * a链接相关
+ */
+$link-font-color: #333; // 系统a链接字体颜色
+$link-hover-font-color: #1c77b8; // 鼠标移入时，系统a链接字体颜色
+
+/**
+ * 面包屑导航相关
+ */
+$crumb-bg-color: #25415f;
+
+

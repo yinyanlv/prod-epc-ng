@@ -1,0 +1,89 @@
+@import "styles/scss/sdk";
+
+.loading {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, .6);
+  z-index: 10000;
+
+  & > div {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .icon {
+    color: $btn-bg-color;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 50%;
+    left: 50%;
+    transform: rotate(45deg);
+    animation: rotateChange 1.2s infinite linear;
+    z-index: 10010;
+    margin: -30px 0 0 -12px;
+
+    i {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $btn-bg-color;
+      transform: scale(.75);
+      transform-origin: 50% 50%;
+      opacity: .3;
+      animation: opacityChange 1s infinite linear alternate;
+
+      &:nth-child(1) {
+        left: 0;
+        top: 0;
+      }
+
+      &:nth-child(2) {
+        right: 0;
+        top: 0;
+        animation-delay: .4s;
+      }
+
+      &:nth-child(3) {
+        right: 0;
+        bottom: 0;
+        animation-delay: .8s;
+      }
+
+      &:nth-child(4) {
+        left: 0;
+        bottom: 0;
+        animation-delay: 1.2s;
+      }
+    }
+  }
+
+  .text {
+    position: absolute;
+    color: $btn-bg-color;
+    top: 50%;
+    @include setHeightGroup(24px);
+    width: 100%;
+    text-align: center;
+    z-index: 10020;
+    font-size: 14px;
+  }
+}
+
+@keyframes opacityChange {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rotateChange {
+  to {
+    transform: rotate(405deg);
+  }
+}

@@ -1,0 +1,151 @@
+@import "styles/scss/sdk";
+
+// 左边目录树
+.content-left {
+  width: 315px;
+  padding: 0 10px 10px 10px;
+}
+
+// 图例缩略图
+.legend-list {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 0 10px 10px 10px;
+  margin-left: 10px;
+
+  .list-body {
+    flex: 1;
+    overflow-y: auto;
+  }
+
+  .list-item {
+    cursor: pointer;
+    display: inline-block;
+    margin: 0 20px 20px 0;
+
+    &:hover {
+      color: $theme-color;
+    }
+  }
+
+  .img-wrap {
+    border: 1px solid $light-bd-color;
+    background: #fff;
+    width: 198px;
+    height: 284px;
+
+    &:hover {
+      border: 1px solid $theme-color;
+    }
+  }
+}
+
+// 左图右数据
+.legend-parts {
+  display: flex;
+  flex: 1;
+  margin-left: 10px;
+
+  // 图例
+  .legend-block {
+    display: flex;
+    flex: 1;
+    align-items: center;
+
+    .separator-line {
+      display: flex;
+      align-items: center;
+      margin-top: 30px;
+      width: 15px;
+      height: 92%;
+
+      s-icon {
+        cursor: pointer;
+        font-size: 28px;
+        background: #fafafa;
+        position: relative;
+      }
+    }
+
+    .left-line {
+      border-left: 1px dotted #ccc;
+
+      s-icon {
+        left: -14px;
+      }
+    }
+
+    .right-line {
+      border-right: 1px dotted #ccc;
+    }
+
+    .legend-body {
+      display: flex;
+      flex: 1;
+      height: 100%;
+      flex-direction: column;
+
+      .legend-wrap {
+        flex: 1;
+        border: 1px solid #ccc;
+      }
+    }
+  }
+
+  // 配件
+  .parts-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 0 15px;
+    overflow: hidden;
+
+    .parts-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .parts-header {
+      overflow: hidden;
+      height: 220px;
+    }
+
+    .parts-body {
+      overflow: auto;
+    }
+
+    .parts-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .table-header {
+      height: 38px;
+      border-bottom: 1px dotted #ccc;
+    }
+
+    .table-body {
+      height: 60px;
+      border-bottom: 1px dotted #ccc;
+
+      &:hover {
+        background: $grid-hover-bg-color;
+      }
+
+      .active {
+        background: $grid-active-bg-color;
+      }
+
+      td {
+        text-align: center;
+
+        s-icon {
+          cursor: pointer;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}

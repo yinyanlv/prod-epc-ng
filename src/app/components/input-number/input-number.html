@@ -1,0 +1,13 @@
+<div [class]="'s-input-number' + (size ? ' s-input-number-' + size : '')"
+     [class.is-disable]="isDisabled">
+	<span class="s-input-number-decrease" (click)="decreaseHandle(false)"
+        [class.is-disable]="minDisabled">-</span>
+  <span class="s-input-number-increase" (click)="decreaseHandle(true)"
+        [class.is-disable]="maxDisabled">+</span>
+
+  <div [class]="'s-input '+(size?' s-input-' + size: '')" [class.is-disable]="isDisabled">
+    <input class="s-input-inner s-input-spin-button" autocomplete="off" [disabled]="isDisabled" [value]="inputVal"
+           [ngModel]="inputVal" type="number" rows="2" [attr.max]="max" [attr.min]="min"
+           [attr.aria-disable]="isDisabled">
+  </div>
+</div>

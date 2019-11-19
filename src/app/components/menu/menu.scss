@@ -1,0 +1,97 @@
+/* svg style*/
+.svg-wrap {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+}
+
+.legend-toolbar {
+  height: 30px;
+  border-radius: 5px;
+  background: #00bcbc;
+  position: absolute;
+  z-index: 60;
+  margin: 5px;
+
+  a {
+    display: inline-block;
+    float: left;
+    height: 18px;
+    margin: 6px 5px;
+    width: 18px;
+    background: url('../../../assets/styles/images/svg-tool-bg.png') no-repeat;
+    cursor: pointer;
+  }
+
+  .legend-toolbar-reset {
+    background-position: 0 0;
+
+    &:hover {
+      background-position: -22px 0;
+    }
+
+    &.disabled {
+      background-position: -47px 0;
+    }
+  }
+
+  .legend-toolbar-zoomout {
+    background-position: 0 -26px;
+
+    &:hover {
+      background-position: -23px -26px;
+    }
+
+    &.disabled {
+      background-position: -47px -26px;
+    }
+  }
+
+  .legend-toolbar-zoomin {
+    background-position: 0 -54px;
+
+    &:hover {
+      background-position: -23px -54px;
+    }
+
+    &.disabled {
+      background-position: -47px -54px;
+    }
+  }
+
+  .legend-toolbar-left-rotate {
+    background-position: 0 -160px;
+
+    &:hover {
+      background-position: -22px -160px;
+    }
+
+    &.disabled {
+      background-position: -47px -160px;
+    }
+  }
+
+  .legend-toolbar-right-rotate {
+    background-position: 0 -188px;
+
+    &:hover {
+      background-position: -22px -188px;
+    }
+
+    &.disabled {
+      background-position: -47px -188px;
+    }
+  }
+}

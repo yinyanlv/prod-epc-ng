@@ -1,0 +1,10 @@
+<div [class.is-opened]="opened" class="s-sub-menu-item">
+  <a class="s-menu-title" (click)="clickHandle()">
+    <s-icon *ngIf=iconType [type]=iconType class="icon-title"></s-icon>
+    <span>{{title}}</span>
+    <s-icon type="arrow-down" color="#fff" class="arrow-down arrow-down-drop"></s-icon>
+  </a>
+  <div class="s-sub-menu">
+    <ng-content></ng-content>
+  </div>
+</div>

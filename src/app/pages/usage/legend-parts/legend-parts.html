@@ -1,0 +1,10 @@
+<!-- 左图右数据 -->
+<section class="condition-block legend-parts-block">
+
+  <!-- 配件列表显示区域-->
+  <app-parts #parts (onClickRow)="selectionPartsRow($event)"></app-parts>
+
+  <!-- 图例显示区域 -->
+  <app-legend #legend (onClickCallout)="selectionLegendCallout($event)" (onLegendLoaded)="legendLoaded()"></app-legend>
+
+</section>

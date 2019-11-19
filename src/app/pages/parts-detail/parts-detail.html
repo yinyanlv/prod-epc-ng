@@ -1,0 +1,82 @@
+<!-- 页头 -->
+<app-header1></app-header1>
+
+<!-- 面包屑 -->
+<s-crumb [items]="crumbs"></s-crumb>
+
+<section class="common-wrapper">
+    <div class="part-content clearfix" data-code="${part.code}">
+
+        <!-- 配件拍照图片 -->
+        <div class="big-img-wrapper spec-img">
+            <s-images imgSrc='http://localhost:3000/{{bigPhoto}}' noImgSrc="assets/images/no_image.jpg" #img></s-images>
+        </div>
+
+        <!-- 配件属性区域 -->
+        <div class="part-detail-wrapper">
+            <div class="part-item-wrapper">
+
+                <!-- 配件属性 -->
+                <div *ngFor="let item of properties" class="data-item inline-item">
+                    <span class="prop bold-text">
+                        <span class="text" title="{{item.name}}">{{item.name}}:</span>
+                    </span>
+                    <span class="value" title="{{item.value}}">{{item.value}}</span>
+                </div>
+
+            </div>
+
+            <!-- 购买 -->
+            <div class="btn-wrapper ">
+                <a href="javascript:;" class="btn-two v-middle" (click)="addToCart()">
+                    <s-icon type="cart"></s-icon>&nbsp;
+                    <span class="text">购 买</span>
+                </a>
+            </div>
+
+            <!-- 缩略图 -->
+            <div class="spec-list">
+                <ul class="spec-items-list">
+
+                    <li *ngFor="let pic of thumbnail" class="spec-item">
+                        <a class="img-wrapper" (mouseenter)="selectPic(pic, $event)" [ngClass]="{active: bigPhoto == pic}">
+                            <s-images imgSrc='http://localhost:3000/{{pic}}' noImgSrc="assets/images/no_image.jpg"></s-images>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 选择卡区域 -->
+    <s-tabs (tabItemClick)="selectTab($event)" (onAfterReader)="tabAfterRender($event)" #tabs>
+
+        <s-tab-item *ngFor='let item of partsDetailTabsConfig' title="{{item.name}}" [item]="item">
+
+            <!-- 列表 -->
+            <table>
+
+                <!-- 列表抬头 -->
+                <thead>
+                    <th *ngFor='let c of tabColumns[item.code] || []' width="{{c.width}}px"> {{c.name}}</th>
+                </thead>
+
+                <!-- 列表身体 -->
+                <tbody>
+                    <tr *ngFor="let row of tabList[item.code] || []">
+                        <td *ngFor='let c of tabColumns[item.code]' align="center">
+                            <a *ngIf='c.code == "link"' href='http://localhost:4200/catalog'>进入目录</a>
+                            <span *ngIf='c.code!= "link"'>{{row[c.code]}}</span>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </s-tab-item>
+
+    </s-tabs>
+
+</section>

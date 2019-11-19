@@ -1,0 +1,75 @@
+<!-- 页头 -->
+<app-header1></app-header1>
+
+<!-- 面包屑 -->
+<s-crumb [items]='[{text:"我的购物车"}]'></s-crumb>
+
+<!-- 购物车列表 -->
+<section class="common-wrapper">
+
+  <div class="cart-wrapper common-table cart-table">
+
+    <table style="width:100%;" border="1" cellspacing="0" cellpadding="0">
+      <thead>
+      <tr>
+        <!-- 复选框 -->
+        <th align='left' style='padding-left:10px;'>
+          <a (click)='selectAll($event)' style='cursor:pointer;'>
+            <s-icon type='{{isCheckAll ? "checked-box":"uncheck-box"}}' style='font-size:16px;'></s-icon>
+            <span class="text">全选</span>
+          </a>
+        </th>
+
+        <!-- 动态列 -->
+        <th *ngFor='let c of columns' width="{{c.width}}%">{{c.name}}</th>
+
+        <!-- 操作列 -->
+        <th width="10%">操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor='let item of list' class="item" [ngClass]="{checked: item.checked}">
+
+        <!-- 复选框 -->
+        <td align="left" style="padding-left:10px;">
+          <s-icon (click)="selectSingle(item)" type="{{item.checked ? 'checked-box': 'uncheck-box'}}"
+                  style="font-size:16px;"></s-icon>
+        </td>
+
+        <!-- 动态列 -->
+        <td *ngFor='let c of columns' align="{{c.align}}">
+          <span *ngIf='c.type != "input-number"'>{{item[c.code]}}</span>
+          <s-input-number *ngIf='c.type == "input-number"' [(inputVal)]="item[c.code]"
+                          (inputValChange)='doQtyChange(item, c.code)'></s-input-number>
+        </td>
+
+        <!-- 操作列 -->
+        <td align="center">
+          <s-icon (click)="deleteSingle(item)" type="delete" style="font-size:20px;cursor:pointer;"></s-icon>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="total-wrapper">
+      <div class="total-info">
+                <span class="item total-selection">已选中
+                    <span class="important-text product-num">{{checkCount}}</span>件商品</span>
+        <span class="item total-price">总金额：
+                    <span class="important-text price"></span>
+                </span>
+      </div>
+      <a class="form-checkbox checkbox" (click)="selectAll($event)" style="margin-left:10px;cursor:pointer;">
+                <span class="icon">
+                    <s-icon type="{{isCheckAll ? 'checked-box':'uncheck-box'}}" style="font-size:16px;"></s-icon>
+                </span>
+        <span class="text">全选</span>
+      </a>
+      <a (click)="doBatchDelete()" class="btn secondary middle" style="cursor:pointer;vertical-align:middle;">删除</a>
+    </div>
+    <div class="btn-wrapper">
+      <a class="btn middle" data-action="export">ex</a>
+      <a class="btn middle" data-action="export-order"></a>
+    </div>
+  </div>
+
+</section>

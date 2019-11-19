@@ -1,0 +1,124 @@
+$common-radius: 4px !default;
+$small-radius: 2px !default;
+$dashe-line-opacity: 0.3 !default;
+$paging-goto-block-width: 220px !default;
+$headline-top-padding: 20px !default;
+$condition-entity-top: 51px !default;
+$condition-title-margin-bottom: 15px !default;
+$condition-title-line-height: 1.2em !default;
+$condition-content-line-height: 2.35em !default;
+$condition-content-margin-bottom: 25px !default;
+$parts-item-height: 60px !default;
+$parts-item-padding-top: 20px !default;
+$leaf-icon-hover-background-position: -5px !default;
+
+$lengend-btn-color: #8d8d8d !default;
+$group-block-width: 273px !default;
+
+
+$top-nav-height: 30px !default;
+$banner-height: 85px !default;
+$footer-height: 65px !default;
+$footer-border-height: 1px !default;
+$footer-padding-top: 10px !default;
+$common-padding: 20px !default;
+
+$main-font-size: 12px !default;
+$main-line-height: 2em !default;
+
+$wrapper-padding: 0 $common-padding !default;
+
+$nav-bar-height: 40px !default;
+$nav-bar-padding: 0 $common-padding !default;
+$common-border-width: 1px !default;
+$common-text-margin: 10px !default;
+
+$banner-bg-color: #ffffff !default;
+$top-nav-color: #f2f2f2 !default;
+$nav-bar-color: #aeaeb6 !default;
+$nav-bar-active-color: #ffffff !default;
+$dialog-btnbg-color: #efefef !default;
+$dialog-line-color: #dbdbdb !default;
+$dialog-close-color: #c1c1c1 !default;
+$shadow-color: #dcdbdc !default;
+$condition-block-line: #666666 !default;
+$search-btn-color: #999999 !default;
+$common-prompt-color: #E50D19 !default;
+
+
+//icon btn
+$icon-btn-width: 24px !default;
+$icon-btn-height: 24px !default;
+$icon-btn-radius: $common-radius !default;
+$icon-btn-margin: 0 0 0 10px !default;
+$icon-btn-color: $theme-color !default;
+$icon-btn-bg-color: #ffffff !default;
+$icon-btn-hove-bg-color: #ff5865 !default;
+$icon-btn-active-bg-color: #f72f3e !default;
+$icon-hover-color: #ffffff !default;
+$icon-disabled-color: #c7c7c7 !default;
+$icon-disabled-bg-color: #c7c7c7 !default;
+
+//small icon btn
+
+$icon-sbtn-width: 12px !default;
+$icon-sbtn-height: 12px !default;
+$icon-sbtn-margin: 0 0 0 10px !default;
+$icon-sbtn-color: #797979 !default;
+$icon-sbtn-bg-color: transparent !default;
+$icon-sbtn-hover-bg-color: transparent !default;
+$icon-sbtn-active-bg-color: transparent !default;
+$icon-sbtn-hover-color: $hover-color !default;
+$icon-sbtn-disabled-color: #c7c7c7 !default;
+$icon-sbtn-disabled-bg-color: transparent !default;
+
+//btn
+$btn-common-height: 30px !default;
+$btn-common-padding: 0 10px !default;
+$btn-common-min-width: 60px !default;
+$btn-common-radius: $common-radius !default;
+$btn-common-color: #ffffff !default;
+$btn-common-bg-color: $theme-color !default;
+$btn-common-fsize: $main-font-size !default;
+$btn-common-hover-color: #ffffff !default;
+$btn-common-hover-bgcolor: #494c6c !default;
+$btn-common-active-color: #494c6c !default;
+$btn-common-active-bgcolor: #303249 !default;
+//small-btn
+$btn-small-height: 24px !default;
+$btn-small-min-width: 54px !default;
+
+
+$cart-qty-bg: #f7f7f7 !default;
+$info-color: #00c0ff !default;
+
+$common-input-width: 360px !default;
+$common-input-height: 30px !default;
+$common-input-padding: 0 10px !default;
+$common-icon-input-width: 240px !default;
+$common-input-radius: $common-radius !default;
+$common-input-bg-color: #ffffff !default;
+$common-input-box-shadow: 2px -2px 2px 0 #f7f7f7 inset, 2px 2px 2px 0 #f7f7f7 inset !default;
+$small-input-width: 54px !default;
+$small-input-height: 24px !default;
+$input-tip-color: #cccccc !default;
+
+$search-condition-width: 380px !default;
+$search-condition-box: 70px !default;
+$search-result-item-padding: $common-padding 0 !default;
+$search-result-item-pt: $common-padding !default;
+$search-result-item-pb: $common-padding !default;
+$search-result-item-img-width: 140px !default;
+$search-result-item-img-height: 140px !default;
+$search-result-item-legend-padding: 25px !default;
+$search-result-item-part-pl: $common-padding + $search-result-item-img-width !default;
+
+$common-font-style: 'Microsoft Yahei', 'Arial', 'Simhei', 'SimSun', 'sans-serif' !default;
+$common-solid-style: solid !default;
+$common-dash-style: dashed !default;
+$coomon-datted-style: dotted !default;
+
+$footer-border-style: $footer-border-height $common-solid-style $footer-border-color !default;
+$common-solid-border: $common-border-width $common-solid-style $solid-line-color !default;
+$common-dashed-border: $common-border-width $common-dash-style $dash-line-color !default;
+$common-dotted-border: $common-border-width $coomon-datted-style $dotted-line-color !default;

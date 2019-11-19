@@ -1,0 +1,40 @@
+@import "styles/scss/sdk";
+
+// 顶部导航
+.nav-wrapper {
+  @include setHeightGroup(30px);
+  background: #f2f2f2;
+  padding: 0 15px;
+
+  // 左边区域
+  .nav-left {
+    float: left;
+  }
+
+  // 左边区域
+  .nav-right {
+    float: right;
+  }
+
+  li {
+    margin-left: 10px;
+    display: inline;
+  }
+
+  a {
+    cursor: pointer;
+
+    &:hover {
+      color: $link-hover-font-color;
+    }
+  }
+
+  .nav-separator {
+    display: inline-block;
+    @include setHeightGroup(14px);
+    width: 0;
+    top: 2px;
+    position: relative;
+    border-left: 1px solid #c2c2c2;
+  }
+}

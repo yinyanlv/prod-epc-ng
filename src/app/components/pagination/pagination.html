@@ -1,0 +1,38 @@
+<ul class="pagination">
+  <span class="pagination-total-text" *ngIf="nsShowTotal">{{itotal}}  items</span>
+  <li class="pagination-prev" [class.pagination-prev-disabled]="isFirstIndex" (click)="jumpPage(icurrent-1)"
+      title="Previous page">
+    <a class="item-link"></a>
+  </li>
+  <li class="pagination-item" [title]="ifirstIndex" [class.pagination-active]="isFirstIndex"
+      (click)="jumpPage(ifirstIndex)"><a>{{ifirstIndex}}</a></li>
+  <li class="pagination-jump-prev" *ngIf="(ilastIndex > 9)&&( icurrent-3 > ifirstIndex)" (click)="jumpBefore(ipageSize)"
+      title="{{roundPageSize}} page forward">
+    <a></a>
+  </li>
+  <li class="pagination-item" *ngFor="let page of pages" [title]="page.index"
+      [class.pagination-active]="icurrent == page.index" (click)="jumpPage(page.index)"><a>{{page.index}}</a></li>
+
+  <li class="pagination-jump-next" *ngIf="(ilastIndex > 9) && (ilastIndex-icurrent > 3)" (click)="jumpAfter(ipageSize)"
+      title="{{roundPageSize}} page backward">
+    <a></a>
+  </li>
+  <li class="pagination-item" [title]="ilastIndex" *ngIf=" (ilastIndex > 0) && (ilastIndex !== ifirstIndex)"
+      [class.pagination-active]="isLastIndex" (click)="jumpPage(ilastIndex)"><a>{{ilastIndex}}</a></li>
+  <li class="pagination-next" [class.pagination-next-disabled]="isLastIndex || !ilastIndex"
+      (click)="jumpPage(icurrent+1)" title="{{ilastIndex}} Next page">
+    <a class="item-link"></a>
+  </li>
+  <div class="pagination-options">
+
+    <s-combox *ngIf="nsShowSizeChanger" style="width:80px;" [ngModel]="ipageSize"
+              (ngModelChange)="onPageSizeChanger($event);">
+      <s-option *ngFor="let option of sizeOptions" [sName]="option" [sValue]="option"></s-option>
+      <!-- <s-option *ngIf="sizeOptions.indexOf(pageSize) === -1" [sName]="pageSize" [sValue]="pageSize"></s-option> -->
+    </s-combox>
+    <div class="pagination-options-quick-jumper" *ngIf="nsShowJumper">
+      <label>{{jumpText}}<input type="text" [(ngModel)]="pageIndex" (ngModelChange)="onPageIndexChange($event)"></label>
+
+    </div>
+  </div>
+</ul>

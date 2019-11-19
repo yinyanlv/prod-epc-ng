@@ -1,0 +1,25 @@
+<div class="s-input-search-container">
+  <div class="s-input-search-box">
+    <input type="text" class="s-input-search" autocomplete="off" placeholder="配件编码、配件名称或VIN" [(ngModel)]="searchText"
+           (ngModelChange)="onSearchChange($event)" (focus)="getHistoryOptions()">
+    <div *ngIf="isShowOptions" class="s-input-search-Options history">
+      <a *ngFor="let searchTip of searchOptions" href="javascript:;" class="search-tip-item clearfix"
+         (click)="selectOption(searchTip.value)">
+        <span class="text">{{searchTip.value}}</span>
+        <span *ngIf="isShowOptionsBtn" class="tip-btn delete-btn" data-action="delete"
+              (click)=deleteClickData(searchTip.value)>删除</span>
+      </a>
+      <div class="clear-btn-wrapper clearfix">
+        <a href="javascript:;" class="tip-btn close-btn" data-action="close" (click)=closeSearchOptions()>关闭</a>
+        <a [style.display]="isClear? 'inline-block': 'none'" href="javascript:;" class="tip-btn clear-btn"
+           data-action="reset" (click)=doClear()>清空</a>
+      </div>
+    </div>
+  </div>
+
+  <s-button type="primary" size="large" class="s-banner-search-btn" (onClickCallback)="search(searchText)">
+    <s-icon type="search" color="#fff"></s-icon>
+    <span>搜索</span>
+  </s-button>
+</div>
+<div class="dialog-overlay" *ngIf="isShowOptions" (click)=closeSearchOptions()></div>

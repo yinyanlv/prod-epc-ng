@@ -1,0 +1,1339 @@
+{
+  "tree": [
+    {
+      "id": "11",
+      "text": "11 - 动力产生",
+      "leaf": false,
+      "children": [
+        {
+          "id": "111",
+          "text": "BE111A001 - 缸体&曲轴&连杆",
+          "leaf": true,
+          "children": []
+        },
+        {
+          "id": "112",
+          "text": "BE111C001 - 机油分离及控制",
+          "leaf": true,
+          "children": []
+        },
+        {
+          "id": "113",
+          "text": "BE111D001 - 缸盖&凸轮轴",
+          "leaf": true,
+          "children": []
+        },
+        {
+          "id": "114",
+          "text": "BE111E001 - 曲轴箱通风",
+          "leaf": true,
+          "children": []
+        },
+        {
+          "id": "115",
+          "text": "BE111F001 - 排气歧管",
+          "leaf": true,
+          "children": []
+        },
+        {
+          "id": "116",
+          "text": "BE111G001 - 进气歧管",
+          "leaf": true,
+          "children": []
+        },
+        {
+          "id": "117",
+          "text": "BE111H001 - 机油泵&油底壳&滤清器",
+          "leaf": true,
+          "children": []
+        },
+        {
+          "id": "118",
+          "text": "BE111J001 - 链传动",
+          "leaf": true,
+          "children": []
+        },
+        {
+          "id": "119",
+          "text": "BE111K001 - 冷却系统",
+          "leaf": true,
+          "children": []
+        },
+        {
+          "id": "120",
+          "text": "BE111L001 - 发动机总成及附件",
+          "leaf": true,
+          "children": []
+        },
+        {
+          "id": "121",
+          "text": "BE111M001 - 涡轮增压器",
+          "leaf": true,
+          "children": []
+        },
+        {
+          "id": "122",
+          "text": "BE111N001 - 节气门体",
+          "leaf": true,
+          "children": []
+        },
+        {
+          "id": "123",
+          "text": "BE111P001 - 附件及附件驱动",
+          "leaf": true,
+          "children": []
+        },
+        {
+          "id": "124",
+          "text": "BE111Q001 - 发动机线束",
+          "leaf": true,
+          "children": []
+        },
+        {
+          "id": "125",
+          "text": "BE111R001 - 点火线圈",
+          "leaf": true,
+          "children": []
+        },
+        {
+          "id": "126",
+          "text": "BE111S001 - 发动机传感器",
+          "leaf": true,
+          "children": []
+        },
+        {
+          "id": "127",
+          "text": "BE111T001 - 燃油系统",
+          "leaf": true,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "text": "12 - 动力传输",
+      "leaf": false,
+      "children": [
+        {
+          "id": "128",
+          "text": "BE121A001 - 变速器总成-自动(6AT)",
+          "leaf": true,
+          "children": []
+        },
+        {
+          "id": "129",
+          "text": "BE121B001 - 变速器外部附件(6AT)",
+          "leaf": true,
+          "children": []
+        },
+        {
+          "id": "130",
+          "text": "BE124A001 - 前桥",
+          "leaf": true,
+          "children": []
+        },
+        {
+          "id": "131",
+          "text": "BE125A001 - 后桥",
+          "leaf": true,
+          "children": []
+        },
+        {
+          "id": "132",
+          "text": "BE126A001 - 前驱动半轴",
+          "leaf": true,
+          "children": []
+        },
+        {
+          "id": "133",
+          "text": "BE126A002 - 传动轴",
+          "leaf": true,
+          "children": []
+        },
+        {
+          "id": "134",
+          "text": "BE128A001 - 分动器(适时）",
+          "leaf": true,
+          "children": []
+        },
+        {
+          "id": "135",
+          "text": "BE128A002 - 分动器（分时）",
+          "leaf": true,
+          "children": []
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "text": "13 - 动力总成控制&诊断",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "14",
+      "text": "14 - 进气系统",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "15",
+      "text": "15 - 动力驱动连接装置",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "16",
+      "text": "16 - 排气系统",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "18",
+      "text": "18 - 燃油储存和输送",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "21",
+      "text": "21 - 转向",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "22",
+      "text": "22 - 悬架",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "23",
+      "text": "23 - 轮胎,车轮,轮饰",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "24",
+      "text": "24 - 制动",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "25",
+      "text": "25 - 底盘结构",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "26",
+      "text": "26 - 安装",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "31",
+      "text": "31 - 空调和动力总成冷却(发动机舱)",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "32",
+      "text": "32 - 前部内空调",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "33",
+      "text": "33 - 后部内空调",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "34",
+      "text": "34 - 前部外空调",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "41",
+      "text": "41 - 仪表板&中控台&转向盘",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "42",
+      "text": "42 - 座椅",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "43",
+      "text": "43 - 内饰件",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "44",
+      "text": "44 - 内部灯",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "45",
+      "text": "45 - 内部隔音装置",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "46",
+      "text": "46 - 安全带",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "47",
+      "text": "47 - 安全气囊",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "51",
+      "text": "51 - 车身下部结构",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "52",
+      "text": "52 - 车身上部结构",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "55",
+      "text": "55 - 侧开闭件",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "56",
+      "text": "56 - 后开闭件",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "57",
+      "text": "57 - 前部金属（薄）盖、板",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "58",
+      "text": "58 - 后视镜",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "61",
+      "text": "61 - 车身车窗",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "62",
+      "text": "62 - 保险杠，保险杠蒙皮与栅格",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "64",
+      "text": "64 - 车身下部外饰板",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "65",
+      "text": "65 - 前部灯",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "66",
+      "text": "66 - 后部灯",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "68",
+      "text": "68 - 雨刮&清洗系统",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "69",
+      "text": "69 - 车身上部外饰板",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "71",
+      "text": "71 - 驾驶员信息显示",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "72",
+      "text": "72 - 用户开关",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "73",
+      "text": "73 - 娱乐系统",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "74",
+      "text": "74 - 天线",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "75",
+      "text": "75 - 通信",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "81",
+      "text": "81 - 安全和防碰撞",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "83",
+      "text": "83 - 车身内、外电器件",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "84",
+      "text": "84 - 充电&能量储存",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "86",
+      "text": "86 - 电源&信号分配",
+      "leaf": false,
+      "children": []
+    },
+    {
+      "id": "91",
+      "text": "91 - 随车工具及附件",
+      "leaf": false,
+      "children": []
+    }
+  ],
+  "legend-list": [
+    {
+      "id": "112",
+      "code": "BE111A001",
+      "level": "2",
+      "parentIds": "",
+      "src": "/images/MAXUS_loading.jpg",
+      "original": "BE111A001.svg?/d/300",
+      "description": "缸体&曲轴&连杆"
+    },
+    {
+      "id": "113",
+      "code": "BE111C001",
+      "level": "2",
+      "parentIds": "",
+      "src": "/images/MAXUS_loading.jpg",
+      "original": "BE111C001.svg?/d/300",
+      "description": "机油分离及控制"
+    },
+    {
+      "id": "114",
+      "code": "BE111D001",
+      "level": "2",
+      "parentIds": "",
+      "src": "/images/MAXUS_loading.jpg",
+      "original": "BE111D001.svg?/d/300",
+      "description": "缸盖&凸轮轴"
+    },
+    {
+      "id": "115",
+      "code": "BE111E001",
+      "level": "2",
+      "parentIds": "",
+      "src": "/images/MAXUS_loading.jpg",
+      "original": "BE111E001.svg?/d/300",
+      "description": "曲轴箱通风"
+    },
+    {
+      "id": "116",
+      "code": "BE111F001",
+      "level": "2",
+      "parentIds": "",
+      "src": "/images/MAXUS_loading.jpg",
+      "original": "BE111F001.svg?/d/300",
+      "description": "排气歧管"
+    },
+    {
+      "id": "117",
+      "code": "BE111G001",
+      "level": "2",
+      "parentIds": "",
+      "src": "/images/MAXUS_loading.jpg",
+      "original": "BE111G001.svg?/d/300",
+      "description": "进气歧管"
+    },
+    {
+      "id": "118",
+      "code": "BE111H001",
+      "level": "2",
+      "parentIds": "",
+      "src": "/images/MAXUS_loading.jpg",
+      "original": "BE111H001.svg?/d/300",
+      "description": "机油泵&油底壳&滤清器"
+    },
+    {
+      "id": "119",
+      "code": "BE111J001",
+      "level": "2",
+      "parentIds": "",
+      "src": "/images/MAXUS_loading.jpg",
+      "original": "BE111J001.svg?/d/300",
+      "description": "链传动"
+    },
+    {
+      "id": "120",
+      "code": "BE111K001",
+      "level": "2",
+      "parentIds": "",
+      "src": "/images/MAXUS_loading.jpg",
+      "original": "BE111K001.svg?/d/300",
+      "description": "冷却系统"
+    },
+    {
+      "id": "121",
+      "code": "BE111L001",
+      "level": "2",
+      "parentIds": "",
+      "src": "/images/MAXUS_loading.jpg",
+      "original": "BE111L001.svg?/d/300",
+      "description": "发动机总成及附件"
+    },
+    {
+      "id": "122",
+      "code": "BE111M001",
+      "level": "2",
+      "parentIds": "",
+      "src": "/images/MAXUS_loading.jpg",
+      "original": "BE111M001.svg?/d/300",
+      "description": "涡轮增压器"
+    },
+    {
+      "id": "123",
+      "code": "BE111N001",
+      "level": "2",
+      "parentIds": "",
+      "src": "/images/MAXUS_loading.jpg",
+      "original": "BE111N001.svg?/d/300",
+      "description": "节气门体"
+    },
+    {
+      "id": "124",
+      "code": "BE111P001",
+      "level": "2",
+      "parentIds": "",
+      "src": "/images/MAXUS_loading.jpg",
+      "original": "BE111P001.svg?/d/300",
+      "description": "附件及附件驱动"
+    }
+  ],
+  "parts-list": [
+    {
+      "partId": "C00090169",
+      "partCode": "C00090169",
+      "partName": "分动器前壳体",
+      "callout": "2",
+      "qty": "1",
+      "hand": "右",
+      "usageNote": ""
+    },
+    {
+      "partId": "C00090170",
+      "partCode": "C00090170",
+      "partName": "定位销-分动器壳体",
+      "callout": "3",
+      "qty": "2",
+      "hand": "左",
+      "usageNote": ""
+    },
+    {
+      "partId": "C00090171",
+      "partCode": "C00090171",
+      "partName": "分动器输入轴油封",
+      "callout": "4",
+      "qty": "2",
+      "hand": "左",
+      "usageNote": ""
+    },
+    {
+      "partId": "C00090172",
+      "partCode": "C00090172",
+      "partName": "分动器输入轴齿圈",
+      "callout": "5",
+      "qty": "2",
+      "hand": "左",
+      "usageNote": ""
+    },
+    {
+      "partId": "C00090173",
+      "partCode": "C00090173",
+      "partName": "卡扣-分动器垫圈",
+      "callout": "6",
+      "qty": "2",
+      "hand": "左",
+      "usageNote": ""
+    },
+    {
+      "partId": "C00090174",
+      "partCode": "C00090174",
+      "partName": "分动器前输出轴油封",
+      "callout": "7",
+      "qty": "2",
+      "hand": "左",
+      "usageNote": ""
+    },
+    {
+      "partId": "C00090175",
+      "partCode": "C00090175",
+      "partName": "分动器前输出轴轴承",
+      "callout": "8",
+      "qty": "2",
+      "hand": "左",
+      "usageNote": ""
+    },
+    {
+      "partId": "C00090176",
+      "partCode": "C00090176",
+      "partName": "卡箍-分动器输入轴",
+      "callout": "9",
+      "qty": "2",
+      "hand": "左",
+      "usageNote": ""
+    },
+    {
+      "partId": "C00090203",
+      "partCode": "C00090203",
+      "partName": "分动器输入轴",
+      "callout": "10",
+      "qty": "1",
+      "hand": "左",
+      "usageNote": ""
+    },
+    {
+      "partId": "C00090178",
+      "partCode": "C00090178",
+      "partName": "卡箍-分动器输入轴轴承",
+      "callout": "11",
+      "qty": "2",
+      "hand": "左",
+      "usageNote": ""
+    },
+    {
+      "partId": "C00090179",
+      "partCode": "C00090179",
+      "partName": "分动器输入轴轴承",
+      "callout": "12",
+      "qty": "2",
+      "hand": "左",
+      "usageNote": ""
+    },
+    {
+      "partId": "C00090180",
+      "partCode": "C00090180",
+      "partName": "垫片-分动器太阳轮止推",
+      "callout": "13",
+      "qty": "2",
+      "hand": "左",
+      "usageNote": ""
+    },
+    {
+      "partId": "C00090181",
+      "partCode": "C00090181",
+      "partName": "分动器输入轴内部轴承",
+      "callout": "14",
+      "qty": "2",
+      "hand": "左",
+      "usageNote": ""
+    }
+  ],
+  "legend-detail": [
+    {
+      "struct": {
+        "code": "BE121A001",
+        "id": "BE121A001",
+        "imageFileUri": "BE121A001.svg",
+        "lvl": 2,
+        "mappingGroups": "E00",
+        "mappings": "E00P",
+        "name": "变速器总成-自动（6AT）",
+        "sort": 0,
+        "svgFileUri": "BE121A001.svg"
+      },
+      "xys": []
+    }
+  ],
+  "brands": [
+    {
+      "code": "01",
+      "id": "01",
+      "leaf": false,
+      "lvl": 1,
+      "name": "上汽大通",
+      "sort": 0
+    },
+    {
+      "code": "02",
+      "id": "02",
+      "leaf": false,
+      "lvl": 1,
+      "name": "上汽荣威",
+      "sort": 1
+    }
+  ],
+  "series": [
+    {
+      "m_1": "01",
+      "code": "03",
+      "id": "03",
+      "leaf": false,
+      "lvl": 2,
+      "name": "D90",
+      "sort": 0
+    },
+    {
+      "m_1": "01",
+      "code": "04",
+      "id": "04",
+      "leaf": false,
+      "lvl": 2,
+      "name": "T60",
+      "sort": 1
+    },
+    {
+      "m_1": "02",
+      "code": "05",
+      "id": "05",
+      "leaf": false,
+      "lvl": 2,
+      "name": "T60",
+      "sort": 0
+    }
+  ],
+  "feature-group": [
+    {
+      "m_2": "04",
+      "code": "01",
+      "name": "轴距+底盘高度+车身结构[ 短轴+低底盘+单排 ]",
+      "level": 3
+    },
+    {
+      "m_2": "04",
+      "code": "02",
+      "name": "左右舵+驱动形式",
+      "level": 4
+    },
+    {
+      "m_2": "04",
+      "code": "03",
+      "name": "车型系列细分",
+      "level": 5
+    },
+    {
+      "m_2": "04",
+      "code": "04",
+      "name": "发动机型号/功率",
+      "level": 6
+    },
+    {
+      "m_2": "04",
+      "code": "05",
+      "name": "变速箱型号",
+      "level": 7
+    }
+  ],
+  "feature-sub-items": [
+    {
+      "m_2": "04",
+      "code": "1",
+      "id": "m3-1",
+      "leaf": false,
+      "lvl": 3,
+      "name": "短轴+低底盘+单排",
+      "sort": "1"
+    },
+    {
+      "m_2": "04",
+      "code": "2",
+      "id": "2",
+      "leaf": false,
+      "lvl": 3,
+      "name": "短轴+低底盘+双排",
+      "sort": "2"
+    },
+    {
+      "m_2": "04",
+      "code": "3",
+      "id": "3",
+      "leaf": false,
+      "lvl": 3,
+      "name": "短轴+低底盘+大单排",
+      "sort": "3"
+    },
+    {
+      "m_2": "04",
+      "code": "4",
+      "id": "4",
+      "leaf": false,
+      "lvl": 3,
+      "name": "短轴+低底盘+大双排",
+      "sort": "4"
+    },
+    {
+      "m_2": "04",
+      "code": "5",
+      "id": "5",
+      "leaf": false,
+      "lvl": 3,
+      "name": "短轴+高底盘+单排",
+      "sort": "5"
+    },
+    {
+      "m_2": "04",
+      "code": "6",
+      "id": "6",
+      "leaf": false,
+      "lvl": 3,
+      "name": "短轴+高底盘+双排",
+      "sort": "6"
+    },
+    {
+      "m_2": "04",
+      "code": "7",
+      "id": "7",
+      "leaf": false,
+      "lvl": 3,
+      "name": "短轴+高底盘+大单排",
+      "sort": "7"
+    },
+    {
+      "m_2": "04",
+      "code": "8",
+      "id": "8",
+      "leaf": false,
+      "lvl": 3,
+      "name": "长轴+低底盘+大单排",
+      "sort": "8"
+    },
+    {
+      "m_2": "04",
+      "m_6": "-1",
+      "code": "9",
+      "id": "9",
+      "leaf": true,
+      "lvl": 7,
+      "name": "5MT 上汽齿",
+      "sort": "1"
+    },
+    {
+      "m_2": "04",
+      "m_6": "-1",
+      "code": "10",
+      "id": "10",
+      "leaf": true,
+      "lvl": 7,
+      "name": "5MT 爱信",
+      "sort": "2"
+    },
+    {
+      "m_2": "04",
+      "m_6": "-1",
+      "code": "11",
+      "id": "11",
+      "leaf": true,
+      "lvl": 7,
+      "name": "6AT 邦奇",
+      "sort": "3"
+    },
+    {
+      "m_2": "04",
+      "m_6": "-1",
+      "code": "12",
+      "id": "12",
+      "leaf": true,
+      "lvl": 7,
+      "name": "6MT 上汽齿",
+      "sort": "4"
+    },
+    {
+      "m_2": "04",
+      "m_6": "-1",
+      "code": "13",
+      "id": "13",
+      "leaf": true,
+      "lvl": 7,
+      "name": "6MT 戴莫斯",
+      "sort": "5"
+    }
+  ],
+  "authenticate": {
+    "username": "000000",
+    "password": "111111",
+    "validcode": "富士达"
+  },
+  "parts-detail": {
+    "partPhoto": {
+      "bigPhoto": "timg.jpg",
+      "thumbnail": [
+        "timg2.jpg",
+        "timg3.jpg"
+      ]
+    },
+    "properties": [
+      {
+        "name": "配件编码",
+        "value": "C00090176"
+      },
+      {
+        "name": "配件名称",
+        "value": "卡箍-分动器输入轴"
+      },
+      {
+        "name": "最小订购数",
+        "value": "10"
+      },
+      {
+        "name": "最小包装数",
+        "value": "11"
+      },
+      {
+        "name": "长度",
+        "value": "20cm"
+      },
+      {
+        "name": "宽度",
+        "value": "30cm"
+      },
+      {
+        "name": "高度",
+        "value": "30cm"
+      },
+      {
+        "name": "重量",
+        "value": "40g"
+      },
+      {
+        "name": "销售价格",
+        "value": "50 RMB"
+      },
+      {
+        "name": "单位",
+        "value": "升"
+      },
+      {
+        "name": "备注",
+        "value": "此配件最小订购量，最小起订是10000"
+      }
+    ]
+  },
+  "tabs-data-applicability": {
+    "columns": [
+      {
+        "code": "number",
+        "name": "序号",
+        "width": 100
+      },
+      {
+        "code": "brand",
+        "name": "品牌",
+        "width": 200
+      },
+      {
+        "code": "series",
+        "name": "平台",
+        "width": 180
+      },
+      {
+        "code": "link",
+        "name": "操作",
+        "width": 120
+      }
+    ],
+    "list": [
+      {
+        "number": "1",
+        "brand": "上汽大通",
+        "series": "D90"
+      }
+    ]
+  },
+  "tabs-data-usage": {
+    "columns": [
+      {
+        "code": "number",
+        "name": "序号",
+        "width": 100
+      },
+      {
+        "code": "brand",
+        "name": "品牌",
+        "width": 200
+      },
+      {
+        "code": "series",
+        "name": "平台",
+        "width": 180
+      },
+      {
+        "code": "legendGroup",
+        "name": "图组",
+        "width": 200
+      },
+      {
+        "code": "legend",
+        "name": "图例",
+        "width": 150
+      },
+      {
+        "code": "link",
+        "name": "操作",
+        "width": 120
+      }
+    ],
+    "list": [
+      {
+        "number": "1",
+        "brand": "上汽大通",
+        "series": "D90",
+        "legendGroup": "动力产生",
+        "legend": "链传动"
+      },
+      {
+        "number": "2",
+        "brand": "上汽大通",
+        "series": "D90",
+        "legendGroup": "动力产生",
+        "legend": "机油分离及控制"
+      },
+      {
+        "number": "3",
+        "brand": "上汽大通",
+        "series": "D90",
+        "legendGroup": "动力产生",
+        "legend": "点火线圈"
+      },
+      {
+        "number": "4",
+        "brand": "上汽大通",
+        "series": "D90",
+        "legendGroup": "动力产生",
+        "legend": "链传动"
+      },
+      {
+        "number": "5",
+        "brand": "上汽大通",
+        "series": "D90",
+        "legendGroup": "动力产生",
+        "legend": "冷却系统"
+      }
+    ]
+  },
+  "shopping-cart-list": [
+    {
+      "number": "1",
+      "partCode": "10226141",
+      "partName": "机油控制阀",
+      "vin": "LSFA431J0HA078780",
+      "qty": "4",
+      "checked": false
+    },
+    {
+      "number": "2",
+      "partCode": "C00084733",
+      "partName": "塑料紧箍件",
+      "vin": "LSFA431J0HA078780",
+      "qty": "4",
+      "checked": false
+    },
+    {
+      "number": "3",
+      "partCode": "C00120683",
+      "partName": "SV91顶棚线束",
+      "vin": "LSFA431J0HA078780",
+      "qty": "4",
+      "checked": false
+    },
+    {
+      "number": "4",
+      "partCode": "C00120667",
+      "partName": "曲轴扭振减震器",
+      "vin": "LSFA431J7HA098931",
+      "qty": "9",
+      "checked": false
+    },
+    {
+      "number": "5",
+      "partCode": "C00121100",
+      "partName": "SV91顶棚线束",
+      "vin": "LSFA431J7HA098936",
+      "qty": "3",
+      "checked": false
+    },
+    {
+      "number": "6",
+      "partCode": "SV91-RF",
+      "partName": "天窗漏水管总成",
+      "vin": "LSFA431J7HA098934",
+      "qty": "4",
+      "checked": false
+    },
+    {
+      "number": "7",
+      "partCode": "C00105558",
+      "partName": "天窗漏水管总成",
+      "vin": "LSFA431J7HA098933",
+      "qty": "4",
+      "checked": false
+    },
+    {
+      "number": "8",
+      "partCode": "SV91-RF",
+      "partName": "天窗密封条",
+      "vin": "LSFA431J7HA098988",
+      "qty": "2",
+      "checked": false
+    },
+    {
+      "number": "9",
+      "partCode": "C00105864",
+      "partName": "SV91顶棚线束",
+      "vin": "LSFA431J7HA098999",
+      "qty": "7",
+      "checked": false
+    },
+    {
+      "number": "10",
+      "partCode": "C00064276",
+      "partName": "椅背板饰条(水转印2)",
+      "vin": "LSFA431J7HA098944",
+      "qty": "4",
+      "checked": false
+    }
+  ],
+  "shopping-cart-columns": [
+    {
+      "code": "number",
+      "name": "序号",
+      "width": 10,
+      "align": "center"
+    },
+    {
+      "code": "partCode",
+      "name": "配件编码",
+      "width": 20,
+      "align": "center"
+    },
+    {
+      "code": "partName",
+      "name": "配件名称",
+      "width": 25,
+      "align": "center"
+    },
+    {
+      "code": "vin",
+      "name": "线束VIN",
+      "width": 15,
+      "align": "center"
+    },
+    {
+      "code": "qty",
+      "name": "订货量",
+      "width": 10,
+      "align": "center",
+      "type": "input-number"
+    }
+  ],
+  "order-history": [
+    {
+      "orderNumber": 1,
+      "orderCode": "MAXUS-20170825-KTG1",
+      "orderDate": "2017-11-13 17:50:52"
+    },
+    {
+      "orderNumber": 2,
+      "orderCode": "MAXUS-20170825-KTG2",
+      "orderDate": "2017-11-13 17:50:52"
+    },
+    {
+      "orderNumber": 3,
+      "orderCode": "MAXUS-20170825-KTG3",
+      "orderDate": "2017-11-13 17:50:52"
+    },
+    {
+      "orderNumber": 4,
+      "orderCode": "MAXUS-20170825-KTG4",
+      "orderDate": "2017-11-13 17:50:52"
+    },
+    {
+      "orderNumber": 5,
+      "orderCode": "MAXUS-20170825-KTG5",
+      "orderDate": "2017-11-13 17:50:52"
+    },
+    {
+      "orderNumber": 6,
+      "orderCode": "MAXUS-20170825-KTG6",
+      "orderDate": "2017-11-13 17:50:52"
+    },
+    {
+      "orderNumber": 7,
+      "orderCode": "MAXUS-20170825-KTG7",
+      "orderDate": "2017-11-13 17:50:52"
+    },
+    {
+      "orderNumber": 8,
+      "orderCode": "MAXUS-20170825-KTG8",
+      "orderDate": "2017-11-13 17:50:52"
+    },
+    {
+      "orderNumber": 9,
+      "orderCode": "MAXUS-20170825-KTG9",
+      "orderDate": "2017-11-13 17:50:52"
+    },
+    {
+      "orderNumber": 10,
+      "orderCode": "MAXUS-20170825-KTG10",
+      "orderDate": "2017-11-13 17:50:52"
+    }
+  ],
+  "order-detail-columns": [
+    {
+      "code": "number",
+      "name": "序号",
+      "width": 10,
+      "align": "center"
+    },
+    {
+      "code": "partCode",
+      "name": "配件编码",
+      "width": 20,
+      "align": "center"
+    },
+    {
+      "code": "partName",
+      "name": "配件名称",
+      "width": 25,
+      "align": "center"
+    },
+    {
+      "code": "vin",
+      "name": "线束VIN",
+      "width": 15,
+      "align": "center"
+    },
+    {
+      "code": "qty",
+      "name": "订货量",
+      "width": 10,
+      "align": "center",
+      "type": "input-number"
+    }
+  ],
+  "order-detail-list": [
+    {
+      "number": "1",
+      "partCode": "10226141",
+      "partName": "机油控制阀",
+      "vin": "LSFA431J0HA078780",
+      "qty": "4",
+      "checked": false
+    },
+    {
+      "number": "2",
+      "partCode": "C00084733",
+      "partName": "塑料紧箍件",
+      "vin": "LSFA431J0HA078780",
+      "qty": "4",
+      "checked": false
+    },
+    {
+      "number": "3",
+      "partCode": "C00120683",
+      "partName": "SV91顶棚线束",
+      "vin": "LSFA431J0HA078780",
+      "qty": "4",
+      "checked": false
+    },
+    {
+      "number": "4",
+      "partCode": "C00120667",
+      "partName": "曲轴扭振减震器",
+      "vin": "LSFA431J7HA098931",
+      "qty": "9",
+      "checked": false
+    },
+    {
+      "number": "5",
+      "partCode": "C00121100",
+      "partName": "SV91顶棚线束",
+      "vin": "LSFA431J7HA098936",
+      "qty": "3",
+      "checked": false
+    },
+    {
+      "number": "6",
+      "partCode": "SV91-RF",
+      "partName": "天窗漏水管总成",
+      "vin": "LSFA431J7HA098934",
+      "qty": "4",
+      "checked": false
+    },
+    {
+      "number": "7",
+      "partCode": "C00105558",
+      "partName": "天窗漏水管总成",
+      "vin": "LSFA431J7HA098933",
+      "qty": "4",
+      "checked": false
+    },
+    {
+      "number": "8",
+      "partCode": "SV91-RF",
+      "partName": "天窗密封条",
+      "vin": "LSFA431J7HA098988",
+      "qty": "2",
+      "checked": false
+    },
+    {
+      "number": "9",
+      "partCode": "C00105864",
+      "partName": "SV91顶棚线束",
+      "vin": "LSFA431J7HA098999",
+      "qty": "7",
+      "checked": false
+    },
+    {
+      "number": "10",
+      "partCode": "C00064276",
+      "partName": "椅背板饰条(水转印2)",
+      "vin": "LSFA431J7HA098944",
+      "qty": "4",
+      "checked": false
+    }
+  ]
+}

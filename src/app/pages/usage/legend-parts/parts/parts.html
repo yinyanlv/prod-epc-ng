@@ -1,0 +1,89 @@
+<!-- 配件列表-->
+<div class="condition-block parts-block" #loading loading>
+
+  <!-- 抬头部分 -->
+  <div class="headline">
+    <span class="text bold-text">详细 (共 {{partsCount}} 行数据)</span>
+  </div>
+
+  <!-- 配件列表 -->
+  <div class="condition-entity">
+
+    <!-- 配件常规显示列 -->
+    <div id="parts-float-table" class="parts-table-wrapper float">
+      <div #partsFloatThead id="parts-float-thead" class="parts-table-thead">
+        <div class="float-table-head" style="width: 300px;">
+          <div class="parts-item bold-text">
+            <span class="column" style="width:70px;">左右</span>
+            <span class="column">用法备注</span>
+          </div>
+        </div>
+      </div>
+      <div #partsFloatTbody class="parts-table-tbody parts-table-tbody-dflz">
+        <div class="float-table-body" style="width: 300px;">
+
+          <!-- 列表行 -->
+          <div data-part-code [attr.data-part-code]="item.partCode" *ngFor="let item of items"
+               (mouseenter)="rowHoverIn(item)" (mouseleave)="rowHoverOut(item)" (click)="clickRow(item)"
+               class="parts-item {{item.active ? 'active' : ''}} {{item.hover ? 'hover' : ''}}">
+            <span class="column" style="width:70px;">{{item.hand}}</span>
+            <span class="column text-column">{{item.usageNote}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 配件冻结显示列 -->
+    <div class="parts-table-wrapper lock">
+      <div class="parts-table-thead">
+        <div class="parts-item bold-text">
+          <span class="column ordernumber">序号</span>
+          <span class="column operate">操作</span>
+          <span class="column number">配件编码</span>
+          <span class="column describe">配件名称</span>
+          <span class="column quantity">数量</span>
+        </div>
+      </div>
+      <div id="parts-lock-tbody" class="parts-table-tbody parts-table-tbody-dflz">
+        <div #partsLockStbody class="parts-scroll-tbody">
+          <div class="parts-scroll-wrapper">
+            <!-- 列表行 -->
+            <div data-part-code [attr.data-part-code]="item.partCode" (mouseenter)="rowHoverIn(item)"
+                 (mouseleave)="rowHoverOut(item)" (click)="clickRow(item)" *ngFor="let item of items"
+                 class="parts-item {{item.active ? 'active' : ''}} {{item.hover ? 'hover' : ''}}">
+              <span class="column ordernumber">{{item.callout}}</span>
+              <span class="column operate">
+                                                                <a href="javascript:;" class="icon-btn-two"
+                                                                   data-action="buy">
+                                                                        <s-icon type="cart" size="18px"
+                                                                                color="#ffffff"></s-icon>
+                                                                </a>
+                                                                <div class="parts-cart-info">
+                                                                        <div class="cart-add-info ok">
+                                                                                <span class="info-icon"></span>
+                                                                        </div>
+                                                                </div>
+                                                        </span>
+              <span class="column number">
+                                                                <div class="part-number">
+                                                                        <a href="/parts-detail/{{item.partCode}}"
+                                                                           class="text-link"
+                                                                           target="_blank">{{item.partCode}}</a>
+                                                                </div>
+                                                                <div class="icon-btn-wrapper">
+                                                                        <a href="/usage/1162/part-usage" title="配件反查"
+                                                                           class="text-link secondary" target="_blank">
+                                                                                <i class="iconfont icon-car"></i>
+                                                                        </a>
+                                                                </div>
+                                                        </span>
+              <span class="column describe text-column">{{item.partName}}</span>
+              <span class="column quantity">{{item.qty}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

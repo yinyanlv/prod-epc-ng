@@ -1,0 +1,188 @@
+$border-color: #d9d9d9;
+$primary-color: #108ee9;
+$text-color: rgba(0, 0, 0, 0.65);
+
+%pagination-li {
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  min-width: 28px;
+  height: 28px;
+  vertical-align: middle;
+  line-height: 28px;
+  font-size: 12px;
+  color: $text-color;
+  margin-right: 8px;
+  outline: 0;
+  background: #fff;
+  transition: all .3s;
+
+  a {
+    text-decoration: none;
+    color: $text-color;
+    margin: 0 6px;
+  }
+
+  &:focus,
+  &:hover {
+    transition: all .3s;
+    border-color: $primary-color;
+
+    a {
+      color: $primary-color;
+    }
+  }
+}
+
+%input {
+  position: relative;
+  display: inline-block;
+  padding: 4px 7px;
+  height: 28px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba($text-color, 0.65);
+  background: #fff;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  transition: all .3s;
+  margin: 0 8px;
+  width: 50px;
+  vertical-align: top;
+}
+
+.pagination {
+  min-height: 26px;
+  padding: 5px;
+  font-size: 12px;
+  list-style: none;
+  background: #fff;
+  user-select: none;
+
+  &-total-text {
+    display: inline-block;
+    vertical-align: middle;
+    height: 28px;
+    line-height: 28px;
+    margin-right: 8px;
+  }
+
+  &-item {
+    border: 1px solid $border-color;
+    @extend %pagination-li;
+  }
+
+  &-prev,
+  &-next {
+    @extend %pagination-li;
+
+    .item-link {
+      display: block;
+      border: 1px solid $border-color;
+      border-radius: 4px;
+      margin: 0;
+
+      &::after {
+        display: block;
+        height: 26px;
+        line-height: 26px;
+      }
+    }
+  }
+
+  &-prev {
+    .item-link::after {
+      content: '<'
+    }
+  }
+
+  &-next {
+    .item-link::after {
+      content: '>'
+    }
+  }
+
+  &-jump-prev,
+  &-jump-next {
+    @extend %pagination-li;
+
+    a {
+      margin: 0;
+    }
+
+    &::after {
+      content: "•••";
+      display: block;
+      letter-spacing: 2px;
+      color: rgba($text-color, 0.25);
+      transition: all .3s;
+    }
+  }
+
+  &-jump-next {
+    &:focus::after,
+    &:hover::after {
+      transition: all .3s;
+      content: ">>";
+      color: $primary-color;
+    }
+  }
+
+  &-jump-prev {
+    &:focus::after,
+    &:hover::after {
+      transition: all .3s;
+      content: "<<";
+      color: $primary-color;
+    }
+  }
+
+  &-active {
+    background: $primary-color;
+    border-color: $primary-color;
+
+    &:focus,
+    &:hover {
+      background: rgba($primary-color, 0.65);
+      border-color: rgba($primary-color, 0.65);
+    }
+
+    a,
+    &:focus a,
+    &:hover a {
+      color: #fff;
+    }
+  }
+
+  &-prev-disabled,
+  &-next-disabled {
+    &:focus,
+    &:hover {
+      cursor: not-allowed;
+    }
+
+    a,
+    a:focus,
+    a:hover {
+      color: rgba($text-color, 0.25);
+      cursor: not-allowed;
+    }
+  }
+
+  &-options {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 16px;
+
+    &-quick-jumper {
+      display: inline-block;
+      height: 28px;
+      line-height: 28px;
+
+      & input {
+        @extend %input;
+      }
+    }
+  }
+}

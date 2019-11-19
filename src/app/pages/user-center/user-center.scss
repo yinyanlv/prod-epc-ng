@@ -1,0 +1,367 @@
+@import '../../sass/src/frame';
+
+.user-center {
+  float: left;
+  width: 270px;
+
+  .user-center-list {
+    li {
+      padding-left: 90px;
+      height: 30px;
+      text-align: left;
+      line-height: 30px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-bottom: 10px;
+
+      a {
+        color: #333;
+        text-decoration: none;
+        display: block;
+      }
+
+      &:hover,
+      &.active {
+        background: #1c77b8;
+
+        a {
+          color: #fff;
+        }
+      }
+
+      span {
+        display: inline-block;
+        margin-left: 5px;
+      }
+
+      i {
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+body.en {
+  .user-center-detail {
+    .data-item {
+      .title {
+        width: 112px !important;
+      }
+
+      .data-info {
+        width: 300px !important;
+      }
+    }
+
+    .changepws-data {
+      .data-title {
+        width: 120px !important;
+      }
+
+      .input-box {
+        width: 270px !important;
+      }
+    }
+  }
+}
+
+.user-center-detail {
+  padding-left: 380px;
+  padding-top: 20px;
+  color: $text-color;
+  font-weight: bold;
+
+  .user-center-detail-info {
+    .thead {
+      height: 12px;
+      line-height: 12px;
+      padding-left: 5px;
+      border-left: 2px solid #f72f3e;
+      margin-bottom: 20px;
+    }
+
+    // repair station info
+    .user-center-message {
+      position: relative;
+      width: 500px;
+      padding: 5px 30px;
+
+      .data-item {
+        height: 42px;
+        line-height: 40px;
+        text-align: left;
+        font-size: 12px;
+
+        &.error {
+          .input-box {
+            border-color: #f82f3f !important;
+          }
+        }
+
+        .title {
+          display: inline-block;
+          width: 62px;
+          height: 42px;
+        }
+
+        .data-info {
+          display: inline-block;
+          width: 350px;
+          padding: 0 5px;
+          margin-left: 5px;
+        }
+      }
+
+      .user-center-modify {
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+
+        .iconfont {
+          font-size: 18px;
+        }
+      }
+
+      .user-center-button {
+        margin: 20px 0;
+        text-align: center;
+
+        a {
+          width: 100px;
+          height: 32px;
+          line-height: 30px;
+          font-size: 14px;
+        }
+      }
+
+      // 修改密码
+      .changepws-data {
+        height: 40px;
+        margin: 10px 0;
+        position: relative;
+
+        .data-title {
+          display: inline-block;
+          width: 50px;
+          line-height: 40px;
+        }
+
+        .input-box {
+          width: 340px;
+          height: 40px;
+        }
+
+        .controll-eye {
+          position: absolute;
+          right: 46px;
+          top: 5px;
+          cursor: pointer;
+        }
+      }
+
+      .changepws-btn {
+        text-align: center;
+        margin-top: 10px;
+
+        a {
+          width: 100px;
+          height: 35px;
+          font-size: 12px;
+          margin-left: 20px;
+          line-height: 35px;
+        }
+      }
+
+      .info-wrapper {
+        padding-left: 60px;
+        height: 40px;
+        line-height: 40px;
+
+        .info-wrapper-icon {
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+          background: url(../../../assets/styles/images/dialog_icons.png) no-repeat -24px 0;
+          vertical-align: middle;
+          margin-right: 10px;
+        }
+
+        .text {
+          vertical-align: middle;
+        }
+      }
+    }
+
+    // 子账号管理
+    .user-center-table {
+      padding: 5px 30px;
+
+      table {
+        width: 700px;
+        border-collapse: collapse;
+        text-align: center;
+
+        tr {
+          border-bottom: 1px dotted #ccc;
+        }
+
+        th,
+        td {
+          height: 40px;
+        }
+
+        th {
+          font-weight: bold;
+        }
+
+        td {
+          font-weight: normal;
+
+          .unbound-num {
+            @include setHeightGroup(20px);
+            width: 80px;
+            font-size: 12px;
+            background-color: $theme-color;
+            border-color: $theme-color;
+          }
+
+          .bind-num {
+            a {
+              @include setHeightGroup(20px);
+              width: 40px;
+              font-size: 12px;
+              background-color: $theme-color;
+              border-color: $theme-color;
+            }
+          }
+
+          &.num-box {
+            width: 25%;
+
+            input {
+              width: 80%;
+              height: 30px;
+              border: 1px solid #333;
+            }
+          }
+
+          &.operator {
+            width: 25%;
+            position: relative;
+
+            .info-wrapper {
+              position: absolute;
+              top: 10px;
+
+              &.successed-info {
+                display: none;
+                right: -79px;
+
+                .icon {
+                  color: #7CBB00;
+                }
+              }
+
+              &.failed-info {
+                display: none;
+                right: -150px;
+
+                .icon {
+                  color: #FFBB00;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .user-center-detail-msg {
+    tbody {
+      tr {
+        height: 40px;
+
+        td {
+          text-align: left;
+        }
+
+        td:last-child {
+          padding-left: 15px;
+          font-weight: normal;
+          width: 360px;
+
+          .input-box {
+            width: 100%;
+            line-height: 40px;
+          }
+
+          .change-pws-btn {
+            width: 100%;
+            padding: 0;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  //system info
+  .sysInfo {
+    .sys-image {
+      float: left;
+      width: 140px;
+      height: 89px;
+    }
+
+    .system-msg {
+      padding-left: 170px;
+      margin-top: 28px;
+    }
+  }
+}
+
+//common block style
+.condition-block {
+  .headline {
+    padding: 20px 0 0;
+    line-height: 1em;
+    text-align: center;
+    margin-bottom: 14px;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: #666666;
+      margin-top: 6px
+    }
+
+    .text {
+      display: inline-block;
+      padding: 0 10px;
+      position: relative;
+      background: $bg-color;
+      top: -8px
+    }
+  }
+
+  .condition-item {
+    margin-bottom: 15px
+  }
+
+  .condition-entity {
+    position: absolute;
+    left: 0;
+    top: 51px;
+    bottom: 0;
+    right: 0;
+    overflow-x: hidden;
+    overflow-y: auto
+  }
+}

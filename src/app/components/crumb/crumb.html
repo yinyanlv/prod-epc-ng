@@ -1,0 +1,19 @@
+<div class="crumb">
+  <ng-container *ngFor="let item of items;">
+    <a *ngIf="item.path" class="crumb-item"
+       [routerLink]="item.path"
+       [queryParams]="item.queryParams ? item.queryParams : null"
+       (click)="onClickItem.emit(item)"
+    >
+      <s-icon type="arrow-right"></s-icon>
+      <span class="text">{{item.text}}</span>
+    </a>
+
+    <a *ngIf="!item.path" class="crumb-item not-link"
+       (click)="onClickItem.emit(item)"
+    >
+      <s-icon type="arrow-right"></s-icon>
+      <span class="text">{{item.text}}</span>
+    </a>
+  </ng-container>
+</div>

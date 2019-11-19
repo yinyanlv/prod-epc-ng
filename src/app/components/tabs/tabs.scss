@@ -1,0 +1,32 @@
+.s-tabs-title {
+  width: 100%;
+  border-bottom: 1px solid #238bd7;
+  height: 40px;
+
+  .s-tabs-item {
+    display: inline-block;
+    height: 39px;
+    min-width: 80px;
+    padding: 0 10px;
+    line-height: 38px;
+    text-align: center;
+    border: 1px solid #d8dce5;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #5a5e66;
+
+    &:hover {
+      border-color: #289bee;
+      background-color: #289bee;
+      color: #fff;
+    }
+
+    &.active {
+      border-color: #238bd7;
+      background-color: #238bd7;
+      color: #fff;
+    }
+  }
+}

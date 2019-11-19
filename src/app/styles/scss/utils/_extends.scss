@@ -1,0 +1,8 @@
+/**
+ * 文本长度超过容器宽度时，显示省略号
+ */
+%textOverflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

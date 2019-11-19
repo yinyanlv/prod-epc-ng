@@ -1,0 +1,75 @@
+ul, dl, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.tree {
+
+  .tree-node {
+
+    margin-bottom: 5px;
+
+    // 节点容器(图标&文本)
+    .node-link {
+      display: inline-block;
+      padding-left: 0px;
+      margin-bottom: 5px;
+      cursor: pointer;
+
+      // 节点图标
+      .node-icon {
+        float: left;
+        line-height: 16px;
+
+        s-icon {
+          &[type=node-expand] {
+            font-size: 11px !important;
+          }
+
+          &[type=node-collapse] {
+            font-size: 11px !important;
+          }
+
+          &[type=node-leaf] {
+            font-size: 6px !important;
+          }
+        }
+      }
+
+      // 节点文本
+      .node-text {
+        display: block;
+        padding-left: 20px;
+        color: #333333;
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: bold;
+        word-break: break-all;
+
+        &:hover {
+          color: #1C77B8;
+        }
+
+        &.selected {
+          color: #1C77B8;
+        }
+      }
+    }
+
+    // 下级节点(展开&收起)
+    .child-node {
+      margin-left: 22px;
+
+      &.expand {
+        display: block;
+      }
+
+      &.collapse {
+        display: none;
+      }
+    }
+  }
+}

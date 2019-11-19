@@ -1,0 +1,32 @@
+<div class="condition-entity" #loading loading>
+  <ul class="tree">
+
+    <!-- 树模板 -->
+    <ng-template #treeTemplate let-items>
+      <li *ngFor="let item of items" class="tree-node">
+                <span class="node-link">
+
+                    <!-- 节点图标 -->
+                    <span class="node-icon">
+                        <s-icon *ngIf="!item.leaf && !item.expanded" (click)="expand(item)" type="node-expand"></s-icon>
+                        <s-icon *ngIf="!item.leaf && item.expanded" (click)="collapse(item)"
+                                type="node-collapse"></s-icon>
+                        <s-icon *ngIf="item.leaf" type="node-leaf"></s-icon>
+                    </span>
+
+                  <!-- 节点文本 -->
+                    <a (click)="clickNode(item)" (dblclick)="dblclickNode(item)"
+                       class="node-text {{item.selected ? 'selected' : ''}}">{{item.text}}</a>
+                </span>
+
+        <!-- 子节点区域 -->
+        <ul *ngIf="item.children.length" class="child-node {{item.expanded ? 'expand' : 'collapse'}}">
+          <ng-container *ngTemplateOutlet="treeTemplate; context:{ $implicit: item.children }"></ng-container>
+        </ul>
+
+      </li>
+    </ng-template>
+
+    <ng-container *ngTemplateOutlet="treeTemplate; context:{ $implicit: items }"></ng-container>
+  </ul>
+</div>

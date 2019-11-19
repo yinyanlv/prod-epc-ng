@@ -1,0 +1,35 @@
+<!-- 配置 -->
+<div id="condition-item-wrapper" class="inner-right hide">
+
+  <div *ngFor="let group of groups" class="condition-item hide "
+       [ngClass]="{expand:group.expand,collapse:!group.expand}"
+       style="display: block;">
+    <div class="condition-title">
+      <span class="bold-text title-text">{{group.name}}</span>
+      <span class="current-choice-wrapper">
+                <span class="current">[</span>
+                <span class="current current-choice">{{group.selectionName}}</span>
+                <span class="current">]</span>
+            </span>
+    </div>
+    <div class="condition-content" [ngStyle]="{'max-height':group.maxHeight}">
+      <div *ngFor="let item of group.items">
+        <a href="javascript:;" (click)="selectFeatureItem(group, item)" target="_self" class="text-link secondary"
+           [ngClass]="{active:item.code==group.acitveCode}">{{item.name}}</a>
+      </div>
+    </div>
+    <div class="condition-btn-wrapper">
+      <a href="javascript:;" class="condition-btn">
+                <span class="btn-collapse" (click)="expandCollapseGroup(group)">
+                    <i class="iconfont icon-collapse"></i>
+                    <span class="text">更多</span>
+                </span>
+        <span class="btn-expand" (click)="expandCollapseGroup(group)">
+                    <i class="iconfont icon-expand"></i>
+                    <span class="text">收起</span>
+                </span>
+      </a>
+    </div>
+  </div>
+
+</div>

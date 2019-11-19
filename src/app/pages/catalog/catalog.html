@@ -1,0 +1,41 @@
+<!-- 页头 -->
+<app-header1></app-header1>
+
+<!-- 面包屑 -->
+<s-crumb [items]="crumbs" (onClickItem)="clickCrumbsItem($event)"></s-crumb>
+
+<!-- 身体 -->
+<section class="wrapper clearfix">
+
+  <!-- 右边 配置区域 -->
+  <aside class="search-condition condition-block home-search-condition" #rightWrap loading>
+
+    <!-- 抬头 -->
+    <div class="headline">
+      <span class="text bold-text">配置</span>
+    </div>
+
+    <!--右边 导航提示与配置信息区域 -->
+    <router-outlet></router-outlet>
+  </aside>
+
+  <!-- 左边 品牌车系区域 -->
+  <section class="condition-block brand-block" #leftWrap loading>
+    <div class="headline">
+      <span class="text bold-text">品牌</span>
+    </div>
+    <div class="condition-entity">
+
+      <!--品牌 -->
+      <app-brand (onBeforeLoad)="brandSeriesLoading.show()" (onAfterLoad)="brandSeriesLoading.hide()"></app-brand>
+
+      <!--车系 -->
+      <app-series (onBeforeLoad)="brandSeriesLoading.show()" (onAfterLoad)="brandSeriesLoading.hide()"></app-series>
+    </div>
+  </section>
+
+</section>
+
+<!-- 页脚 -->
+<app-footer></app-footer>
+

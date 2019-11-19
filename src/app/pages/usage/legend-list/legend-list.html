@@ -1,0 +1,21 @@
+<!-- 右边缩略图区域 -->
+<section class="condition-block thumbnail-block" style="display: block;">
+  <div class="headline">
+    <span class="text bold-text">图例</span>
+  </div>
+  <div class="condition-entity thumbnail-content">
+    <ul class="thumbnail-item-wrapper">
+      <li *ngFor="let item of items" class="thumbnail-item">
+        <a href="javascript:;" class="thumbnail-wrapper text-link secondary" (click)="linkLegend(item)">
+          <div class="thumbnail-img-wrapper">
+            <img class="lazy" src="{{gcService.get('resHost')}}{{item.original}}" style="display: inline;">
+          </div>
+          <div class="describe-wrapper">
+            <div>{{item.code}} </div>
+            <div>{{item.description}}</div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>

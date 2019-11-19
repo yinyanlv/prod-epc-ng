@@ -1,0 +1,14 @@
+<div class="header-wrapper">
+
+  <!-- logo 链接主页  -->
+  <a class="header-logo" href="/">
+    <img src="http://res2.dev.servision.com.cn/tis/logo/MAXUS.png">
+  </a>
+
+  <!-- 搜索主框 -->
+  <s-search [searchOptions]="searchOptions" (getSearchData)="getSearchData($event)"
+            (deleteSearchOption)="deleteSearchOption($event)" (clearSearchHistory)="clearSearchHistory()"
+            (doSearch)="doSearch($event)"></s-search>
+
+  <a href="/tinyepc-web/ksk" class="ksk-purchase">线束订购</a>
+</div>

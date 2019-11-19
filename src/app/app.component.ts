@@ -1,10 +1,13 @@
-import { Component } from '@angular/core';
+import {Component, ViewEncapsulation} from '@angular/core';
+
+// 引入 observable 静态方法与操作符方法
+import 'rxjs/Rx';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  templateUrl: './app.html',
+  styleUrls: ['./app.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class AppComponent {
-  title = 'epc-ng';
 }

@@ -1,0 +1,99 @@
+<!-- 左边区域 (目录树) -->
+<div class="content-left">
+  <app-line-title title="用法"></app-line-title>
+
+  <!-- 目录树容器 -->
+  <div class="tree-wrap">
+    <s-tree></s-tree>
+  </div>
+
+</div>
+
+
+<!-- 图例缩略图 -->
+<div class="legend-list" style="display:none;">
+  <app-line-title title="图例"></app-line-title>
+
+  <ul class="list-body">
+
+    <li class="list-item" *ngFor="let item of items">
+
+      <div class="img-wrap">
+        <s-images imgSrc='http://res2.dev.servision.com.cn/maxus/legend/BE111A001.svg?/d/300'
+                  noImgSrc="assets/images/no_image.jpg"
+                  #img></s-images>
+      </div>
+
+      <div class="img-desc">BE111A001缸体&曲轴&连杆</div>
+    </li>
+
+  </ul>
+
+</div>
+
+<!-- 左图右数据 -->
+<div class="legend-parts">
+
+  <!-- 图例块 -->
+  <div class="legend-block">
+
+    <!-- 左边分隔线 -->
+    <div class="separator-line left-line" style="vertical-align: middle;">
+      <s-icon type="left"></s-icon>
+    </div>
+
+    <div class="legend-body">
+      <app-line-title title="BE121A001-变速器总成-自动（6AT）"></app-line-title>
+
+      <div class="legend-wrap">
+        <s-svg-hotpoint #svghotpoint></s-svg-hotpoint>
+      </div>
+    </div>
+
+    <!-- 右边分隔线 -->
+    <div class="separator-line right-line">
+      <s-icon type="right"></s-icon>
+    </div>
+  </div>
+
+  <!-- 配件块 -->
+  <div class="parts-block">
+    <app-line-title title="详细 (共 13 行数据)"></app-line-title>
+
+    <div class="parts-wrap">
+      <div class="parts-header">
+        <table class="parts-table">
+          <thead>
+          <tr class="table-header">
+            <th style="min-width:80px;">序号</th>
+            <th style="min-width:80px;">操作</th>
+            <th style="min-width:140px;">配件编码</th>
+            <th style="min-width:160px;">配件名称</th>
+            <th style="min-width:70px;">数量</th>
+            <th style="min-width:70px;">左右</th>
+            <th style="min-width:200px;">用法备注</th>
+          </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="parts-body">
+        <table class="parts-table">
+          <tbody>
+          <tr *ngFor="let item of items" class="table-body">
+            <td style="min-width:80px;">1</td>
+            <td style="min-width:80px;">
+              <s-icon type="cart"></s-icon>
+            </td>
+            <td style="min-width:140px;">C00104601</td>
+            <td style="min-width:160px;">电液控制器</td>
+            <td style="min-width:70px;">1.0</td>
+            <td style="min-width:70px;">abc</td>
+            <td style="min-width:200px;">abv</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</div>

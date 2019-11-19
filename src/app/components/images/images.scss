@@ -1,0 +1,5 @@
+@import "styles/scss/sdk";
+
+.view-img {
+  @include setAutoImg();
+}

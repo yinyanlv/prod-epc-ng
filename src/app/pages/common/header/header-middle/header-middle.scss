@@ -1,0 +1,101 @@
+.v-middle {
+    &:after {
+        content: '.';
+        font-size: 0;
+        display: inline-block;
+        height: 100%;
+        vertical-align: middle;
+    }
+    &>* {
+        vertical-align: middle;
+    }
+}
+
+.banner {
+    padding-left: 20px;
+    height: 74px;
+    background-color: #ffffff;
+    position: relative;
+    .logo-wrapper {
+        display: inline-block;
+        text-decoration: none;
+        font-size: 0;
+        line-height: 0;
+        .logo-wrapper img {
+            outline: none;
+        }
+    }
+    .header-searxh-box {
+        width: 460px;
+        height: 40px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        .ksk-purchase {
+            position: absolute;
+            width: 100px;
+            bottom: 0;
+            left: 500px;
+            text-decoration: none;
+            color: #333333;
+        }
+    }
+}
+
+.header-input {
+    width: 361px;
+    font: 12px "Microsoft Yahei", "Arial", "Simhei", "SimSun", "sans-serif";
+    height: 40px;
+    line-height: 38px;
+    background: #ffffff;
+    padding: 0 10px;
+    border: 1px solid #e0e0e0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    -webkit-box-shadow: 0 0 0 0;
+    -moz-box-shadow: 0 0 0 0;
+    box-shadow: 0 0 0 0;
+    vertical-align: top;
+}
+
+.btn-two {
+    width: 182px;
+    display: inline-block;
+    height: 40px;
+    line-height: 38px;
+    padding: 0 10px;
+    color: #ffffff;
+    background-color: #238BD7;
+    border: solid 1px #238BD7;
+    font-size: 0;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    min-width: 60px;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: top;
+    .iconfont {
+        font-size: 22px;
+    }
+}
+
+.banner-search-btn {
+    position: absolute;
+    right: 0;
+    .a-btn {
+        width: 100px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+        .icon-search {
+            font-size: 16px;
+        }
+    }
+}

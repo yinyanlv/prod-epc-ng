@@ -1,0 +1,40 @@
+<div>
+  <div [ngClass]="imaskClassMap"></div>
+  <div class="a-modal-wrap {{iwrapClassName}}" [ngStyle]="{'display':(!iVisible && !ianimateFadeStatus ? 'none' : '')}">
+    <div #modalContent class="a-modal" [ngClass]="ibodyClassMap" [ngStyle]="bodyStyleMap">
+      <div class="a-modal-content">
+        <div class="a-modal-close">
+          <s-icon type="close" style="font-size:30px;" (click)="close()"></s-icon>
+        </div>
+        <div class="a-modal-header">
+          <div class="a-modal-title">
+            <ng-template #defaultTitle>{{ititle}}</ng-template>
+            <ng-template [ngTemplateOutlet]="ititleTpl || defaultTitle"></ng-template>
+          </div>
+        </div>
+        <div class="a-modal-body">
+          <ng-template #defaultContent>
+            <div [innerHTML]="icontent"></div>
+          </ng-template>
+          <ng-template [ngTemplateOutlet]="icontentTpl || defaultContent"></ng-template>
+          <ng-template #modalComponent></ng-template>
+        </div>
+        <div class="a-modal-footer" *ngIf="!ifooterHide">
+
+          <ng-template #defaultFooter>
+            <s-button type="primary" (click)="ok()">
+              <span>{{iokText}}</span>
+            </s-button>
+            <s-button (click)="cancel()">
+              <span>{{icancelText}}</span>
+            </s-button>
+          </ng-template>
+          <ng-template [ngTemplateOutlet]="footerTpl || defaultFooter"></ng-template>
+        </div>
+
+        <ng-content></ng-content>
+      </div>
+
+    </div>
+  </div>
+</div>

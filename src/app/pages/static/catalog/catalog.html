@@ -1,0 +1,98 @@
+<!-- 左边区域 -->
+<div class="content-left">
+
+  <!-- 抬头 -->
+  <app-line-title title="品牌"></app-line-title>
+
+  <!-- 品牌区域 -->
+  <div class="content-brand">
+    <a class="btn-tab">上汽大通</a>
+    <a class="btn-tab active">上汽大众</a>
+    <a class="btn-tab">上汽荣威</a>
+  </div>
+
+  <!-- 车系区域 -->
+  <div class="content-series">
+
+    <!-- 车系元素 -->
+    <span class="series-item" *ngFor="let item of items">
+            <a class="series-link">
+                <div class="img-wrap">
+                    <img src="http://res2.dev.servision.com.cn/epc/mapping/D90.png">
+                </div>
+                <span class="series-text">D90</span>
+            </a>
+        </span>
+
+  </div>
+</div>
+
+<!-- 右边区域 -->
+<div class="content-right">
+
+  <!-- 抬头 -->
+  <app-line-title title="配置"></app-line-title>
+
+  <!-- 配置容器 -->
+  <div class="content-feature" style="display:none;">
+
+    <!-- 配置组 -->
+    <div class="feature-group" *ngFor="let item of items">
+
+      <!-- 头部 -->
+      <div class="item-title">
+        <span class="title-text">轴距+底盘高度+车身结构[ 短轴+低底盘+单排 ]</span>
+        <span class="selection-text">[全部]</span>
+      </div>
+
+      <!-- 身部 -->
+      <div class="item-body" [ngClass]="{expand:isExpand}">
+                <span class="item-option">
+                    <a>全部</a>
+                </span>
+        <span class="item-option">
+                    <a>短轴+低底盘+单排</a>
+                </span>
+        <span class="item-option">
+                    <a>短轴+低底盘+双排</a>
+                </span>
+        <span class="item-option">
+                    <a>短轴+低底盘+大单排</a>
+                </span>
+        <span class="item-option">
+                    <a>短轴+低底盘+大双排</a>
+                </span>
+        <span class="item-option">
+                    <a>短轴+高底盘+单排</a>
+                </span>
+        <span class="item-option">
+                    <a>5MT 上汽齿</a>
+                </span>
+        <span class="item-option">
+                    <a>5MT 上汽齿1</a>
+                </span>
+        <span class="item-option">
+                    <a>5MT 上汽齿2</a>
+                </span>
+        <span class="item-option">
+                    <a>5MT 上汽齿3</a>
+                </span>
+      </div>
+
+      <!-- 脚部 -->
+      <div class="item-footer">
+        <a class="btn-expand">展开</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 请选择左侧车系图片 -->
+  <div class="content-tip">
+    <div class="tip-wrap">
+      <span class="tip-pic"></span>
+      <span class="tip-title">请先选择左侧车系图片</span>
+    </div>
+  </div>
+
+</div>

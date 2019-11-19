@@ -1,0 +1,53 @@
+@import "styles/scss/sdk";
+
+.grid {
+
+  table {
+    width: 100%;
+    font-size: 12px;
+    line-height: 1.2em;
+    border-collapse: collapse;
+    table-layout: fixed;
+
+    thead {
+      th {
+        padding: 20px 20px 10px 0;
+      }
+    }
+
+    tbody {
+      text-align: center;
+
+      tr {
+        height: 60px;
+        border-bottom: 1px dotted $light-bd-color;
+
+        &:first-child {
+          border-top: 1px dotted $light-bd-color;
+        }
+
+        &:hover {
+          background: $bg-color;
+        }
+
+        td {
+          padding: 14px 20px 14px 0;
+          min-height: 60px;
+          word-break: break-all;
+        }
+
+        &.isSelected {
+          background: $bg-color;
+        }
+      }
+    }
+
+    .row-number {
+      width: 45px;
+    }
+
+    s-checkbox {
+      display: inline-block;
+    }
+  }
+}

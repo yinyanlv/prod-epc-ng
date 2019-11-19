@@ -1,0 +1,48 @@
+<section class="user-center-detail">
+
+  <div class="user-center-detail-info">
+    <div class="thead">服务站信息</div>
+    <div class="user-center-message">
+      <div class="data-item">
+        <label class="title">维修站编码</label>：
+        <span data-name="id" class="data-info span-input-box">{{user?.id}}</span>
+      </div>
+      <div class="data-item">
+        <label class="title">维修站名称</label>：
+        <span data-name="name" class="data-info span-input-box">{{user?.name}}</span>
+      </div>
+      <div class="data-item">
+        <label class="title">维修站地址</label>：
+        <span *ngIf="!isEdit" data-name="address" class="data-info span-input-box">{{user?.address}}</span>
+        <input *ngIf="isEdit" name="address" class="data-info input-box" type="text" data-maxlength=200
+               autocomplete="false" value="{{user?.address}}" title="最多不超过200个字符"/>
+      </div>
+      <div class="data-item">
+        <label class="title">所属省份</label>：
+        <span data-name="provinceName" class="data-info span-input-box">{{user?.provinceName}}</span>
+      </div>
+      <div class="data-item">
+        <label class="title">联系人</label>：
+        <span *ngIf="!isEdit" data-name="contactName" class="data-info span-input-box">{{user?.contactName}}</span>
+        <input *ngIf="isEdit" name="contactName" class="data-info input-box" type="text" data-maxlength=50
+               autocomplete="false" value="{{user?.contactName}}" title="最多不超过50个字符"/>
+      </div>
+      <div class="data-item">
+        <label class="title">联系电话</label>：
+        <span *ngIf="!isEdit" data-name="contactName" class="data-info span-input-box">{{user?.contactName}}</span>
+        <input *ngIf="isEdit" name="contactPhone" class="data-info input-box" type="text" data-maxlength=50
+               autocomplete="false" value="{{user?.contactPhone}}" title="最多不超过50个字符"/>
+      </div>
+      <div class="data-item">
+        <label class="title">到期日期</label>：
+        <span data-name="expireDate" class="data-info span-input-box">{{user?.formattedExpireDate}}</span>
+      </div>
+      <span class="user-center-modify"><s-icon (click)="isEdit=true" type="edit" *ngIf="!isEdit"></s-icon></span>
+      <div class="user-center-button" *ngIf="isEdit">
+        <a href="javascript:;" class="user-center-save btn-two">保存</a>
+        <a href="javascript:;" class="user-center-cancel btn-two" (click)="isEdit=false">取消</a>
+      </div>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,15 @@
+<!-- 车系 -->
+<div class="series-tab-content">
+  <ul class="tab-content">
+    <li class="series-item" *ngFor="let item of series">
+      <a href="javascript:;" class="series-btn" [ngClass]="{active: activeSeriesCode === item.code}"
+         (click)="selectSeries(item)">
+        <div class="img-wrapper">
+          <img class="lazy" src="http://res2.dev.servision.com.cn/epc/mapping/{{item.name}}.png">
+        </div>
+        <div class="text">{{item.name}}</div>
+      </a>
+    </li>
+  </ul>
+</div>
+

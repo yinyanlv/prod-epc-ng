@@ -1,0 +1,53 @@
+<!-- 页头 -->
+<app-header1></app-header1>
+
+<!-- 面包屑 -->
+<s-crumb></s-crumb>
+
+<!-- 页面身体 -->
+<section class="common-wrapper">
+  <div class="common-table cart-table cart-list-table">
+
+    <!-- 查询区域 -->
+    <form class="search-conditions">
+      <div class="data-item inline-block-item calendar-item">
+        <span class="text">订单日期：</span>
+        <input class="input-box calendar-box" type="text" name="sdd" value="">
+        <span class="text-block date-input-splite">-</span>
+        <input class="input-box calendar-box" type="text" name="sdu" value="">
+      </div>
+      <div class="data-item keyword-item inline-block-item">
+        <span class="text">关键字：</span>
+        <input type="text" class="input-box" name="q" placeholder="配件编码/名称" value="">
+      </div>
+      <a href="javascript:;" id="search-btn" class="btn">查询</a>
+      <a href="javascript:;" id="reset-btn" class="btn secondary">清空</a>
+    </form>
+
+    <!-- 列表区域 -->
+    <table>
+      <thead>
+      <tr>
+        <th>#</th>
+        <th>购物车清单单号</th>
+        <th>订单日期</th>
+        <th class="operate">操作</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="item" *ngFor="let item of list">
+        <td>{{item.orderNumber}}</td>
+        <td>
+          <a href="http://localhost:4200/order-detail/{{item.orderCode}}" class="text-link"
+             target="_blank">{{item.orderCode}}</a>
+        </td>
+        <td>{{item.orderDate}}</td>
+        <td class="operate">
+          <s-icon (click)="deleteSingle(item)" type="delete" style="font-size:20px;cursor:pointer;"></s-icon>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+</section>

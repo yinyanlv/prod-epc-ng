@@ -1,0 +1,71 @@
+<section class="banner" [style.background-image]="'banner.jpg' | backgroundSrc">
+  <a href="/" class="logo-wrapper">
+    <img src="http://res2.dev.servision.com.cn/tis/logo/MAXUS.png">
+  </a>
+</section>
+
+<section class="login-wrapper condition-block">
+  <div class="headline">
+    <span class="text bold-text"></span>
+  </div>
+  <div class="languange-btn-wrapper">
+    <a class="languange-btn" [ngClass]="{active: lang == 'zh'}" (click)="changeLang('zh')">中文</a>
+    <a class="languange-btn" [ngClass]="{active: lang == 'en'}" (click)="changeLang('en')">English</a>
+  </div>
+  <form class="login-form" #f="ngForm" (ngSubmit)="f.form.valid && login(model.username, model.passowrd)" novalidate>
+
+    <div class="data-item" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+      <label class="title">用户名:</label>
+      <span class="sign-icon">
+                <s-icon type="user" size="14"></s-icon>
+            </span>
+      <input name="username" #username="ngModel" class="input-box username form-control" [(ngModel)]="model.username"
+             required
+      />
+      <div *ngIf="f.submitted && !username.valid" style="color:red;font-size:12px;">用户名必填</div>
+    </div>
+
+    <div class="data-item" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+      <label class="title">密码：</label>
+      <span class="sign-icon">
+                <s-icon type="pwd" size="14"></s-icon>
+            </span>
+      <input name="password" #password="ngModel" type="password" class="input-box pwd form-control"
+             [(ngModel)]="model.password"
+             required/>
+      <div *ngIf="f.submitted && !password.valid" style="color:red;font-size:12px;">密码必填</div>
+    </div>
+
+    <div class="data-item" [ngClass]="{error:true}">
+      <label class="title">验证码：</label>
+      <span class="sign-icon">
+                <s-icon type="verify" size="14"></s-icon>
+            </span>
+      <input name="verifyCode" class="input-box verify-code" #validcode="ngModel" [(ngModel)]="model.validcode"
+             required/>
+      <a href="javascript:;" class="verify-img" (click)="changeVerifyCode(verifyImg)">
+        <img #verifyImg [src]="verifySrc"/>
+      </a>
+    </div>
+
+    <div class="info-wrapper" [ngStyle]="{visibility:errorInfo ? 'visible' : 'hidden'}">
+            <span class="icon">
+                <s-icon type="error" size="14"></s-icon>
+            </span>
+      <span class="text">{{errorInfo}}</span>
+    </div>
+
+    <button [disabled]="isLoading" type="submit" class="login-btn">{{isLoading ? '登录中...' : '登录'}}</button>
+  </form>
+</section>
+
+<footer class="login-footer">
+  <div>
+    <span class="title">客服热线：</span>
+    <span>021-20252866 / 021-50271393</span>
+  </div>
+  <div>
+    <span class="title">服务时间说明：</span>
+    <span>客服支持时间（周一至周五）09:00 - 17:00</span>
+  </div>
+</footer>

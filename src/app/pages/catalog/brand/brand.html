@@ -1,0 +1,6 @@
+<!-- 品牌 -->
+<div class="brand-tab-btn">
+  <a href="javascript:;" *ngFor="let item of brands;" (click)="selectBrand(item)" class="btn secondary tab-btn"
+     [ngClass]="{active: activeBrandCode === item.code}">{{item.name}}</a>
+</div>
+

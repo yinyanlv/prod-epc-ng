@@ -1,0 +1,209 @@
+@import "styles/scss/sdk";
+
+/*  抬头  */
+.content-title {
+  height: 40px;
+  text-align: center;
+
+  .title-line {
+    display: inline-block;
+    width: 100%;
+    border-top: 1px solid $bd-color;
+  }
+
+  .title-text {
+    display: inline-block;
+    position: relative;
+    width: 50px;
+    top: -20px;
+    font-weight: 700;
+    background: $light-bg-color;
+  }
+}
+
+/* 左边区域 */
+.content-left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20px;
+
+  // 品牌容器
+  .content-brand {
+    // 修复换行产生的margin
+    font-size: 0;
+    margin-bottom: 20px;
+  }
+
+  // 选项卡按钮
+  .btn-tab {
+    background: #fff;
+    color: $font-color;
+    display: inline-block;
+    border: 1px solid $light-bd-color;
+    height: 36px;
+    text-align: center;
+    line-height: 34px;
+    min-width: 80px;
+    margin: 0;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+
+    &.active {
+      background: $btn-bg-color;
+      border: 1px solid $btn-bg-color;
+      color: $btn-font-color;
+    }
+
+    &:first-child {
+      border-top-left-radius: $btn-bd-radius;
+      border-bottom-left-radius: $btn-bd-radius;
+      border-right: 0;
+    }
+
+    &:last-child {
+      border-top-right-radius: $btn-bd-radius;
+      border-bottom-right-radius: $btn-bd-radius;
+      border-left: 0;
+    }
+  }
+
+  // 车系容器
+  .content-series {
+    overflow-y: auto;
+  }
+
+  // 车系元素
+  .series-item {
+    display: inline-block;
+    width: 140px;
+    margin: 0 20px 20px 0;
+
+    .series-link {
+      text-align: center;
+      cursor: pointer;
+
+      &:hover {
+        color: $btn-hover-bg-color;
+      }
+    }
+
+    .img-wrap {
+      width: 100%;
+      border: 1px solid transparent;
+      height: 100px;
+      line-height: 98px;
+      background: #fff;
+      text-align: center;
+      font-size: 0;
+
+      img {
+        @include setAutoImg();
+      }
+
+      &:hover {
+        border: 1px solid $btn-hover-bg-color;
+        background: $bg-color;
+        box-shadow: 3px 0 0 $light-shadow-color, 0 3px 0 $light-shadow-color;
+      }
+    }
+
+    .series-text {
+      display: inline-block;
+      font-weight: 700;
+      width: 100%;
+    }
+  }
+}
+
+/* 右边区域 */
+.content-right {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20px;
+  width: 385px;
+
+  // 配置容器
+  .content-feature {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  // 配置组
+  .feature-group {
+    margin-bottom: 12px;
+
+    // 头部
+    .item-title {
+      display: inline-block;
+      height: 17px;
+      line-height: 15px;
+      padding-left: 10px;
+      border-left: 2px solid #353751;
+      font-weight: 700;
+
+      .selection-text {
+        margin-left: 15px;
+      }
+    }
+
+    // 身体
+    .item-body {
+      padding: 0 10px;
+      height: 140px;
+      cursor: pointer;
+      overflow: hidden;
+
+      // 配置选项展开
+      &.expand {
+        height: auto;
+      }
+    }
+
+    // 配置每一条选项
+    .item-option {
+      display: block;
+      margin-bottom: 5px;
+
+      &:active {
+        color: $btn-hover-bg-color;
+      }
+
+      &:hover {
+        color: $btn-hover-bg-color;
+      }
+    }
+
+    // 脚部
+    .item-footer {
+      text-align: right;
+      margin-right: 10px;
+      border-bottom: 1px dotted #353751;
+
+      .btn-expand {
+        cursor: pointer;
+      }
+    }
+  }
+
+  // 导航提示
+  .content-tip {
+    height: 100%;
+  }
+
+  .tip-wrap {
+    position: relative;
+    margin: 30% 0 0 0;
+    text-align: center;
+
+    .tip-pic {
+      display: block;
+      width: 77px;
+      height: 53px;
+      margin: 0 auto 15px;
+      background: url('/app/styles/images/lead_arrow.png') no-repeat;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<!-- 页头 -->
+<app-header1></app-header1>
+
+<!-- 面包屑 -->
+<s-crumb></s-crumb>
+
+<!-- 左边目录 -->
+<aside class="user-center condition-block">
+  <div class="headline">
+    <span class="text bold-text">用户信息</span>
+  </div>
+  <ul *ngFor="let item of items" class="user-center-list">
+    <li (click)="selectItem(item)" [ngClass]="{active: item.routerPath === activeRouterPath}">
+      <a>
+        <s-icon type="{{item.iconType}}" style="font-size:16px;"></s-icon>
+        <span>{{item.name}}</span>
+      </a>
+    </li>
+  </ul>
+</aside>
+
+<!-- 右边区域 -->
+<router-outlet></router-outlet>

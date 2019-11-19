@@ -1,0 +1,53 @@
+<div cdkOverlayOrigin #trigger #origin="cdkOverlayOrigin" class="s-select-selection-wrap" [ngStyle]="bodyStyleMap">
+  <div class="s-select-selection-rendered" *ngIf="!nsShowSearch">
+    <div class="s-select-selection-placeholder"></div>
+    <div class="s-select-selection-selected-value">
+      {{selectedOption?.sName}}
+    </div>
+
+  </div>
+  <div class="s-select-selection-rendered" *ngIf="nsShowSearch">
+    <div class="s-select-selection-placeholder"></div>
+    <div class="s-select-selection-selected-value" [hidden]="!(selectedOption?.sName) || isOpen">
+      {{selectedOption?.sName}}
+    </div>
+    <div class="s-select-selection-search-inline" [hidden]="!isOpen">
+      <div class="s-select-search-field-wrap">
+        <input class="s-select-search-field" [(ngModel)]="searchText"
+               (ngModelChange)="updateFilterOption();onSearchChange($event);" #searchInput/>
+      </div>
+    </div>
+  </div>
+  <span class="s-select-selection-clear">
+    <s-icon type="close"></s-icon>
+    </span>
+  <ng-template [ngIf]="arrowIpl" [ngTemplateOutlet]="arrowIpl"></ng-template>
+  <ng-template [ngIf]="!arrowIpl">
+        <span class="s-select-selection-arrow">
+            <s-icon type="arrow-down"></s-icon>
+        </span>
+  </ng-template>
+</div>
+
+<ng-template cdkConnectedOverlay cdkConnectedOverlayHasBackdrop cdkConnectedOverlayBackdropClass='noop'
+             [cdkConnectedOverlayWidth]="triggerWidth" [cdkConnectedOverlayOrigin]="origin"
+             [cdkConnectedOverlayOpen]="isOpen" (backdropClick)="closeDropDown()"
+             (detach)="closeDropDown();">
+  <div class="s-select-dropdown">
+    <div style="overflow: auto;">
+      <ul class="s-select-dropdown-menu">
+        <li *ngFor="let option of filterOptions" [class.s-select-dropdown-menu-item-disabled]="false"
+            [class.s-select-dropdown-menu-item-active]="false"
+            [class.s-select-dropdown-menu-item-selected]="isOpen && (selectedOption?.sValue == option.sValue)"
+            class="s-select-dropdown-menu-item"
+            (click)="clickOption(option,$event)">
+          <ng-template *ngIf="option.sOptionTemplate" [ngTemplateOutlet]="option.sOptionTemplate">
+          </ng-template>
+          <ng-template [ngIf]="!option.sOptionTemplate">
+            {{ option.sName }}
+          </ng-template>
+        </li>
+      </ul>
+    </div>
+  </div>
+</ng-template>

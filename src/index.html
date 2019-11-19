@@ -6,6 +6,35 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <script type="text/javascript">
+      var globalConfig = {
+          homePath: '',
+          path: 'http://localhost:3000/',
+          resHost: 'http://res2.dev.servision.com.cn/maxus/legend/',
+          legendHost:'http://10.0.0.76:3000/',
+          lang: '',
+          oemCode: '',
+          mappingSize: '',
+          structSize: '',
+          partsDetailTabsConfig:[{
+              code:"applicability",
+              name:"应用车型"
+          },{
+              code:"usage",
+              name:"用法"
+          }]
+      };
+
+      var trans = {
+          m_1: "品牌",
+          m_2: "车系",
+          m_3: "轴距+底盘高度+车身结构[短轴+低底盘+单排]",
+          m_4: "左右舵+驱动形式",
+          m_5: "车型系列细分",
+          m_6: "发动机型号/功率",
+          m_7: "变速箱型号"
+      };
+  </script>
 </head>
 <body>
   <app-root></app-root>

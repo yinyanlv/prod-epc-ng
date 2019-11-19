@@ -1,0 +1,21 @@
+<!-- 头部抬头 -->
+<app-header1></app-header1>
+
+<!-- 面包屑 -->
+<s-crumb [items]="crumbs"></s-crumb>
+
+<!-- 中间区域 -->
+<section class="wrapper">
+
+  <!-- 左边区域 -->
+  <aside class="condition-block group-block">
+
+    <!-- 树目录 -->
+    <app-tree-catalog></app-tree-catalog>
+
+  </aside>
+
+  <!-- 右边区域 -->
+  <router-outlet></router-outlet>
+
+</section>
